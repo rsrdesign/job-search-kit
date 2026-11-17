@@ -27,6 +27,8 @@ When the user reports news ("I sent X", "Y rejected me", "interview with Z on Fr
 
 Only the user can make a card Applied. Never infer it from a prepared CV.
 
+If the Mentor panel is enabled in `settings.md` and a card becomes Applied or Interview, run `network-intros` for that company. When the user says the mentor did something, follow "When the mentor acts" in that skill.
+
 ## Answering "what's next"
 
 Query active cards (To review, CV ready, Applied, Interview) sorted by Next action date. Reply with:

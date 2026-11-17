@@ -49,8 +49,8 @@ Text layers the kit is allowed to rewrite, by layer name. Everything else stays 
 - City search location (optional engines): {{e.g. Madrid, Community of Madrid, Spain}}
 - `hl` / `gl`: {{es}} / {{es}}
 
-## Network intros (optional)
+## Mentor panel (optional)
 
 - Enabled: {{yes/no}}
-- Mentor name: {{NAME}}
+- Mentor first name (used for the tab and columns): {{NAME}}
 - CSV path: {{context/network.csv}}  <!-- with their consent; never commit -->

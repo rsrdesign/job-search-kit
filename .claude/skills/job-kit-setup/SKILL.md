@@ -9,7 +9,7 @@ Run when `config/profile.md` or `config/settings.md` is missing, or when the use
 
 ## How to ask
 
-- **One step at a time**, like a form. Say which step it is: "Step 2 of 4 · Your goals".
+- **One step at a time**, like a form. Say which step it is: "Step 2 of 4 · What you're looking for".
 - **Max 4 questions per step.** If you have a multiple-choice question tool (e.g. AskUserQuestion), use it with ready-made options plus "Other"; otherwise ask in one short message with numbered questions.
 - **Ask only what you can't infer.** Read the CV and context first, pre-fill, and ask the user to confirm instead of asking from scratch.
 - Every step can be skipped with "skip" except the ones marked *required*.

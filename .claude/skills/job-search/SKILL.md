@@ -57,7 +57,7 @@ Verdict: **≥ 75 Apply · 55 to 74 Consider · < 55 Skip**, with one line of wh
 
 1. Table of Apply and Consider roles, best first: #, match, role, company, location, mode, salary as published, type, source, link.
 2. One line with how many were skipped and why, grouped ("6 US-only, 3 junior").
-3. Create each Apply / Consider role in Notion with Status "To review", Next action "Decide whether to apply", Next action date today + 2 days.
+3. Create each Apply / Consider role in Notion: Application `Company · Role`, Company, Role, Status "To review", Match, Type, Work mode, Location, Salary, Source, Job link, Posted, Next action "Decide whether to apply", Next action date today + 2 days (and Mentor match "Not checked" if the Mentor panel is enabled). Put the one-line verdict inside the card.
 4. End by asking which ones to prepare. Do not tailor or send anything until the user picks.
 
 ## 5. Clean-up (every run)

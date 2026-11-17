@@ -18,7 +18,7 @@ Only for a role the user picked. Same employers, dates, titles and numbers: only
 
 Read the whole posting.
 
-- Denominator = each must-have requirement (+ each AI line marked as required).
+- Denominator = each must-have requirement in the posting.
 - Per line: 1 if the base CV names it, 0.5 if partly, 0 if not.
 - Show `n/d` with each line and its score, quoting the posting.
 - Split gaps into **coverable** (the user has done it but the CV doesn't say so) and **real** (not in any source: don't invent, mention for the letter or the interview).

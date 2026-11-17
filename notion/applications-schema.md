@@ -4,7 +4,7 @@ Created by `job-kit-setup` inside the page the user chooses. All names in Englis
 
 ## 1. Page
 
-- Title: **Jobs tracking**, icon 💼, full width. Keep the user's cover if the page already has one.
+- Use the page the user gave. Title **Jobs tracking** (unless they already named it), icon 💼, full width. Keep their cover if the page has one. If the page already has content, add everything below it and don't delete anything.
 - First block (paragraph):
 
   > One card per job: **To review** → **CV ready** → **Applied** → **Interview** → **Offer** (or Rejected · No response · Discarded). Every active application has a next action with a date. Interview notes and replies go inside each card.
@@ -122,7 +122,7 @@ CREATE TABLE (
 | Property | Type | Notes |
 |---|---|---|
 | Mentor match | Select | Not checked (gray), No match (default), Possible match (yellow), Ask mentor (orange), Asked (blue), Intro done (green), Not needed (brown) |
-| Mentor contacts | Relation | Two-way to Mentor contacts (synced property there: "Applications") |
+| Mentor contacts | Relation | Two-way to Mentor contacts (synced property there: "Applications"). DDL: `"Mentor contacts" RELATION('<Mentor contacts data source id>', DUAL 'Applications')` |
 | Mentor ask | Text | Ready-to-send message for the mentor |
 | Mentor done | Checkbox | Ticked when the mentor sent the intro or message |
 | Mentor done on | Date | |

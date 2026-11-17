@@ -71,9 +71,9 @@ Four short steps. It reads your CV first, so it only asks what it can't work out
 | 1 · About you | Your CV (file, link or pasted text) and portfolio URL |
 | 2 · What you're looking for | Target roles, city and work mode, minimum salary, employment type |
 | 3 · Your files | Figma CV and cover letter frame links, Notion page, applications folder |
-| 4 · Where to look | Companies you'd love to work for, search days |
+| 4 · Where to look | Companies you'd love to work for, search days, and whether a mentor will help with intros |
 
-Then it shows a summary to confirm and builds everything: Figma layer map, Notion tracker, config files. Anything else (deal-breakers, relocation, notice period, mentor network) can be added later with "update my profile".
+Then it shows a summary to confirm and builds everything: Figma layer map, Notion tracker, config files. Anything else (deal-breakers, relocation, notice period) can be added later with "update my profile".
 
 ## Folder structure
 
@@ -85,7 +85,7 @@ open-source-job-search-kit/
 ├── config/
 │   ├── profile.example.md    # filled by setup → profile.md (git-ignored)
 │   ├── settings.example.md   # Figma, Notion, folders → settings.md (git-ignored)
-│   └── sources.example.md    # search queries and Greenhouse boards
+│   └── sources.example.md    # companies to watch, job boards, search queries
 ├── context/                  # your CV, portfolio, notes (git-ignored)
 ├── notion/
 │   └── applications-schema.md
@@ -112,14 +112,16 @@ Job search/
 
 ## Notion
 
-The tracker is one database, **Applications**, with these views:
+Setup builds a **Jobs tracking** page in the Notion page you choose:
 
-- **Next actions**: active applications sorted by next action date.
-- **Pipeline**: board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded).
-- **All**.
-- **Mentor panel** (optional): a section under the table with a board of roles where a mentor could make an intro, plus a Mentor contacts table.
+- A short intro and the **Applications** table, inline, with these tabs:
+  - **Pipeline**: board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded).
+  - **Next actions**: active applications sorted by next action date.
+  - **<Mentor's name>** (only with a mentor): board of roles where they could make an intro.
+  - **All**: every application with all its columns.
+- **Mentor panel** (only with a mentor): a section below with the same board and a **Mentor contacts** table linked to the applications.
 
-The setup skill creates it for you. Schema in [`notion/applications-schema.md`](notion/applications-schema.md).
+One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the first place once. Full spec in [`notion/applications-schema.md`](notion/applications-schema.md).
 
 ## Privacy and fair use
 
