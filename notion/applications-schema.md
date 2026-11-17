@@ -23,16 +23,17 @@ Description: "One card per job. Every active application has a next action with 
 | Company | Text | |
 | Role | Text | |
 | Status | Status | To do: To review · In progress: CV ready, Applied, Interview · Complete: Offer, Rejected, No response, Discarded |
-| Match | Number | 0 to 100 |
+| Match | Number | 0 to 100, set by `job-search` (fit between the role and your profile) |
+| CV score | Text | Set by `tailor-application`: requirements covered by the CV, before → after, e.g. `5/7 → 7/7` |
 | Type | Select | Full-time, Freelance, Contract |
 | Work mode | Select | Remote, Hybrid, On-site, Not stated |
 | Location | Text | |
 | Salary | Text | As published, or "Not stated" |
-| Source | Select | Greenhouse, Ashby, Lever, Himalayas, Arbeitnow, Google Jobs, Adzuna, Jooble, LinkedIn, Referral, Other |
+| Source | Select | Greenhouse, Ashby, Lever, Himalayas, Arbeitnow, Google Jobs, Adzuna, Jooble, LinkedIn, Indeed, Workable, Pasted link, Referral, Other. Anything the user pastes that isn't listed is "Pasted link" |
 | Job link | URL | |
 | Posted | Date | |
 | Applied on | Date | Only when the user says they sent it |
-| CV language | Select | EN, ES (add more as needed) |
+| CV language | Select | EN, ES. For another language, add an option with its two-letter code (e.g. FR) in the DDL before creating, or later with `update-data-source` |
 | Figma CV | URL | Link to the dated Figma section |
 | Folder | Text | Path of the company folder |
 | Contact | Text | Recruiter / hiring manager |
@@ -50,11 +51,12 @@ CREATE TABLE (
   "Role" RICH_TEXT,
   "Status" STATUS('To review':gray:to_do, 'CV ready':yellow:in_progress, 'Applied':blue:in_progress, 'Interview':purple:in_progress, 'Offer':green:complete, 'Rejected':red:complete, 'No response':default:complete, 'Discarded':brown:complete),
   "Match" NUMBER,
+  "CV score" RICH_TEXT,
   "Type" SELECT('Full-time':blue, 'Freelance':orange, 'Contract':yellow),
   "Work mode" SELECT('Remote':green, 'Hybrid':blue, 'On-site':purple, 'Not stated':gray),
   "Location" RICH_TEXT,
   "Salary" RICH_TEXT,
-  "Source" SELECT('Greenhouse':green, 'Ashby':purple, 'Lever':blue, 'Himalayas':pink, 'Arbeitnow':orange, 'Google Jobs':blue, 'Adzuna':yellow, 'Jooble':brown, 'LinkedIn':purple, 'Referral':orange, 'Other':gray),
+  "Source" SELECT('Greenhouse':green, 'Ashby':purple, 'Lever':blue, 'Himalayas':pink, 'Arbeitnow':orange, 'Google Jobs':blue, 'Adzuna':yellow, 'Jooble':brown, 'LinkedIn':purple, 'Indeed':blue, 'Workable':green, 'Pasted link':default, 'Referral':orange, 'Other':gray),
   "Job link" URL,
   "Posted" DATE,
   "Applied on" DATE,
@@ -72,7 +74,7 @@ CREATE TABLE (
 | View | Type | Icon | Config |
 |---|---|---|---|
 | Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Next action", "Next action date"; CARD LAYOUT compact` |
-| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "Applied on", "Job link"` |
+| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "CV score", "Applied on", "Job link"` |
 | All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
 
 Tab order the user should end up with: **Pipeline · Next actions · <Mentor> · All** (the mentor tab only if intros are enabled; see section 4).
@@ -86,19 +88,27 @@ How to build them with the Notion MCP (tested):
 
 `create-database` always makes a full-page database. To show it **inline** on the page, fetch the page and replace `inline="false"` with `inline="true"` in its `<database ...>` tag with `update-page` (`update_content`).
 
-## 3. Status rules
+## 3. Status and timing rules (single source of truth)
 
-- **To review**: found by `job-search`, not yet decided.
-- **CV ready**: CV and letter prepared, not sent.
-- **Applied**: the user said they sent it. Next action: follow up in 10 days.
-- **Interview / Offer**: as reported.
-- **Rejected**: the company said no.
-- **No response**: applied more than 6 weeks ago, no news.
-- **Discarded**: never applied and the posting closed, or the user passed.
+Every skill follows this section. Day counts start on **Applied on**.
+
+| Status | When | Next action |
+|---|---|---|
+| To review | Found by `job-search`, not decided | "Decide whether to apply", today + 2 days |
+| CV ready | CV and letter prepared, not sent | "Review CV + cover letter and send", today + 1 day |
+| Applied | The user said they sent it (only the user can set this) | Day 10: "Follow up with <contact or recruiter>" |
+| Applied, after a follow-up | No reply to the first follow-up | Day 24: "Second and last follow-up" |
+| No response | Day 42 (6 weeks) with no reply at all | "None. Reopen if they reply" |
+| Interview | Interview scheduled or done | "Prepare: <topic>" the day before; "Send thank-you note" the same day after |
+| Offer | Offer received | "Review offer" |
+| Rejected | The company said no | "Ask for feedback / keep <contact> warm", or "None" |
+| Discarded | Never applied and the posting closed, or the user passed | "None" |
+
+To review older than 14 days → ask the user to decide or discard. Never delete cards.
 
 ## 4. Mentor panel (optional, only if network intros are enabled)
 
-Replace "Mentor" with the mentor's first name if the user prefers (e.g. "Sam panel", "Sam match").
+**Renaming:** the template says "Mentor". If the user prefers the mentor's first name, replace "Mentor" in every property, tab and heading (e.g. "Sam match", "Sam contacts", "🤝 Sam panel") and write the chosen name in `settings.md` so the skills use it.
 
 ### Mentor contacts database (inline, under the panel heading)
 

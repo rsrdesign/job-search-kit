@@ -2,7 +2,12 @@
 
 > Filled in by `job-kit-setup`. Technical wiring only; personal facts go in `profile.md`.
 
-## Figma
+## CV source
+
+- CV source: {{figma | text}}  <!-- text = no Figma: tailored CV and letter as Markdown → PDF -->
+- Export PDFs: {{after approval | automatic}}  <!-- default: after approval -->
+
+## Figma (only if CV source is figma)
 
 - File key: {{FIGMA_FILE_KEY}}  <!-- from figma.com/design/<FILE_KEY>/... -->
 - Output page: {{PAGE_NAME_OR_ID}}  <!-- where tailored copies are placed -->
@@ -45,11 +50,15 @@ Text layers the kit is allowed to rewrite, by layer name. Everything else stays 
 
 ## Search
 
+- Last search: {{YYYY-MM-DD HH:MM}}  <!-- updated by job-search after every run -->
+
 - Days: {{e.g. Tuesday, Thursday}} at {{HH:MM}} {{TIME_ZONE}}
 - City search location (optional engines): {{e.g. Madrid, Community of Madrid, Spain}}
 - `hl` / `gl`: {{es}} / {{es}}
 
 ## Mentor panel (optional)
+
+<!-- To use the mentor's first name instead of "Mentor" in Notion, set it below; see notion/applications-schema.md section 4. -->
 
 - Enabled: {{yes/no}}
 - Mentor first name (used for the tab and columns): {{NAME}}

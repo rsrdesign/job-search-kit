@@ -1,6 +1,6 @@
 ---
 name: tailor-application
-description: Tailors the user's CV and writes a cover letter for a chosen role. Duplicates the Figma base frames, rewrites only the mapped text layers, groups both in a dated section, exports PDFs to the company folder and updates Notion to CV ready.
+description: Tailors the user's CV and writes a cover letter for a chosen role, in Figma (duplicates the base frames and rewrites only the mapped text layers) or as text if the user has no Figma CV. Exports PDFs only after the user approves, and updates Notion to CV ready.
 ---
 
 # Tailor an application
@@ -51,13 +51,29 @@ Create a Figma Section named `<Company> · <DATE>` with the CV on the left and t
 
 In `<applications folder>/*<Company>/` (create it; if `<Company>` exists without `*`, use it and say so):
 
-1. **PDFs**: export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save as `CV_<Name>_<lang> (<Company>) <DATE>.pdf` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.pdf`.
+- **Cover letter text**: `CoverLetter_<Name>_<lang> (<Company>) <DATE>.txt`, ready to paste into application forms (with the full portfolio URL).
+
+## 5b. Export PDFs (after the user approves)
+
+PDFs are the version that gets sent, so they are made **after** the user has reviewed the Figma section, unless `settings.md` says `Export PDFs: automatic`.
+
+When the user says "export", "looks good", "approved" (or the setting is automatic):
+
+1. Export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save as `CV_<Name>_<lang> (<Company>) <DATE>.pdf` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.pdf`.
    - If your environment can't reach figma.com directly, download them through Claude in Chrome (open `https://www.figma.com/robots.txt`, `fetch` each asset URL, save them with an `<a download>`; bundle several files in one zip to avoid the multiple-downloads block) and move them from Downloads into the folder.
-2. **Cover letter text**: `CoverLetter_<Name>_<lang> (<Company>) <DATE>.txt`, ready to paste into application forms (with the full portfolio URL).
+2. If the user edits Figma later, export again on request and overwrite.
+
+## 5c. Text mode (no Figma)
+
+If `settings.md` has `CV source: text`, skip sections 2 to 4 and 5b:
+
+1. Read the base CV from `context/` (PDF, DOCX, Markdown or text).
+2. Write the tailored CV and the letter as Markdown in the company folder: `CV_<Name>_<lang> (<Company>) <DATE>.md` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.md`. Same rules: reword and reorder only, same length, portfolio as the only link.
+3. After the user approves, convert both to PDF with whatever is available (pandoc, or an HTML file printed to PDF) using a clean one-column layout, which is also ATS friendly.
 
 ## 6. Wrap up
 
 - Score before → after, and a short list of what changed.
 - Real gaps worth preparing for the interview.
-- Link to the Figma section and the folder path.
-- In Notion (`application-tracker`): Status "CV ready", Figma CV and Folder filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.
+- Link to the Figma section (or the Markdown files) and the folder path. Ask: "Review it and tell me when to export the PDFs."
+- In Notion (`application-tracker`): Status "CV ready", Figma CV, Folder and CV score (`before → after`) filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.
