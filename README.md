@@ -4,6 +4,18 @@ An AI job-search copilot you run with Claude. It finds roles that fit you, tailo
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
+**Tailored CV and cover letter in Figma**, grouped in a dated section next to your base files:
+
+![Base CV and cover letter on the left, tailored copies for one role grouped in a dated section on the right](docs/images/figma-cv-cover-letter.png)
+
+**Every application tracked in Notion**, with a status, a match score and one next action with a date:
+
+![Notion Pipeline board grouped by status](docs/images/notion-pipeline.png)
+
+![Notion Next actions table sorted by date](docs/images/notion-next-actions.png)
+
+<sub>All names, companies and numbers in these images are fictional.</sub>
+
 ## Try it in 2 minutes (demo)
 
 No Figma, Notion or keys needed. Clone the repo, open it with Claude Code (or the Claude desktop app with the folder connected) and say **"Run the demo"**. It searches real job boards for a fictional designer (Alex Doe, `examples/demo/`), scores the roles in the chat and tailors a CV and cover letter as text in `_test-applications/` (git-ignored).
