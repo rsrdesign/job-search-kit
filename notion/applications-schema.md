@@ -74,12 +74,13 @@ CREATE TABLE (
 | Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Next action", "Next action date"; CARD LAYOUT compact` |
 | Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "Applied on", "Job link"` |
 | All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
+| Closed | Table | `icons/archive_gray` | `FILTER "Status" IN ("Offer", "Rejected", "No response", "Discarded"); SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Source", "Next action"` |
 
 How to build them with the Notion MCP (tested):
 
 1. The database is created with a "Default view" table, and a view can't change type. Turn it into **Next actions** with `update-view` (name + configure).
-2. Create **Pipeline** (board) and **All** (table) with `create-view` on the database.
-3. The tab order will be Next actions, Pipeline, All. The user can drag Pipeline to the front if they prefer.
+2. Create **Pipeline** (board), **All** and **Closed** (tables) with `create-view` on the database.
+3. Never leave a view with a placeholder name ("Default view", "delete me"): every tab must be one of the four above. The tab order will be Next actions, Pipeline, All, Closed. The user can drag Pipeline to the front if they prefer.
 
 `create-database` always makes a full-page database. To show it **inline** on the page, fetch the page and replace `inline="false"` with `inline="true"` in its `<database ...>` tag with `update-page` (`update_content`).
 
