@@ -14,6 +14,8 @@ Built by a product designer for her own job search, then stripped of personal da
 
 ![Notion Next actions table sorted by date](docs/images/notion-next-actions.png)
 
+![Notion All table with every application and its columns](docs/images/notion-all.png)
+
 <sub>All names, companies and numbers in these images are fictional.</sub>
 
 ## Try it in 2 minutes (demo)
