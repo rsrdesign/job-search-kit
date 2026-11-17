@@ -18,7 +18,7 @@ When the user reports news ("I sent X", "Y rejected me", "interview with Z on Fr
    - Interview scheduled or done → **Interview**.
    - Offer → **Offer**.
    - Decided not to apply / posting closed → **Discarded**.
-3. Append a dated line to **Log**: `YYYY-MM-DD: what happened (who)`. Never overwrite older lines.
+3. Append a dated line **inside the card** (page body): `YYYY-MM-DD: what happened (who)`. Never overwrite older lines.
 4. Set **one** Next action with a date:
    - Applied → "Follow up with <contact or recruiter>" in 10 days.
    - Interview → "Prepare: <topic>" the day before; "Send thank-you note" the same day after.

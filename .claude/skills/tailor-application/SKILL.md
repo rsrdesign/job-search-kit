@@ -60,4 +60,4 @@ In `<applications folder>/*<Company>/` (create it; if `<Company>` exists without
 - Score before → after, and a short list of what changed.
 - Real gaps worth preparing for the interview.
 - Link to the Figma section and the folder path.
-- In Notion (`application-tracker`): Status "CV ready", Figma and Folder filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.
+- In Notion (`application-tracker`): Status "CV ready", Figma CV and Folder filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.

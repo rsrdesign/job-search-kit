@@ -52,6 +52,7 @@ Offer options built from the CV:
 
 1. Companies you'd love to work for (free text, or "Skip"). For each one, find its careers page, detect Greenhouse / Ashby / Lever and the token, and check the API returns jobs. Suggest 5 more in the same space and ask which to keep.
 2. Search days: Tue + Thu / Mon + Wed + Fri / Only when I ask.
+3. Do you have a mentor or ally who'd share their LinkedIn connections to help with intros? No / Yes (then ask for their first name and the CSV path in `context/`). Yes adds the Mentor panel.
 
 ## Confirm
 
@@ -60,7 +61,7 @@ Show a one-screen summary: roles, location, salary, sources, Figma frames, Notio
 ## Build (no questions)
 
 1. **Layer map.** List the visible text layers of both Figma frames, map them to headline, summary, bullets per job, skills, recipient, body paragraphs and date, and pick the link colour (an accent fill already used in the letter). Only ask if a layer is ambiguous.
-2. **Notion.** Create the Applications database and its views in the chosen page, following `notion/applications-schema.md`. Save the data source URL.
+2. **Notion.** Build the Jobs tracking page exactly as `notion/applications-schema.md` says, in order: page title, icon and intro text, divider, inline Applications database (DDL as written, with the colours), its 3 views (Pipeline, Next actions, All), and the Mentor panel only if intros are enabled. Fetch the page at the end and check it matches. Save the data source URLs.
 3. **Files.** Write `config/profile.md`, `config/settings.md` and `config/sources.md` from the `.example.md` templates. Create the applications folder.
 4. **Schedule.** If they chose search days, offer a scheduled task; create it only if they say yes.
 
@@ -68,4 +69,4 @@ Show a one-screen summary: roles, location, salary, sources, Figma frames, Notio
 
 One short message: what was set up, and the next thing to say: **"Find me new roles"**.
 
-Things the form doesn't ask (industries to avoid, deal-breakers, relocation, notice period, mentor network) can be added any time by saying "update my profile".
+Things the form doesn't ask (industries to avoid, deal-breakers, relocation, notice period) can be added any time by saying "update my profile".

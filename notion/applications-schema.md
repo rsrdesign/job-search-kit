@@ -1,83 +1,89 @@
-# Notion: Applications database
+# Notion: Jobs tracking page
 
-Created by `job-kit-setup` inside the page you choose. All names in English so views and skills match.
+Created by `job-kit-setup` inside the page the user chooses. All names in English so views and skills match. Build it exactly in this order so it looks the same for everyone.
 
-## Properties
+## 1. Page
+
+- Title: **Jobs tracking**, icon 💼, full width. Keep the user's cover if the page already has one.
+- First block (paragraph):
+
+  > One card per job: **To review** → **CV ready** → **Applied** → **Interview** → **Offer** (or Rejected · No response · Discarded). Every active application has a next action with a date. Interview notes and replies go inside each card.
+
+- A divider.
+- The **Applications** database, **inline**.
+- If network intros are enabled (section 4): heading `## 🤝 Mentor panel`, a paragraph, a linked board view and the **Mentor contacts** database, inline.
+
+## 2. Applications database
+
+Description: "One card per job. Every active application has a next action with a date."
 
 | Property | Type | Notes |
 |---|---|---|
 | Application | Title | `Company · Role` |
 | Company | Text | |
 | Role | Text | |
-| Status | Status | To review, CV ready, Applied, Interview, Offer, Rejected, No response, Discarded |
+| Status | Status | To do: To review · In progress: CV ready, Applied, Interview · Complete: Offer, Rejected, No response, Discarded |
 | Match | Number | 0 to 100 |
-| Type | Select | Full-time, Contract, Freelance |
-| Work mode | Select | On-site, Hybrid, Remote |
+| Type | Select | Full-time, Freelance, Contract |
+| Work mode | Select | Remote, Hybrid, On-site, Not stated |
 | Location | Text | |
 | Salary | Text | As published, or "Not stated" |
 | Source | Select | Greenhouse, Ashby, Lever, Himalayas, Arbeitnow, Google Jobs, Adzuna, Jooble, LinkedIn, Referral, Other |
 | Job link | URL | |
 | Posted | Date | |
 | Applied on | Date | Only when the user says they sent it |
-| CV language | Select | en, es, … |
-| Figma | URL | Link to the dated section |
+| CV language | Select | EN, ES (add more as needed) |
+| Figma CV | URL | Link to the dated Figma section |
 | Folder | Text | Path of the company folder |
 | Contact | Text | Recruiter / hiring manager |
 | Next action | Text | One concrete step |
 | Next action date | Date | |
-| Log | Text | Dated one-liners: `2026-11-17: sent CV` |
 
-Optional (network intros):
+History (what was sent, replies, interview notes) goes **inside the card** as dated lines, not in a property.
 
-| Property | Type | Notes |
-|---|---|---|
-| Network match | Select | Not checked, No match, Possible match, Ask mentor, Asked, Intro done, Not needed |
-| Network contacts | Text | Names and roles found |
-| Intro done | Checkbox | Ticked when the mentor sent the intro |
-
-## SQL DDL (for the Notion MCP `create-database` tool)
+### DDL (Notion MCP `create-database`, with `parent` = the page)
 
 ```sql
-CREATE TABLE "Applications" (
+CREATE TABLE (
   "Application" TITLE,
   "Company" RICH_TEXT,
   "Role" RICH_TEXT,
-  "Status" STATUS('To review':gray:to_do, 'CV ready':blue:to_do, 'Applied':yellow:in_progress, 'Interview':purple:in_progress, 'Offer':green:complete, 'Rejected':red:complete, 'No response':brown:complete, 'Discarded':default:complete),
+  "Status" STATUS('To review':gray:to_do, 'CV ready':yellow:in_progress, 'Applied':blue:in_progress, 'Interview':purple:in_progress, 'Offer':green:complete, 'Rejected':red:complete, 'No response':default:complete, 'Discarded':brown:complete),
   "Match" NUMBER,
-  "Type" SELECT('Full-time','Contract','Freelance'),
-  "Work mode" SELECT('On-site','Hybrid','Remote'),
+  "Type" SELECT('Full-time':blue, 'Freelance':orange, 'Contract':yellow),
+  "Work mode" SELECT('Remote':green, 'Hybrid':blue, 'On-site':purple, 'Not stated':gray),
   "Location" RICH_TEXT,
   "Salary" RICH_TEXT,
-  "Source" SELECT('Greenhouse','Ashby','Lever','Himalayas','Arbeitnow','Google Jobs','Adzuna','Jooble','LinkedIn','Referral','Other'),
+  "Source" SELECT('Greenhouse':green, 'Ashby':purple, 'Lever':blue, 'Himalayas':pink, 'Arbeitnow':orange, 'Google Jobs':blue, 'Adzuna':yellow, 'Jooble':brown, 'LinkedIn':purple, 'Referral':orange, 'Other':gray),
   "Job link" URL,
   "Posted" DATE,
   "Applied on" DATE,
-  "CV language" SELECT('en','es'),
-  "Figma" URL,
+  "CV language" SELECT('EN':blue, 'ES':red),
+  "Figma CV" URL,
   "Folder" RICH_TEXT,
   "Contact" RICH_TEXT,
   "Next action" RICH_TEXT,
-  "Next action date" DATE,
-  "Log" RICH_TEXT
-  -- optional, only if network intros are enabled:
-  -- , "Network match" SELECT('Not checked':gray, 'No match':default, 'Possible match':yellow, 'Ask mentor':orange, 'Asked':blue, 'Intro done':green, 'Not needed':brown)
-  -- , "Network contacts" RICH_TEXT
-  -- , "Intro done" CHECKBOX
+  "Next action date" DATE
 )
 ```
 
-Tested with the Notion MCP: the status options and their groups (to do / in progress / complete) are created in one go.
+### Views (on the database, in this order)
 
-## Views
+| View | Type | Icon | Config |
+|---|---|---|---|
+| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Next action", "Next action date"; CARD LAYOUT compact` |
+| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "Applied on", "Job link"` |
+| All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
 
-| View | Type | Config |
-|---|---|---|
-| Next actions | Table | Status in (To review, CV ready, Applied, Interview); sort Next action date ascending |
-| Pipeline | Board | Group by Status; show Next action, Next action date |
-| All | Table | No filter |
-| Network | Board | Optional. Group by Network match; filter active statuses and match in (Possible match, Ask mentor, Asked, Intro done) |
+How to build them with the Notion MCP (tested):
 
-## Status rules
+1. The database is created with a "Default view" table, and a view can't change type. Turn it into **Next actions** with `update-view` (name + configure).
+2. Create **Pipeline** (board) and **All** (table) with `create-view` on the database.
+3. The tab order will be Next actions, Pipeline, All. The user can drag Pipeline to the front if they prefer.
+
+`create-database` always makes a full-page database. To show it **inline** on the page, fetch the page and replace `inline="false"` with `inline="true"` in its `<database ...>` tag with `update-page` (`update_content`).
+
+## 3. Status rules
 
 - **To review**: found by `job-search`, not yet decided.
 - **CV ready**: CV and letter prepared, not sent.
@@ -86,3 +92,44 @@ Tested with the Notion MCP: the status options and their groups (to do / in prog
 - **Rejected**: the company said no.
 - **No response**: applied more than 6 weeks ago, no news.
 - **Discarded**: never applied and the posting closed, or the user passed.
+
+## 4. Mentor panel (optional, only if network intros are enabled)
+
+Replace "Mentor" with the mentor's first name if the user prefers (e.g. "Sam panel", "Sam match").
+
+### Mentor contacts database (inline, under the panel heading)
+
+Description: "People in the mentor's network who work at a company the user has applied to. Added when an application is crossed against the network."
+
+```sql
+CREATE TABLE (
+  "Name" TITLE,
+  "Company" RICH_TEXT,
+  "Position" RICH_TEXT,
+  "LinkedIn" URL,
+  "Connected on" RICH_TEXT,
+  "Tier" SELECT('A · Hiring managers':green, 'B · Founders & CEOs':blue, 'C · Brand & Marketing':purple, 'D · Talent & peers':gray),
+  "Relevance" SELECT('Strong':green, 'Possible':yellow, 'Weak':gray),
+  "Intro status" RICH_TEXT
+)
+```
+
+### Add to Applications (with `update-data-source`)
+
+| Property | Type | Notes |
+|---|---|---|
+| Mentor match | Select | Not checked (gray), No match (default), Possible match (yellow), Ask mentor (orange), Asked (blue), Intro done (green), Not needed (brown) |
+| Mentor contacts | Relation | Two-way to Mentor contacts (synced property there: "Applications") |
+| Mentor ask | Text | Ready-to-send message for the mentor |
+| Mentor done | Checkbox | Ticked when the mentor sent the intro or message |
+| Mentor done on | Date | |
+| Mentor log | Text | What the mentor did, dated |
+
+Also add "Mentor match" and "Mentor done" to the Pipeline and Next actions views, and "Mentor match" to All.
+
+### Page blocks
+
+1. `## 🤝 Mentor panel`
+2. Paragraph: "When an application moves to **Applied**, it is cross-referenced against the mentor's LinkedIn network. Matches are linked in **Mentor contacts** and the card gets a **Mentor match** value. **Ask mentor** means it is worth asking for an intro, and **Mentor ask** holds a ready-to-send message."
+3. Linked board view of Applications ("Mentor panel · actions for the mentor"): `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview") AND "Mentor match" IN ("Possible match", "Ask mentor", "Asked", "Intro done"); GROUP BY "Mentor match" HIDE EMPTY; SHOW "Application", "Status", "Mentor contacts", "Mentor ask", "Mentor done", "Mentor done on", "Mentor log"`
+4. The Mentor contacts database.

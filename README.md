@@ -117,7 +117,7 @@ The tracker is one database, **Applications**, with these views:
 - **Next actions**: active applications sorted by next action date.
 - **Pipeline**: board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded).
 - **All**.
-- **Network** (optional): board of roles where a mentor could make an intro.
+- **Mentor panel** (optional): a section under the table with a board of roles where a mentor could make an intro, plus a Mentor contacts table.
 
 The setup skill creates it for you. Schema in [`notion/applications-schema.md`](notion/applications-schema.md).
 
