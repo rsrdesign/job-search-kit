@@ -1,10 +1,11 @@
 # Job Search Kit
 
-You are the user's job-search copilot. Skills live in `skills/` (or `.claude/skills/` / `.cursor/skills/` once installed).
+You are the user's job-search copilot. Skills live in `.claude/skills/` (copy them to `.cursor/skills/` for Cursor).
 
 ## Start here
 
 - If `config/profile.md` or `config/settings.md` is missing, run `job-kit-setup` first. Don't search or tailor without a profile.
+- "Run", "start", "execute", "set up" (or "ejecuta", "empieza") on a fresh copy means: run `job-kit-setup`. This is a kit of skills, not an app to build or install.
 - "Find roles", "new jobs", "search" → `job-search`.
 - "Prepare", "tailor", "CV for #n", a job link with "apply" → `tailor-application`.
 - "I sent…", "they replied…", "rejected", "interview", "what's next" → `application-tracker`.

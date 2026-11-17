@@ -4,6 +4,19 @@ An AI job-search copilot you run with Claude. It finds roles that fit you, tailo
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
+## Quick start
+
+1. Check the [checklist](#before-you-start-checklist) (Figma + Notion connected is enough to start).
+2. Open Claude Code, Cursor or the Claude desktop app and paste:
+
+   ```
+   Clone https://github.com/rsrdesign/open-source-job-search-kit into a folder on my computer, open it, and run the job-kit-setup skill to set up my job search.
+   ```
+
+   If you already downloaded the folder, open it and just say **"Set up my job search kit"**.
+3. Answer the 4-step form (about 5 minutes). Have your CV and the links to your Figma CV / cover letter frames and a Notion page ready.
+4. Then say **"Find me new roles"**.
+
 ## What it does
 
 | Phase | What happens | What you do |
@@ -41,25 +54,26 @@ Optional
 
 1. Download or clone this repo into a folder on your computer.
 2. Optional: copy `.env.example` to `.env` and paste any search keys you have. The kit works without them.
-3. Install the skills:
-   - **Claude Code**: copy `skills/*` into `.claude/skills/` in this folder (or `~/.claude/skills/` to use them anywhere).
-   - **Cursor**: copy `skills/*` into `.cursor/skills/`.
-   - **Claude app**: upload each skill folder in Settings → Skills.
+3. Skills:
+   - **Claude Code / Claude desktop app with this folder open**: nothing to do. The skills live in `.claude/skills/` and load automatically.
+   - **Cursor**: copy `.claude/skills/*` into `.cursor/skills/`.
+   - **Claude app without a local folder**: upload each skill folder in Settings → Skills.
 4. Put anything that describes you in `context/`: your current CV as text or PDF, portfolio link, case studies, notes. It is read during setup and when tailoring.
-5. Ask Claude: **"Set up my job search kit"**. The `job-kit-setup` skill asks you a short form and writes `config/profile.md` and `config/settings.md`.
+5. Ask Claude: **"Set up my job search kit"**. The `job-kit-setup` skill runs a 4-step form and writes `config/profile.md`, `config/settings.md` and `config/sources.md`.
 6. Ask: **"Find me new roles"**. From there, pick roles and say **"Prepare my application for #2"**.
 
 ## The setup form
 
-The first run asks for:
+Four short steps. It reads your CV first, so it only asks what it can't work out.
 
-- **About you**: name, current title, years of experience, languages, portfolio or website URL, LinkedIn.
-- **Goals**: target roles and seniority, industries you want or want to avoid, what a great next role looks like, deal-breakers.
-- **Expectations**: minimum salary and currency, employment type (full-time, contract, freelance), start date / notice period.
-- **Location**: city, time zone, work mode (on-site, hybrid, remote), countries you can work in, relocation yes/no.
-- **Proof**: 3 to 6 achievements with real numbers, top skills and tools.
-- **Context**: any links or files in `context/` the kit should read.
-- **Wiring**: Figma file URL, CV and cover letter frame links, Notion page URL, applications folder path, search days.
+| Step | Asks |
+|---|---|
+| 1 · About you | Your CV (file, link or pasted text) and portfolio URL |
+| 2 · What you're looking for | Target roles, city and work mode, minimum salary, employment type |
+| 3 · Your files | Figma CV and cover letter frame links, Notion page, applications folder |
+| 4 · Where to look | Companies you'd love to work for, search days |
+
+Then it shows a summary to confirm and builds everything: Figma layer map, Notion tracker, config files. Anything else (deal-breakers, relocation, notice period, mentor network) can be added later with "update my profile".
 
 ## Folder structure
 
@@ -75,7 +89,7 @@ open-source-job-search-kit/
 ├── context/                  # your CV, portfolio, notes (git-ignored)
 ├── notion/
 │   └── applications-schema.md
-├── skills/
+├── .claude/skills/           # loaded automatically by Claude Code
 │   ├── job-kit-setup/
 │   ├── job-search/
 │   ├── tailor-application/
