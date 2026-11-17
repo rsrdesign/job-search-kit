@@ -1,0 +1,15 @@
+# Personal data: never commit
+.env
+config/profile.md
+config/settings.md
+context/*
+!context/README.md
+*.csv
+!examples/*.csv
+
+# Local test runs
+_test-applications/
+
+# OS / editor
+.DS_Store
+.claude/settings.local.json
