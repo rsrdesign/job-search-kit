@@ -15,7 +15,7 @@ Created by `job-kit-setup` inside the page you choose. All names in English so v
 | Work mode | Select | On-site, Hybrid, Remote |
 | Location | Text | |
 | Salary | Text | As published, or "Not stated" |
-| Source | Select | Google Jobs, Greenhouse, LinkedIn, Referral, Other |
+| Source | Select | Greenhouse, Ashby, Lever, Himalayas, Arbeitnow, Google Jobs, Adzuna, Jooble, LinkedIn, Referral, Other |
 | Job link | URL | |
 | Posted | Date | |
 | Applied on | Date | Only when the user says they sent it |
@@ -48,7 +48,7 @@ CREATE TABLE "Applications" (
   "Work mode" SELECT('On-site','Hybrid','Remote'),
   "Location" RICH_TEXT,
   "Salary" RICH_TEXT,
-  "Source" SELECT('Google Jobs','Greenhouse','LinkedIn','Referral','Other'),
+  "Source" SELECT('Greenhouse','Ashby','Lever','Himalayas','Arbeitnow','Google Jobs','Adzuna','Jooble','LinkedIn','Referral','Other'),
   "Job link" URL,
   "Posted" DATE,
   "Applied on" DATE,

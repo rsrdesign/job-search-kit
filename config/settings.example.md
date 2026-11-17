@@ -46,7 +46,7 @@ Text layers the kit is allowed to rewrite, by layer name. Everything else stays 
 ## Search
 
 - Days: {{e.g. Tuesday, Thursday}} at {{HH:MM}} {{TIME_ZONE}}
-- Google Jobs location: {{e.g. Madrid, Community of Madrid, Spain}}
+- City search location (optional engines): {{e.g. Madrid, Community of Madrid, Spain}}
 - `hl` / `gl`: {{es}} / {{es}}
 
 ## Network intros (optional)

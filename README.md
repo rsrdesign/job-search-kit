@@ -8,7 +8,7 @@ Built by a product designer for her own job search, then stripped of personal da
 
 | Phase | What happens | What you do |
 |---|---|---|
-| 1. Find roles | Searches Google Jobs (SerpApi), Greenhouse company boards and any links you paste (LinkedIn included). Scores each role 0 to 100 against your profile and drops the ones that don't fit. | Pick the roles you want. |
+| 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste (LinkedIn included). Optional: city search with Google Jobs (SerpApi), Adzuna or Jooble. Scores each role 0 to 100 against your profile and drops the ones that don't fit. | Pick the roles you want. |
 | 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role, groups them in a dated section and exports both PDFs to the company folder. | Review, tweak, send. |
 | 3. Track | Creates a card per role in Notion with status, next action and date. Moves cards when you report news. Marks silent applications as "No response" after 6 weeks. | Tell it what you sent and what you heard back. |
 | Optional | Cross-checks companies against a mentor's LinkedIn network (with their permission) and suggests intros. | Ask your mentor. |
@@ -27,11 +27,12 @@ Required
 - [ ] **Figma account** and the **Figma MCP** connected to Claude.
 - [ ] **A Figma file with your CV and cover letter**, one frame each (A4). One language or both. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them.
 - [ ] **Notion account** and the **Notion connector** in Claude.
-- [ ] **Free SerpApi account** and its API key ([serpapi.com](https://serpapi.com)). Free plan: 100 searches a month, one search round uses about 5.
+- [ ] **A list of companies you'd like to work for.** The kit checks their job boards directly (Greenhouse, Ashby, Lever). No API key needed.
 - [ ] **A folder for applications**, e.g. `~/Documents/Job search/`. One subfolder per company is created inside it.
 
 Optional
 
+- [ ] **A free key for a city-wide search engine**, to find roles at companies you don't know yet: [SerpApi](https://serpapi.com) (Google Jobs, 100 searches/month), [Adzuna](https://developer.adzuna.com) or [Jooble](https://jooble.org/api/about).
 - [ ] **Claude in Chrome**, to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
 - [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
 - [ ] **A scheduled task** so the search runs on the days you choose.
@@ -39,7 +40,7 @@ Optional
 ## Setup
 
 1. Download or clone this repo into a folder on your computer.
-2. Copy `.env.example` to `.env` and paste your SerpApi key.
+2. Optional: copy `.env.example` to `.env` and paste any search keys you have. The kit works without them.
 3. Install the skills:
    - **Claude Code**: copy `skills/*` into `.claude/skills/` in this folder (or `~/.claude/skills/` to use them anywhere).
    - **Cursor**: copy `skills/*` into `.cursor/skills/`.
@@ -66,7 +67,7 @@ The first run asks for:
 open-source-job-search-kit/
 ├── README.md
 ├── CLAUDE.md                 # entry point for Claude Code / Cursor
-├── .env.example              # SERPAPI_KEY=
+├── .env.example              # optional search keys
 ├── config/
 │   ├── profile.example.md    # filled by setup → profile.md (git-ignored)
 │   ├── settings.example.md   # Figma, Notion, folders → settings.md (git-ignored)

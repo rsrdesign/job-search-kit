@@ -1,6 +1,6 @@
 ---
 name: job-search
-description: Finds and filters roles for the user from Google Jobs (SerpApi), Greenhouse boards and links they paste, scores the match 0 to 100 against config/profile.md, adds the good ones to Notion as To review and cleans up stale applications.
+description: Finds and filters roles for the user from company job boards (Greenhouse, Ashby, Lever), remote boards (Himalayas, Arbeitnow), optional city search (SerpApi, Adzuna, Jooble) and links they paste, scores the match 0 to 100 against config/profile.md, adds the good ones to Notion as To review and cleans up stale applications.
 ---
 
 # Job search
@@ -13,16 +13,23 @@ Every fact about a job comes from what the source returned. If the posting doesn
 
 "Recent" = posted since the last search (check the newest "Posted" date in Notion). On demand with no history: last 7 days.
 
-1. **Google Jobs via SerpApi**, one request per query in `sources.md`:
-   `https://serpapi.com/search.json?engine=google_jobs&q=<query>&location=<location>&hl=<hl>&gl=<gl>&api_key=$SERPAPI_KEY`
-   - Read the key from `.env`. Never print it or show a URL that contains it.
-   - Prefer a shell request (curl / Python). If the shell can't reach serpapi.com, use Claude in Chrome: open `https://serpapi.com/robots.txt` and call `fetch('/search.json?...')` from the page.
-   - If there's no key, skip this source and say so in one line.
-2. **Greenhouse**, per board token in `sources.md`:
-   - US: `https://boards-api.greenhouse.io/v1/boards/<token>/jobs`
-   - EU: `https://boards-api.eu.greenhouse.io/v1/boards/<token>/jobs`
-   - Keep titles that match the target roles. Fetch details with `.../jobs/<id>?content=true`. If a token fails, note it and continue.
-3. **Pasted links** (LinkedIn, Indeed, Workable, career pages): read the page; if it blocks bots, open it with Claude in Chrome or ask the user to paste the text. Do not scrape LinkedIn search results.
+Run every source that is configured in `sources.md` / `.env`. If one fails, note it in one line and carry on.
+
+1. **Company job boards** (no key), for each company in `sources.md`:
+   - Greenhouse US: `https://boards-api.greenhouse.io/v1/boards/<token>/jobs` · EU: `https://boards-api.eu.greenhouse.io/v1/boards/<token>/jobs`. Details: `.../jobs/<id>?content=true`.
+   - Ashby: `https://api.ashbyhq.com/posting-api/job-board/<token>` (returns `jobs[]` with `title`, `location`, `isRemote`, `workplaceType`, `publishedAt`, `jobUrl`, `descriptionPlain`). Skip jobs where `isListed` is false.
+   - Lever: `https://api.lever.co/v0/postings/<token>?mode=json` (EU: `api.eu.lever.co`). Fields: `text` (title), `categories.location`, `workplaceType`, `createdAt` (ms), `hostedUrl`, `descriptionPlain`.
+   - Keep titles that match the target roles and keywords.
+2. **Remote job boards** (no key), filtered by the keywords in `sources.md`:
+   - Himalayas: `https://himalayas.app/jobs/api` (paginate with `nextCursor`). Use `title`, `companyName`, `locationRestrictions`, `minSalary`/`maxSalary`/`currency`, `pubDate`, `applicationLink`.
+   - Arbeitnow: `https://www.arbeitnow.com/api/job-board-api` (Europe). Use `title`, `company_name`, `location`, `remote`, `created_at`, `url`.
+   - Drop roles whose location restrictions exclude the user's country.
+3. **City search engines** (optional, only if the key exists in `.env`; never print keys):
+   - SerpApi (Google Jobs): `https://serpapi.com/search.json?engine=google_jobs&q=<query>&location=<location>&hl=<hl>&gl=<gl>&api_key=$SERPAPI_KEY`
+   - Adzuna: `https://api.adzuna.com/v1/api/jobs/<country>/search/1?app_id=$ADZUNA_APP_ID&app_key=$ADZUNA_APP_KEY&what=<query>&where=<city>`
+   - Jooble: `POST https://jooble.org/api/$JOOBLE_KEY` with `{"keywords": "<query>", "location": "<city>"}`
+   - Prefer a shell request (curl / Python). If the shell can't reach a host, use Claude in Chrome: open a page on that host (e.g. its `/robots.txt`) and call `fetch` with a relative path from there.
+4. **Pasted links** (LinkedIn, Indeed, Workable, career pages): read the page; if it blocks bots, open it with Claude in Chrome or ask the user to paste the text. Do not scrape LinkedIn search results.
 
 ## 2. Deduplicate
 
