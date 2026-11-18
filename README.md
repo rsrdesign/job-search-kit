@@ -32,7 +32,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 2. **Get the kit into a folder on your computer.** Open your agent (Claude Code, Codex, Cursor, the Claude desktop app…) and paste:
 
    ```
-   Clone https://github.com/rsrdesign/open-source-job-search-kit into a new folder on my computer (for example Documents/job-search-kit) and open it.
+   Clone https://github.com/rsrdesign/job-search-kit into a new folder on my computer (for example Documents/job-search-kit) and open it.
    ```
 
    No git? On GitHub click **Code → Download ZIP**, unzip it where you like, and open that folder in your agent (in the Claude desktop app, connect the folder).
@@ -115,7 +115,7 @@ Then it shows a summary to confirm and builds everything: Figma layer map (or th
 ## Folder structure
 
 ```
-open-source-job-search-kit/
+job-search-kit/
 ├── README.md
 ├── AGENTS.md                 # entry point for Codex, Cursor and other agents
 ├── CLAUDE.md                 # same instructions, for Claude
