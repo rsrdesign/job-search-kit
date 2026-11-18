@@ -63,7 +63,7 @@ Show a one-screen summary: roles, location, salary, sources, Figma frames, Notio
 1. **Layer map** (Figma only). List the visible text layers of both Figma frames, map them to headline, summary, bullets per job, skills, recipient, body paragraphs and date, and pick the link colour (an accent fill already used in the letter). Only ask if a layer is ambiguous.
 2. **Notion.** Build the Jobs tracking page exactly as `notion/applications-schema.md` says, in order: page title, icon and intro text, divider, inline Applications database (DDL as written, with the colours), its views (Pipeline, Next actions, the mentor tab if enabled, All), and the Mentor panel only if intros are enabled. Fetch the page at the end and check it matches. Save the data source URLs.
 3. **Files.** Write `config/profile.md`, `config/settings.md` and `config/sources.md` from the `.example.md` templates. Create the applications folder.
-4. **Schedule.** If they chose search days, offer a scheduled task; create it only if they say yes.
+4. **Schedule.** If they chose search days, offer a scheduled task; create it only if they say yes. Also offer the weekly review reminder (default Thursday 12:00, section 5 of `notion/applications-schema.md`), only if they say yes.
 
 ## Finish
 

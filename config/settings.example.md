@@ -53,6 +53,7 @@ Text layers the kit is allowed to rewrite, by layer name. Everything else stays 
 - Last search: {{YYYY-MM-DD HH:MM}}  <!-- updated by job-search after every run -->
 
 - Days: {{e.g. Tuesday, Thursday}} at {{HH:MM}} {{TIME_ZONE}}
+- Review reminder: {{Thursday 12:00, or "off"}}  <!-- lists the To review cards; see notion/applications-schema.md section 5 -->
 - City search location (optional engines): {{e.g. Madrid, Community of Madrid, Spain}}
 - `hl` / `gl`: {{es}} / {{es}}
 

@@ -27,11 +27,16 @@ If the Mentor panel is enabled in `settings.md` and a card becomes Applied or In
 
 ## Answering "what's next"
 
-Query active cards (To review, CV ready, Applied, Interview) sorted by Next action date. Reply with:
+Query cards in CV ready, Applied and Interview sorted by Next action date. Reply with:
 
 1. Overdue and today, then this week.
 2. Max 5 items, each with the action and the card link.
 3. If anything is stale (no change in 3+ weeks), say so in one line.
+4. One line with how many roles are waiting in To review and the best Match among them.
+
+## Weekly review reminder
+
+When the scheduled reminder runs (or the user asks "what's pending to review"), follow section 5 of `notion/applications-schema.md`.
 
 ## Weekly hygiene (when asked, or after `job-search`)
 

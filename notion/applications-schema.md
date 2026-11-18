@@ -73,8 +73,8 @@ CREATE TABLE (
 
 | View | Type | Icon | Config |
 |---|---|---|---|
-| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Next action", "Next action date"; CARD LAYOUT compact` |
-| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "CV score", "Applied on", "Job link"` |
+| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Match", "Next action", "Next action date"; CARD LAYOUT compact` |
+| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "CV score", "Applied on", "Job link"` |
 | All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
 
 Tab order the user should end up with: **Pipeline · Next actions · <Mentor> · All** (the mentor tab only if intros are enabled; see section 4).
@@ -94,7 +94,7 @@ Every skill follows this section. Day counts start on **Applied on**.
 
 | Status | When | Next action |
 |---|---|---|
-| To review | Found by `job-search`, not decided | "Decide whether to apply", today + 2 days |
+| To review | Found by `job-search`, not decided | None: the card waits for the user's decision (the Match is on the card) |
 | CV ready | CV and letter prepared, not sent | "Review CV + cover letter and send", today + 1 day |
 | Applied | The user said they sent it (only the user can set this) | Day 10: "Follow up with <contact or recruiter>" |
 | Applied, after a follow-up | No reply to the first follow-up | Day 24: "Second and last follow-up" |
@@ -104,7 +104,7 @@ Every skill follows this section. Day counts start on **Applied on**.
 | Rejected | The company said no | "Ask for feedback / keep <contact> warm", or "None" |
 | Discarded | Never applied and the posting closed, or the user passed | "None" |
 
-To review older than 14 days → ask the user to decide or discard. Never delete cards.
+To review cards are listed in the weekly review reminder (section 5). Older than 14 days → ask the user to decide or discard. Never delete cards.
 
 ## 4. Mentor panel (optional, only if network intros are enabled)
 
@@ -138,7 +138,7 @@ CREATE TABLE (
 | Mentor done on | Date | |
 | Mentor log | Text | What the mentor did, dated |
 
-Also add "Mentor match" and "Mentor done" to the Pipeline and Next actions views, and "Mentor match" to All.
+Also add "Mentor match" and "Mentor done on" to the Pipeline and Next actions views (a date stays hidden on the card until it is set; a checkbox would show on every card), and "Mentor match" to All. The Mentor fields stay empty until the card is Applied: the mentor can't help before the user has applied.
 
 Mentor tab on the Applications database (board, named with the mentor's first name, icon `icons/hand_gray`), created between Next actions and All: same filter and grouping as the panel board below, `SHOW "Application", "Status", "Mentor contacts", "Mentor done", "Next action"`.
 
@@ -146,5 +146,9 @@ Mentor tab on the Applications database (board, named with the mentor's first na
 
 1. `## 🤝 Mentor panel`
 2. Paragraph: "When an application moves to **Applied**, it is cross-referenced against the mentor's LinkedIn network. Matches are linked in **Mentor contacts** and the card gets a **Mentor match** value. **Ask mentor** means it is worth asking for an intro, and **Mentor ask** holds a ready-to-send message."
-3. Linked board view of Applications ("Mentor panel · actions for the mentor"): `FILTER "Status" IN ("To review", "CV ready", "Applied", "Interview") AND "Mentor match" IN ("Possible match", "Ask mentor", "Asked", "Intro done"); GROUP BY "Mentor match" HIDE EMPTY; SHOW "Application", "Status", "Mentor contacts", "Mentor ask", "Mentor done", "Mentor done on", "Mentor log"`
+3. Linked board view of Applications ("Mentor panel · actions for the mentor"): `FILTER "Status" IN ("Applied", "Interview") AND "Mentor match" IN ("Possible match", "Ask mentor", "Asked", "Intro done"); GROUP BY "Mentor match" HIDE EMPTY; SHOW "Application", "Status", "Mentor contacts", "Mentor ask", "Mentor done", "Mentor done on", "Mentor log"`
 4. The Mentor contacts database.
+
+## 5. Weekly review reminder (optional)
+
+A scheduled task, by default every **Thursday at 12:00** in the user's time zone (`Review reminder` in `settings.md`). It lists every **To review** card, highest Match first: Match, company and role, location or work mode, salary as published (or "Not stated"), days in To review and the job link. Cards older than 14 days get a "⚠" (they may close soon). It ends by asking which ones to prepare. It never changes Notion, tailors or sends anything.

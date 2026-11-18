@@ -85,6 +85,7 @@ Optional
 - [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
 - [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
 - [ ] **A scheduled task** so the search runs on the days you choose.
+- [ ] **A weekly review reminder** (optional, default Thursday 12:00) that lists the roles waiting in To review, best match first.
 
 ## Setup
 

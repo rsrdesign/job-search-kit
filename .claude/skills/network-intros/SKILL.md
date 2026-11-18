@@ -13,7 +13,7 @@ Notion structure: section 4 of `notion/applications-schema.md` (Mentor contacts 
 
 ## When it runs
 
-- When a card becomes **Applied** or **Interview**.
+- When a card becomes **Applied** or **Interview**. Never before: on To review and CV ready cards the Mentor fields stay empty.
 - On demand: "who can introduce me at <company>?"
 
 ## Matching

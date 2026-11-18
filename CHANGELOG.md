@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.2 · 2026-11-18
+
+- **Match on the card**: the Pipeline board shows the 0 to 100 Match on every card.
+- **No placeholder next action** on To review cards: they simply wait for your decision. The Next actions view now covers CV ready, Applied and Interview.
+- **Mentor fields only after applying**: Mentor match stays empty until the card is Applied, and the boards show "Mentor done on" (hidden until set) instead of an always-visible checkbox.
+- **Weekly review reminder** (optional, default Thursday 12:00): a scheduled task that lists the To review roles, best match first, flagging the ones older than 14 days.
+
 ## 0.3.1 · 2026-11-18
 
 - **Saved postings**: `job-search` copies each posting into its Notion card ("Job posting (saved date)" with the full text in a toggle), so you keep the requirements and salary after the job is taken down. Clean-up saves missing postings for active cards and adds a dated note when a posting goes offline.
