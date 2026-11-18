@@ -45,12 +45,12 @@ Scheduled or unattended runs can't answer permission prompts: pre-approve the jo
 
 ## 3. Filter and score (0 to 100)
 
-Drop outright: excluded roles, wrong seniority, locations or work modes the user can't do, deal-breakers.
+Drop outright: excluded roles, wrong seniority, locations the user can't work from, work modes outside **Accepted work modes** in `profile.md`, deal-breakers. A posting that asks for office days, "first months in the office" or a relocation is hybrid or on-site, even if it is tagged remote.
 
 | Criterion | Weight |
 |---|---|
 | Role and specialism match target roles | 30 |
-| Skills asked ⊂ skills the user can prove (`profile.md`, `context/`) | 25 |
+| Skills asked ⊂ skills the user can prove (`context/evidence.md`, `profile.md`, `context/`: CV, LinkedIn and portfolio together, not only the CV) | 25 |
 | Location and work mode compatible | 20 |
 | Seniority | 10 |
 | Salary (≥ floor or not stated = 15; a bit under = 8; far under = 0) | 15 |

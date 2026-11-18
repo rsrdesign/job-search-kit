@@ -5,7 +5,7 @@ description: Tailors the user's CV and writes a cover letter for a chosen role, 
 
 # Tailor an application
 
-Only for a role the user picked. Same employers, dates, titles and numbers: only the wording, the order of bullets and the skills change, to name what the posting asks for and the user has actually done. Never add experience, tools or results that aren't in the base CV, `profile.md` or `context/`. Never send anything.
+Only for a role the user picked. Same employers, dates, titles and numbers: only the wording, the order of bullets and the skills change, to name what the posting asks for and the user has actually done. Never add experience, tools or results that aren't in the base CV, `profile.md`, `context/evidence.md` or `context/`. Something proven in `evidence.md` (LinkedIn, portfolio) but missing from the CV is a gap the CV can cover: say where it comes from. Never send anything.
 
 `DATE` = today as `YYYY-MM-DD`. `Name` = the user's name as `First_Last`.
 

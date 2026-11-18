@@ -29,16 +29,19 @@ If Figma or Notion are missing, explain the fix in one line and continue; the fo
 ## Step 1 of 4 · About you
 
 1. *Required.* "Share your CV": a file in `context/`, a PDF path, a link, or paste the text.
-2. Portfolio or website URL (the only link used in cover letters).
+2. Your LinkedIn profile as PDF (recommended): on LinkedIn, open your profile → **More** → **Save to PDF**, and drop it in `context/`. Agents can't read linkedin.com pages, so the URL alone isn't enough.
+3. Portfolio or website URL (the only link used in cover letters). If your portfolio is a PDF, drop it in `context/` too.
 
-Then read the CV and everything in `context/` and pre-fill: name, current title, years of experience, languages, achievements with numbers, skills, tools.
+Then read the CV, the LinkedIn PDF, the website (if the fetch tool can reach it) and everything in `context/`, and pre-fill: name, current title, years of experience, languages, achievements with numbers, skills, tools. People rarely put everything in their CV, so these extra sources usually add clients, projects and numbers the CV leaves out.
+
+Write `context/evidence.md`: one line per capability or proof, with its source in brackets (`[CV]`, `[LinkedIn]`, `[Portfolio]`, `[Website]`), grouped by area, plus a short "No evidence" list (things to never claim) and any dates that don't match between sources. `job-search` scores against this file and `tailor-application` uses it to spot gaps the CV can cover.
 
 ## Step 2 of 4 · What you're looking for
 
 Offer options built from the CV:
 
 1. *Required.* Target roles (multi-select, e.g. "Senior Product Designer", "Design Systems Lead", "UX/UI Designer", Other).
-2. *Required.* Where: city + work mode (On-site / Hybrid / Remote in my country / Remote anywhere in the EU / Other).
+2. *Required.* Where: city + the work modes you accept (Remote only / Remote or hybrid in my city / Any / Other). Anything outside them is dropped, never scored.
 3. Minimum salary per year (ranges as options, or "Skip").
 4. Type: Full-time / Contract / Freelance / Any.
 
@@ -56,7 +59,7 @@ Offer options built from the CV:
 
 ## Confirm
 
-Show a one-screen summary: roles, location, salary, sources, Figma frames, Notion page, folder, and the pre-filled facts from the CV (achievements, skills). Ask: "Anything to fix?" Fix it, then continue.
+Show a one-screen summary: roles, location and accepted work modes, salary, sources, Figma frames, Notion page, folder, and the pre-filled facts (achievements, skills), saying which ones came from LinkedIn or the portfolio and not from the CV. Ask: "Anything to fix?" Fix it, then continue.
 
 ## Build (no questions)
 

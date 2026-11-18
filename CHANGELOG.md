@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 · 2026-11-18
+
+- **Score from your whole profile, not only the CV**: setup also reads your LinkedIn (as a PDF export) and your website or portfolio, and writes `context/evidence.md`, one line per proof with its source. `job-search` scores against it and `tailor-application` uses it to spot what the CV could add.
+- **Accepted work modes**: the profile lists the modes you accept (e.g. remote only); roles with office days anywhere are dropped instead of scored.
+
 ## 0.3.3 · 2026-11-18
 
 - **Score pill**: a "Score" formula shows the Match as a coloured pill on the cards (green 90+, yellow 60 to 89, red under 60).

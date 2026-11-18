@@ -32,7 +32,7 @@
 ## Location
 
 - Based in: {{CITY}}, {{COUNTRY}} ({{TIME_ZONE}})
-- Work mode: {{MODE}}  <!-- on-site / hybrid / remote -->
+- Accepted work modes: {{MODES}}  <!-- e.g. "remote only": hybrid or office days anywhere are dropped -->
 - Can work in (legally): {{COUNTRIES}}
 - Open to relocation: {{yes/no + where}}
 
