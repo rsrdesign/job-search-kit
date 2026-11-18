@@ -88,3 +88,6 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 - Enabled: {{yes/no}}
 - Mentor first name (used for the tab and columns): {{NAME}}
 - CSV path: {{context/network.csv}}  <!-- with their consent; never commit -->
+- Mentor email: {{email or "none"}}  <!-- for the optional weekly email -->
+- Weekly email: {{off | draft | send}} on {{e.g. Thursday}} at {{HH:MM}} {{TIME_ZONE}}  <!-- send only if the user explicitly allowed it; default draft -->
+- Send from: {{the user's connected mail account}}

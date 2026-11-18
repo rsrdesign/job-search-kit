@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 · 2026-11-18
+
+- **Weekly email to the mentor** (optional, with network intros): one email per week listing the roles where the mentor can help, with the contact's LinkedIn link, when they connected, why now and a suggested message. Drafted by default; sent on its own only if you explicitly allow it.
+
 ## 0.5.0 · 2026-11-18
 
 - **Word, Pages and Google Docs**: no Figma needed for a designed CV. Setup asks where your CV lives; `tailor-application` duplicates your base CV and cover letter per role, rewrites only the mapped parts (keeping your fonts and layout) and exports PDFs after you approve. Figma stays the default for designers; text mode remains for a PDF-only CV.

@@ -136,6 +136,7 @@ CREATE TABLE (
 | Mentor match | Select | Not checked (gray), No match (default), Possible match (yellow), Ask mentor (orange), Asked (blue), Intro done (green), Not needed (brown) |
 | Mentor contacts | Relation | Two-way to Mentor contacts (synced property there: "Applications"). DDL: `"Mentor contacts" RELATION('<Mentor contacts data source id>', DUAL 'Applications')` |
 | Mentor ask | Text | Ready-to-send message for the mentor |
+| Mentor why now | Text | One line on why the mentor's help matters now (from the posting); used in the weekly email |
 | Mentor done | Checkbox | Ticked when the mentor sent the intro or message |
 | Mentor done on | Date | |
 | Mentor log | Text | What the mentor did, dated |
