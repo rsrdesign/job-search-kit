@@ -25,6 +25,17 @@ Only the user can make a card Applied. Never infer it from a prepared CV.
 
 If the Mentor panel is enabled in `settings.md` and a card becomes Applied or Interview, run `network-intros` for that company. When the user says the mentor did something, follow "When the mentor acts" in that skill.
 
+## Reach out yourself (optional, no mentor)
+
+Only if `settings.md` has `Reach out myself: on` (offered in setup to users without a mentor). When a card becomes **Applied**:
+
+1. Find the person closest to the hire: first anyone the saved posting names (hiring manager, recruiter); otherwise the design lead or, at a small company, a founder, from the company's own site, news or public profiles. Only names that appear in a source; say which. Never guess emails.
+2. Write it in the card's **Contact** field (name, position, LinkedIn link or a LinkedIn search link with name and company).
+3. Draft a **short LinkedIn connection note** for the user to send themselves: under 200 characters (the limit without Premium), first person, natural, naming the role they applied for and one concrete thing they bring that the posting asks for. Example: "Hi Sara, I've just applied for your Design Systems Designer role. I built and scaled a design system across 15 brands, so this one feels close to home. Would love to connect."
+4. Next action: "Message <Name> on LinkedIn", tomorrow. Nobody found → say so in Contact and skip it.
+
+Never send anything: the user sends the note.
+
 ## Answering "what's next"
 
 Query cards in CV ready, Applied and Interview sorted by Next action date. Reply with:

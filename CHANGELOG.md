@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.3 · 2026-11-18
+
+- **New default rhythm**: searches on Monday and Wednesday at 8:30 (with the computer on), the optional mentor email on Thursday at 9:30, so there's time to apply before the mentor sees the list.
+- **Reach out yourself** (optional, for people without a mentor): after you apply, the kit suggests who to message at the company and drafts a short LinkedIn connection note (under 200 characters) for you to send.
+- **Markdown counts as the repo language** on GitHub (`.gitattributes`).
+
 ## 0.5.2 · 2026-11-18
 
 - **Weekly mentor email, refined**: each role shows the contact (linked to their LinkedIn), when they connected, why now and a link to the posting, with the suggested message in a grey box; roles still waiting from earlier weeks are listed at the end. No new roles, no email. Messages are written in the mentor's voice and specific to each posting, using your CV, LinkedIn, portfolio and website.

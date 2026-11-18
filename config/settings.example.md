@@ -76,10 +76,14 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 
 - Last search: {{YYYY-MM-DD HH:MM}}  <!-- updated by job-search after every run -->
 
-- Days: {{e.g. Tuesday, Thursday}} at {{HH:MM}} {{TIME_ZONE}}
+- Days: {{e.g. Monday, Wednesday}} at {{e.g. 08:30}} {{TIME_ZONE}}  <!-- needs the computer on -->
 - Review reminder: {{Thursday 12:00, or "off"}}  <!-- lists the To review cards; see notion/applications-schema.md section 5 -->
 - City search location (optional engines): {{e.g. Madrid, Community of Madrid, Spain}}
 - `hl` / `gl`: {{es}} / {{es}}
+
+## Reach out myself (optional, for users without a mentor)
+
+- Reach out myself: {{on | off}}  <!-- after you apply, suggests who to message and drafts a short LinkedIn note you send yourself -->
 
 ## Mentor panel (optional)
 
@@ -89,5 +93,5 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 - Mentor first name (used for the tab and columns): {{NAME}}
 - CSV path: {{context/network.csv}}  <!-- with their consent; never commit -->
 - Mentor email: {{email or "none"}}  <!-- for the optional weekly email -->
-- Weekly email: {{off | draft | send}} on {{e.g. Thursday}} at {{HH:MM}} {{TIME_ZONE}}  <!-- send only if the user explicitly allowed it; default draft -->
+- Weekly email: {{off | draft | send}} on {{e.g. Thursday}} at {{e.g. 09:30}} {{TIME_ZONE}}  <!-- send only if the user explicitly allowed it; default draft -->
 - Send from: {{the user's connected mail account}}

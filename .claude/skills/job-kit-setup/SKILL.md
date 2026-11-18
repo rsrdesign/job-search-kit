@@ -57,9 +57,9 @@ Offer options built from the CV:
 ## Step 4 of 4 · Where to look
 
 1. Companies you'd love to work for (free text, or "Skip"). For each one, find its careers page, detect Greenhouse / Ashby / Lever and the token, and check the API returns jobs. Suggest 5 more in the same space and ask which to keep.
-2. Search days: Tue + Thu / Mon + Wed + Fri / Only when I ask.
-3. Do you have a mentor or ally who'd share their LinkedIn connections to help with intros? No / Yes (then ask for their first name and the CSV path in `context/`). Yes adds the Mentor panel.
-4. *Only if they said Yes to 3 and shared the network file.* Ask first: "Would you like a weekly email to <mentor> with the roles where they can help?" No (default) / Yes. Only on Yes ask for the mentor's email, the day and time, and: "Should I leave it as a draft for you to send, or send it on its own?" (draft is the default; send only if they choose it). Never set it up without asking.
+2. Search days: Mon + Wed at 8:30 (recommended: you apply during the week and, if you have a mentor, they get their email on Thursday) / Other days / Only when I ask. Scheduled searches run with the computer on (the kit lives in a folder on it).
+3. Do you have a mentor or ally who'd share their LinkedIn connections to help with intros? No / Yes (then ask for their first name and the CSV path in `context/`). Yes adds the Mentor panel. No: offer the do-it-yourself option instead: "After you apply, should I suggest who to message at the company, with a short LinkedIn note you can send yourself?" No (default) / Yes (`Reach out myself: on` in `settings.md`).
+4. *Only if they said Yes to 3 and shared the network file.* Ask first: "Would you like a weekly email to <mentor> with the roles where they can help?" No (default) / Yes. Only on Yes ask for the mentor's email, the day and time (default Thursday 9:30, after the Monday and Wednesday searches), and: "Should I leave it as a draft for you to send, or send it on its own?" (draft is the default; send only if they choose it). Never set it up without asking.
 
 ## Confirm
 
