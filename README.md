@@ -4,9 +4,13 @@ An AI job-search copilot you run with Claude. It finds roles that fit you, tailo
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
-**Tailored CV and cover letter in Figma**, grouped in a dated section next to your base files:
+**Tailored CV and cover letter in Figma**: your base files stay untouched, and each role gets its own dated section with both documents:
 
-![Base CV and cover letter on the left, tailored copies for one role grouped in a dated section on the right](docs/images/figma-cv-cover-letter.png)
+![Base CV and cover letter on the left, then one dated section per company with the tailored CV and cover letter](docs/images/figma-sections.png)
+
+Close-up of one section:
+
+![Tailored CV and cover letter for one role, grouped in a dated section](docs/images/figma-cv-cover-letter.png)
 
 **Every application tracked in Notion**, with a status, a match score and one next action with a date:
 
