@@ -28,17 +28,17 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 
 ## Quick start
 
-1. Put your current CV in `context/` (PDF, Word export, Markdown or text). **This is the most important step:** the setup reads it and only asks what it can't find, about 10 questions instead of 30.
-2. Check the [checklist](#before-you-start-checklist). Notion connected is enough to start; Figma is optional (Word, Pages and Google Docs work too).
-3. Open your agent (Claude Code, Codex, Cursor, the Claude desktop app…) and paste:
+1. **Check the [checklist](#before-you-start-checklist).** Notion connected is enough to start; Figma is optional (Word, Pages and Google Docs work too).
+2. **Get the kit into a folder on your computer.** Open your agent (Claude Code, Codex, Cursor, the Claude desktop app…) and paste:
 
    ```
-   Clone https://github.com/rsrdesign/open-source-job-search-kit into a folder on my computer, open it, and run the job-kit-setup skill to set up my job search.
+   Clone https://github.com/rsrdesign/open-source-job-search-kit into a new folder on my computer (for example Documents/job-search-kit) and open it.
    ```
 
-   If you already downloaded the folder, open it and just say **"Set up my job search kit"**.
-4. Answer the 4-step form (about 5 minutes). Have the link to a Notion page ready, and the links to your Figma CV / cover letter frames, or to your Word, Pages or Google Docs CV.
-5. Then say **"Find me new roles"**.
+   No git? On GitHub click **Code → Download ZIP**, unzip it where you like, and open that folder in your agent (in the Claude desktop app, connect the folder).
+3. **Add your files.** Drop your current CV (PDF, Word, Markdown or text) and, if you can, your LinkedIn profile PDF into the kit's `context/` folder. The setup reads them and only asks what it can't find, about 10 questions instead of 30. You can also give it a path or paste the text when it asks.
+4. **Run the setup.** Say **"Set up my job search kit"** and answer the 4-step form (about 5 minutes). Have ready: the link to a Notion page, your portfolio or website, and the links to your Figma CV and cover letter frames (or your Word, Pages or Google Docs CV).
+5. **Start.** Say **"Find me new roles"**. The setup can also schedule this for you (suggested: Monday and Wednesday mornings).
 
 ## What it does
 
