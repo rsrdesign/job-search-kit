@@ -24,6 +24,7 @@ Description: "One card per job. Every active application has a next action with 
 | Role | Text | |
 | Status | Status | To do: To review · In progress: CV ready, Applied, Interview · Complete: Offer, Rejected, No response, Discarded |
 | Match | Number | 0 to 100, set by `job-search` (fit between the role and your profile) |
+| Score | Formula | The Match as a coloured pill for cards: green 90 to 100, yellow 60 to 89, red 0 to 59 |
 | CV score | Text | Set by `tailor-application`: requirements covered by the CV, before → after, e.g. `5/7 → 7/7` |
 | Type | Select | Full-time, Freelance, Contract |
 | Work mode | Select | Remote, Hybrid, On-site, Not stated |
@@ -51,6 +52,7 @@ CREATE TABLE (
   "Role" RICH_TEXT,
   "Status" STATUS('To review':gray:to_do, 'CV ready':yellow:in_progress, 'Applied':blue:in_progress, 'Interview':purple:in_progress, 'Offer':green:complete, 'Rejected':red:complete, 'No response':default:complete, 'Discarded':brown:complete),
   "Match" NUMBER,
+  "Score" FORMULA('if(empty(prop("Match")), "", if(prop("Match") >= 90, style(format(prop("Match")), "b", "green", "green_background"), if(prop("Match") >= 60, style(format(prop("Match")), "b", "yellow", "yellow_background"), style(format(prop("Match")), "b", "red", "red_background"))))'),
   "CV score" RICH_TEXT,
   "Type" SELECT('Full-time':blue, 'Freelance':orange, 'Contract':yellow),
   "Work mode" SELECT('Remote':green, 'Hybrid':blue, 'On-site':purple, 'Not stated':gray),
@@ -73,8 +75,8 @@ CREATE TABLE (
 
 | View | Type | Icon | Config |
 |---|---|---|---|
-| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Match", "Next action", "Next action date"; CARD LAYOUT compact` |
-| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Match", "CV score", "Applied on", "Job link"` |
+| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Score", "Next action", "Next action date"; CARD LAYOUT compact` |
+| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Score", "CV score", "Applied on", "Job link"` |
 | All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
 
 Tab order the user should end up with: **Pipeline · Next actions · <Mentor> · All** (the mentor tab only if intros are enabled; see section 4).
@@ -94,7 +96,7 @@ Every skill follows this section. Day counts start on **Applied on**.
 
 | Status | When | Next action |
 |---|---|---|
-| To review | Found by `job-search`, not decided | None: the card waits for the user's decision (the Match is on the card) |
+| To review | Found by `job-search`, not decided | None: the card waits for the user's decision (the Score pill and the saved posting are on the card) |
 | CV ready | CV and letter prepared, not sent | "Review CV + cover letter and send", today + 1 day |
 | Applied | The user said they sent it (only the user can set this) | Day 10: "Follow up with <contact or recruiter>" |
 | Applied, after a follow-up | No reply to the first follow-up | Day 24: "Second and last follow-up" |

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3 · 2026-11-18
+
+- **Score pill**: a "Score" formula shows the Match as a coloured pill on the cards (green 90+, yellow 60 to 89, red under 60).
+- **Richer saved postings**: aggregator roles are matched to the employer's own page, any named recruiter or hiring manager goes into Contact, and deal-breakers (office days, another city, unnamed client, a company you already applied to) are flagged with ⚠ in the card.
+
 ## 0.3.2 · 2026-11-18
 
 - **Match on the card**: the Pipeline board shows the 0 to 100 Match on every card.
