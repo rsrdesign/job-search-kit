@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 · 2026-11-18
+
+- **Downloads access**: README, setup and `tailor-application` say that exporting Figma PDFs through a browser needs access to the Downloads folder, where the files land before moving to the company folder.
+
 ## 0.4.0 · 2026-11-18
 
 - **Score from your whole profile, not only the CV**: setup also reads your LinkedIn (as a PDF export) and your website or portfolio, and writes `context/evidence.md`, one line per proof with its source. `job-search` scores against it and `tailor-application` uses it to spot what the CV could add.

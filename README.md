@@ -83,6 +83,7 @@ Optional
 - [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma the kit works in text mode.
 - [ ] **A free key for a city-wide search engine**, to find roles at companies you don't know yet: [SerpApi](https://serpapi.com) (Google Jobs, 100 searches/month), [Adzuna](https://developer.adzuna.com) or [Jooble](https://jooble.org/api/about).
 - [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
+- [ ] **Access to your Downloads folder** (and the applications folder) for the agent, if it exports Figma PDFs through the browser: the files land in Downloads first and the agent moves them into each company folder.
 - [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
 - [ ] **A scheduled task** so the search runs on the days you choose.
 - [ ] **A weekly review reminder** (optional, default Thursday 12:00) that lists the roles waiting in To review, best match first.

@@ -49,7 +49,7 @@ Offer options built from the CV:
 
 1. *Required.* Where is your CV designed? **Figma** (then: link to your CV frame and your cover letter frame; right-click the frame → Copy link; one language is enough) or **No Figma** (Word, Google Docs, PDF: the kit works in text mode with the CV in `context/`).
 2. *Required.* Notion: link to the page where the tracker should live (an empty page is best).
-3. Applications folder: suggest `~/Documents/Job search/` and let them confirm or change.
+3. Applications folder: suggest `~/Documents/Job search/` and let them confirm or change. If PDFs will be exported from Figma through a browser, also ask for access to the **Downloads** folder (the files land there first).
 
 ## Step 4 of 4 · Where to look
 
