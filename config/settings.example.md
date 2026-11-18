@@ -95,3 +95,4 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 - Mentor email: {{email or "none"}}  <!-- for the optional weekly email -->
 - Weekly email: {{off | draft | send}} on {{e.g. Thursday}} at {{e.g. 09:30}} {{TIME_ZONE}}  <!-- send only if the user explicitly allowed it; default draft -->
 - Send from: {{the user's connected mail account}}
+- Check mentor reply: {{off | on}} on {{e.g. Wednesday}} at {{e.g. 10:15}} {{TIME_ZONE}}  <!-- 6 days after the weekly email; needs a mail tool that can read the inbox -->

@@ -47,7 +47,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 | 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste (LinkedIn included). Optional: city search with Google Jobs (SerpApi), Adzuna or Jooble. Scores each role 0 to 100 against your whole profile (CV, LinkedIn, portfolio) and drops the ones that don't fit, including work modes you don't accept. Saves the full posting in each card, so it's still there if the job is taken down. | Pick the roles you want. A weekly reminder lists what's waiting. |
 | 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role and groups them in a dated section. No Figma? It duplicates your Word, Pages or Google Docs CV and letter instead and keeps your layout; with only a PDF, text mode writes both as Markdown. | Review and tweak, then say "export": the PDFs go to the company folder. |
 | 3. Track | Creates a card per role in Notion with status, next action and date. Moves cards when you report news. Marks silent applications as "No response" after 6 weeks. | Tell it what you sent and what you heard back. |
-| Optional | No mentor? After you apply, it can suggest who to message at the company and draft a short LinkedIn note you send yourself. With a mentor, it cross-checks companies against their LinkedIn network (with their permission) and suggests intros. Can email the mentor a weekly list of who to message (as a draft, or sent on its own if you allow it). | Send the note, or ask your mentor. |
+| Optional | No mentor? After you apply, it can suggest who to message at the company and draft a short LinkedIn note you send yourself. With a mentor, it cross-checks companies against their LinkedIn network (with their permission) and suggests intros. Can email the mentor a weekly list of who to message (as a draft, or sent on its own if you allow it) and read their reply 6 days later to update Notion. | Send the note, or ask your mentor. |
 
 ### Ground rules baked into every skill
 
@@ -171,7 +171,7 @@ One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the fi
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.3**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.4**.
 
 ## License
 

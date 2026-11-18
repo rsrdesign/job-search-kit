@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.4 · 2026-11-18
+
+- **Mentor reply check** (optional): 6 days after the weekly mentor email, the kit reads the reply and updates Notion (intro done, date, log, follow-up with the contact). Unclear answers are passed to you instead of being guessed. It never replies.
+
 ## 0.5.3 · 2026-11-18
 
 - **New default weekly plan**, suggested in setup with the reason for each step: searches on Monday and Wednesday at 8:30 (with the computer on), the review reminder on Wednesday at 12:30 after both searches, and the optional mentor email on Thursday at 9:30, so there's time to apply before the mentor sees the list.
