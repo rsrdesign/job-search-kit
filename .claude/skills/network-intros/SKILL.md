@@ -41,9 +41,9 @@ When the user says the mentor sent an intro or a message (or ticks **Mentor done
 
 Only if the user has a mentor and shared their network (Mentor panel enabled, CSV in place) **and** said yes when asked. Never offer it to someone without a mentor, and never turn it on without asking first; the answer and the mentor email go in `settings.md`. It gathers what the mentor can do this week in one message, so they don't have to open Notion.
 
-**Which cards:** Status Applied or Interview, Mentor match "Ask mentor", Mentor done not ticked. Applied in the last 7 days go first; older ones still waiting go in a short "Still open from earlier weeks" list. No cards → no email.
+**Which cards:** Status Applied or Interview, Mentor match "Ask mentor", Mentor done not ticked. Older ones already sent ("Asked") and still waiting go in a short "Still open from earlier weeks" list. No new cards → no email at all that week (just tell the user).
 
-**Template** (in the mentor's language; English by default):
+**Template** (in the mentor's language; English by default). One block per card, numbered, with the best contact from Mentor contacts (Strong first, then tier A). Send as HTML with a plain-text copy; links in the default blue.
 
 ```
 Subject: <User first name>'s applications this week · <D Mon>
@@ -52,14 +52,16 @@ Hi <Mentor first name>,
 
 Here are the roles <User first name> applied for this week where a word from you would really help:
 
-1. <Role> · <Company>            (bold)
-LinkedIn contact: <Name, linked to their LinkedIn URL> · <Position>
-Connected on <Connected on>
-Why now: <Mentor why now>
-Job posting: <Job link>
+1. <Role> · <Company>                         (bold, thin line above each block)
+   Contact     <Name, linked to their LinkedIn> · <Position>
+   Connected   <Connected on>
+   Why now     <Mentor why now>
+   Role        <View the posting, linked to Job link>
+   Suggested message
+   <Mentor ask, in a light grey box>
 
-Suggested message:
-<Mentor ask>
+Still open from earlier weeks                  (small, only if any)
+<Role> · <Company>, contact <Name> (<Position>)
 
 Feel free to tweak anything into your own voice, it always lands better.
 Just reply to this email when you've sent any and I'll update the tracker.
@@ -68,7 +70,9 @@ Thank you so much,
 <User first name>
 ```
 
-One block per card, with the best contact from Mentor contacts (Strong first, then tier A). Send as HTML with a plain-text copy.
+Leave out a row when its value is empty. "Still open" lists cards already sent in an earlier email (Mentor match "Asked") where the mentor hasn't acted yet.
+
+**The messages** (Mentor ask and Mentor why now) are written in the mentor's voice and sound like them: warm, short, specific to what that posting asks for and to what the user offers. Use only facts from `profile.md`, `context/evidence.md` (CV, LinkedIn, portfolio, website) and the saved posting. "Why now" is one factual line (the contact runs the team, the posting names them, the team is small); if there's nothing concrete, use the contact's position, or leave it out. Never invent news.
 
 **Draft or send:**
 - Default: **draft**. Create the email as a draft in the user's mail (Gmail MCP or similar) and tell the user it's ready to review.

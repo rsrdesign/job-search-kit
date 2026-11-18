@@ -171,7 +171,7 @@ One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the fi
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.1**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.2**.
 
 ## License
 

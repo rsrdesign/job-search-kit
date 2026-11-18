@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2 · 2026-11-18
+
+- **Weekly mentor email, refined**: each role shows the contact (linked to their LinkedIn), when they connected, why now and a link to the posting, with the suggested message in a grey box; roles still waiting from earlier weeks are listed at the end. No new roles, no email. Messages are written in the mentor's voice and specific to each posting, using your CV, LinkedIn, portfolio and website.
+
 ## 0.5.1 · 2026-11-18
 
 - **Weekly email to the mentor** (optional, with network intros): one email per week listing the roles where the mentor can help, with the contact's LinkedIn link, when they connected, why now and a suggested message. Drafted by default; sent on its own only if you explicitly allow it.
