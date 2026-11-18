@@ -77,7 +77,7 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 - Last search: {{YYYY-MM-DD HH:MM}}  <!-- updated by job-search after every run -->
 
 - Days: {{e.g. Monday, Wednesday}} at {{e.g. 08:30}} {{TIME_ZONE}}  <!-- needs the computer on -->
-- Review reminder: {{Thursday 12:00, or "off"}}  <!-- lists the To review cards; see notion/applications-schema.md section 5 -->
+- Review reminder: {{Wednesday 12:30, or "off"}}  <!-- lists the To review cards; see notion/applications-schema.md section 5 -->
 - City search location (optional engines): {{e.g. Madrid, Community of Madrid, Spain}}
 - `hl` / `gl`: {{es}} / {{es}}
 

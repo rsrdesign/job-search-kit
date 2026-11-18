@@ -2,7 +2,7 @@
 
 ## 0.5.3 · 2026-11-18
 
-- **New default rhythm**: searches on Monday and Wednesday at 8:30 (with the computer on), the optional mentor email on Thursday at 9:30, so there's time to apply before the mentor sees the list.
+- **New default weekly plan**, suggested in setup with the reason for each step: searches on Monday and Wednesday at 8:30 (with the computer on), the review reminder on Wednesday at 12:30 after both searches, and the optional mentor email on Thursday at 9:30, so there's time to apply before the mentor sees the list.
 - **Reach out yourself** (optional, for people without a mentor): after you apply, the kit suggests who to message at the company and drafts a short LinkedIn connection note (under 200 characters) for you to send.
 - **Markdown counts as the repo language** on GitHub (`.gitattributes`).
 

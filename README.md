@@ -88,7 +88,7 @@ Optional
 - [ ] **Access to your Downloads folder** (and the applications folder) for the agent, if it exports Figma PDFs through the browser: the files land in Downloads first and the agent moves them into each company folder.
 - [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
 - [ ] **A scheduled task** so the search runs on the days you choose (suggested: Monday and Wednesday at 8:30, with the computer on).
-- [ ] **A weekly review reminder** (optional, default Thursday 12:00) that lists the roles waiting in To review, best match first.
+- [ ] **A weekly review reminder** (optional, default Wednesday 12:30, after the second search) that lists the roles waiting in To review, best match first.
 
 ## Setup
 

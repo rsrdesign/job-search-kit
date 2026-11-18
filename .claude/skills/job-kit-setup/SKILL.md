@@ -57,7 +57,12 @@ Offer options built from the CV:
 ## Step 4 of 4 · Where to look
 
 1. Companies you'd love to work for (free text, or "Skip"). For each one, find its careers page, detect Greenhouse / Ashby / Lever and the token, and check the API returns jobs. Suggest 5 more in the same space and ask which to keep.
-2. Search days: Mon + Wed at 8:30 (recommended: you apply during the week and, if you have a mentor, they get their email on Thursday) / Other days / Only when I ask. Scheduled searches run with the computer on (the kit lives in a folder on it).
+2. Search days: Mon + Wed at 8:30 (recommended) / Other days / Only when I ask. Scheduled searches run with the computer on (the kit lives in a folder on it).
+   When suggesting it, show the weekly plan and why, in one short block:
+   - **Monday 8:30, search**: catches everything posted over the weekend and late last week, so the week starts with a full list.
+   - **Wednesday 8:30, search**: catches the mid-week postings while they're fresh (early applicants are seen first).
+   - **Wednesday 12:30, review reminder**: one list after both searches, best match first, so you decide once and still have Wednesday and Thursday to apply.
+   - **Thursday 9:30, mentor email** (only with a mentor): it includes everything you applied to that week, and the mentor has Thursday and Friday to act before the weekend.
 3. Do you have a mentor or ally who'd share their LinkedIn connections to help with intros? No / Yes (then ask for their first name and the CSV path in `context/`). Yes adds the Mentor panel. No: offer the do-it-yourself option instead: "After you apply, should I suggest who to message at the company, with a short LinkedIn note you can send yourself?" No (default) / Yes (`Reach out myself: on` in `settings.md`).
 4. *Only if they said Yes to 3 and shared the network file.* Ask first: "Would you like a weekly email to <mentor> with the roles where they can help?" No (default) / Yes. Only on Yes ask for the mentor's email, the day and time (default Thursday 9:30, after the Monday and Wednesday searches), and: "Should I leave it as a draft for you to send, or send it on its own?" (draft is the default; send only if they choose it). Never set it up without asking.
 
@@ -70,7 +75,7 @@ Show a one-screen summary: roles, location and accepted work modes, salary, sour
 1. **Layer map** (Figma) or **text map** (Word, Pages, Google Docs). List the visible text layers of both Figma frames, or the paragraphs of both documents, map them to headline, summary, bullets per job, skills, recipient, body paragraphs and date, and pick the link colour (an accent already used in the letter). Only ask if a part is ambiguous. For documents, also check what can export PDFs here (LibreOffice, Google Drive, Pages on a Mac) and note it in `settings.md`.
 2. **Notion.** Build the Jobs tracking page exactly as `notion/applications-schema.md` says, in order: page title, icon and intro text, divider, inline Applications database (DDL as written, with the colours), its views (Pipeline, Next actions, the mentor tab if enabled, All), and the Mentor panel only if intros are enabled. Fetch the page at the end and check it matches. Save the data source URLs.
 3. **Files.** Write `config/profile.md`, `config/settings.md` and `config/sources.md` from the `.example.md` templates. Create the applications folder.
-4. **Schedule.** If they chose search days, offer a scheduled task; create it only if they say yes. Also offer the weekly review reminder (default Thursday 12:00, section 5 of `notion/applications-schema.md`), only if they say yes.
+4. **Schedule.** If they chose search days, offer a scheduled task; create it only if they say yes. Also offer the weekly review reminder (default Wednesday 12:30, section 5 of `notion/applications-schema.md`), only if they say yes.
 
 ## Finish
 

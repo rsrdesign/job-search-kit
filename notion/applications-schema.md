@@ -154,4 +154,4 @@ Mentor tab on the Applications database (board, named with the mentor's first na
 
 ## 5. Weekly review reminder (optional)
 
-A scheduled task, by default every **Thursday at 12:00** in the user's time zone (`Review reminder` in `settings.md`). It lists every **To review** card, highest Match first: Match, company and role, location or work mode, salary as published (or "Not stated"), days in To review and the job link. Cards older than 14 days get a "⚠" (they may close soon). It ends by asking which ones to prepare. It never changes Notion, tailors or sends anything.
+A scheduled task, by default every **Wednesday at 12:30**, after the Monday and Wednesday searches in the user's time zone (`Review reminder` in `settings.md`). It lists every **To review** card, highest Match first: Match, company and role, location or work mode, salary as published (or "Not stated"), days in To review and the job link. Cards older than 14 days get a "⚠" (they may close soon). It ends by asking which ones to prepare. It never changes Notion, tailors or sends anything.
