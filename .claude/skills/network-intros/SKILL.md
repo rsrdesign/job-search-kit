@@ -39,7 +39,7 @@ When the user says the mentor sent an intro or a message (or ticks **Mentor done
 
 ## Weekly email to the mentor (optional)
 
-Only if `settings.md` has a mentor email and a weekly email day set. It gathers what the mentor can do this week in one message, so they don't have to open Notion.
+Only if the user has a mentor and shared their network (Mentor panel enabled, CSV in place) **and** said yes when asked. Never offer it to someone without a mentor, and never turn it on without asking first; the answer and the mentor email go in `settings.md`. It gathers what the mentor can do this week in one message, so they don't have to open Notion.
 
 **Which cards:** Status Applied or Interview, Mentor match "Ask mentor", Mentor done not ticked. Applied in the last 7 days go first; older ones still waiting go in a short "Still open from earlier weeks" list. No cards → no email.
 

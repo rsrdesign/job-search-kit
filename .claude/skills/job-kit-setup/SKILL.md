@@ -58,7 +58,8 @@ Offer options built from the CV:
 
 1. Companies you'd love to work for (free text, or "Skip"). For each one, find its careers page, detect Greenhouse / Ashby / Lever and the token, and check the API returns jobs. Suggest 5 more in the same space and ask which to keep.
 2. Search days: Tue + Thu / Mon + Wed + Fri / Only when I ask.
-3. Do you have a mentor or ally who'd share their LinkedIn connections to help with intros? No / Yes (then ask for their first name and the CSV path in `context/`). Yes adds the Mentor panel. Then offer the optional weekly email to the mentor: their email, day and time, and whether to leave a draft (default) or send it on its own (only if the user says so explicitly).
+3. Do you have a mentor or ally who'd share their LinkedIn connections to help with intros? No / Yes (then ask for their first name and the CSV path in `context/`). Yes adds the Mentor panel.
+4. *Only if they said Yes to 3 and shared the network file.* Ask first: "Would you like a weekly email to <mentor> with the roles where they can help?" No (default) / Yes. Only on Yes ask for the mentor's email, the day and time, and: "Should I leave it as a draft for you to send, or send it on its own?" (draft is the default; send only if they choose it). Never set it up without asking.
 
 ## Confirm
 
