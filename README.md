@@ -36,7 +36,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
    ```
 
    No git? On GitHub click **Code → Download ZIP**, unzip it where you like, and open that folder in your agent (in the Claude desktop app, connect the folder).
-3. **Add your files.** Drop your current CV (PDF, Word, Markdown or text) into the kit's `context/` folder and, for extra context, the CV that LinkedIn exports from your profile (on your profile: **More → Save to PDF**). It often has roles, skills and recommendations your CV leaves out. The setup reads them and only asks what it can't find, about 10 questions instead of 30. You can also give it a path or paste the text when it asks.
+3. **Add your files.** Drop your current CV (PDF, Word, Markdown or text) into the kit's `context/` folder and, for extra context, the CV that LinkedIn exports from your profile (on your profile: **More → Save to PDF**). It often has roles, skills and recommendations your CV leaves out. The setup reads them and fills in most of your profile for you, so it only asks about what it can't find there (about 10 short questions). You can also give it a path or paste the text when it asks.
 4. **Run the setup.** Say **"Set up my job search kit"** and answer the 4-step form (about 5 minutes). Have ready: the link to a Notion page, your portfolio or website, and the links to your Figma CV and cover letter frames (or your Word, Pages or Google Docs CV).
 5. **Start.** Say **"Find me new roles"**. The setup can also schedule this for you (suggested: Monday and Wednesday mornings).
 
