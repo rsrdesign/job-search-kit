@@ -142,7 +142,7 @@ CREATE TABLE (
 
 Also add "Mentor match" and "Mentor done on" to the Pipeline and Next actions views (a date stays hidden on the card until it is set; a checkbox would show on every card), and "Mentor match" to All. The Mentor fields stay empty until the card is Applied: the mentor can't help before the user has applied.
 
-Mentor tab on the Applications database (board, named with the mentor's first name, icon `icons/hand_gray`), created between Next actions and All: same filter and grouping as the panel board below, `SHOW "Application", "Status", "Mentor contacts", "Mentor done", "Next action"`.
+Mentor tab on the Applications database (board, named with the mentor's first name, icon `icons/hand_gray`), created between Next actions and All: same filter and grouping as the panel board below, `SHOW "Application", "Status", "Mentor contacts", "Mentor done on", "Next action"`.
 
 ### Page blocks
 
