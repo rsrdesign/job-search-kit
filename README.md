@@ -12,7 +12,7 @@ Close-up of one section:
 
 ![Tailored CV and cover letter for one role, grouped in a dated section](docs/images/figma-cv-cover-letter.png)
 
-**Every application tracked in Notion**, with a status, a match score and one next action with a date:
+**Every application tracked in Notion**, with a status, a colour-coded match score, a saved copy of the job posting and one next action with a date:
 
 ![Notion Pipeline board grouped by status](docs/images/notion-pipeline.png)
 
@@ -44,7 +44,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 
 | Phase | What happens | What you do |
 |---|---|---|
-| 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste (LinkedIn included). Optional: city search with Google Jobs (SerpApi), Adzuna or Jooble. Scores each role 0 to 100 against your profile and drops the ones that don't fit. | Pick the roles you want. |
+| 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste (LinkedIn included). Optional: city search with Google Jobs (SerpApi), Adzuna or Jooble. Scores each role 0 to 100 against your whole profile (CV, LinkedIn, portfolio) and drops the ones that don't fit, including work modes you don't accept. Saves the full posting in each card, so it's still there if the job is taken down. | Pick the roles you want. A weekly reminder lists what's waiting. |
 | 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role and groups them in a dated section. No Figma? Text mode writes both as Markdown. | Review and tweak, then say "export": the PDFs go to the company folder. |
 | 3. Track | Creates a card per role in Notion with status, next action and date. Moves cards when you report news. Marks silent applications as "No response" after 6 weeks. | Tell it what you sent and what you heard back. |
 | Optional | Cross-checks companies against a mentor's LinkedIn network (with their permission) and suggests intros. | Ask your mentor. |
@@ -74,6 +74,7 @@ Required
 
 - [ ] **An AI agent with access to your computer** that can read and write files, browse the web and use MCP: e.g. Claude Code or the Claude desktop app, OpenAI Codex, Cursor. See [Works with](#works-with).
 - [ ] **Your current CV** in `context/` (any format).
+- [ ] **Your LinkedIn profile as PDF** in `context/` (recommended): on LinkedIn, profile → More → Save to PDF. It usually holds clients, projects and numbers your CV leaves out.
 - [ ] **Notion account** and the **Notion MCP** connected to your agent.
 - [ ] **A list of companies you'd like to work for.** The kit checks their job boards directly (Greenhouse, Ashby, Lever). No API key needed.
 - [ ] **A folder for applications**, e.g. `~/Documents/Job search/`. One subfolder per company is created inside it.
@@ -153,7 +154,7 @@ Job search/
 Setup builds a **Jobs tracking** page in the Notion page you choose:
 
 - A short intro and the **Applications** table, inline, with these tabs:
-  - **Pipeline**: board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded).
+  - **Pipeline**: board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded), with the match as a coloured pill (green 90+, yellow 60 to 89, red under 60).
   - **Next actions**: active applications sorted by next action date.
   - **<Mentor's name>** (only with a mentor): board of roles where they could make an intro.
   - **All**: every application with all its columns.
@@ -169,7 +170,7 @@ One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the fi
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.3.0**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.4.1**.
 
 ## License
 
