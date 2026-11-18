@@ -1,4 +1,6 @@
-# Job Search Kit
+# Shortlist
+
+**AI job search kit**, built by a designer, for designers and anyone with a CV.
 
 An AI job-search copilot you run with your AI agent: Claude, Codex, Cursor or any agent that can read files and use MCP. It finds roles that fit you, tailors your CV and cover letter for each one (in Figma, or in Word, Pages or Google Docs), and keeps every application tracked in Notion. You review everything before it goes anywhere.
 
@@ -79,7 +81,7 @@ Required
 - [ ] **A list of companies you'd like to work for.** The kit checks their job boards directly (Greenhouse, Ashby, Lever). No API key needed.
 - [ ] **A folder for applications**, e.g. `~/Documents/Job search/`. One subfolder per company is created inside it.
 
-Optional
+**Optional, to make it work better**
 
 - [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma, see the next line.
 - [ ] **Or your CV in Word, Pages or Google Docs** (and a cover letter if you have one). The kit copies them per role and exports PDFs (LibreOffice or Word for .docx, Google Drive for Docs, Pages on a Mac; Pages files may need a one-time export to Word). With only a PDF, the kit works in text mode.
