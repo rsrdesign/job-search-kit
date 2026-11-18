@@ -23,7 +23,7 @@
 ## Location
 
 - Based in: Madrid, Spain (CET)
-- Accepted work modes: remote, or hybrid in Lisbon
+- Accepted work modes: remote, or hybrid in Madrid
 - Can work in (legally): EU
 
 ## Proof (real numbers only)
