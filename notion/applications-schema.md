@@ -40,7 +40,7 @@ Description: "One card per job. Every active application has a next action with 
 | Next action | Text | One concrete step |
 | Next action date | Date | |
 
-History (what was sent, replies, interview notes) goes **inside the card** as dated lines, not in a property.
+History (what was sent, replies, interview notes) goes **inside the card** as dated lines, not in a property. The card also keeps a copy of the posting ("Job posting (saved YYYY-MM-DD)"), so it is still there if the job is taken down.
 
 ### DDL (Notion MCP `create-database`, with `parent` = the page)
 

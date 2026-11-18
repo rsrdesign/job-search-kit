@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 · 2026-11-18
+
+- **Saved postings**: `job-search` copies each posting into its Notion card ("Job posting (saved date)" with the full text in a toggle), so you keep the requirements and salary after the job is taken down. Clean-up saves missing postings for active cards and adds a dated note when a posting goes offline.
+
 ## 0.3.0 · 2026-11-18
 
 - **Agent-agnostic**: works with Claude, Codex, Cursor or any agent with file access, web fetch and MCP. New `AGENTS.md` and a "Works with" section in the README.
