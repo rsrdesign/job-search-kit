@@ -60,7 +60,7 @@ PDFs are the version that gets sent, so they are made **after** the user has rev
 When the user says "export", "looks good", "approved" (or the setting is automatic):
 
 1. Export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save as `CV_<Name>_<lang> (<Company>) <DATE>.pdf` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.pdf`.
-   - If your environment can't reach figma.com directly, download them through Claude in Chrome (open `https://www.figma.com/robots.txt`, `fetch` each asset URL, save them with an `<a download>`; bundle several files in one zip to avoid the multiple-downloads block) and move them from Downloads into the folder.
+   - If your environment can't reach figma.com directly, download them through a browser tool (e.g. Claude in Chrome) (open `https://www.figma.com/robots.txt`, `fetch` each asset URL, save them with an `<a download>`; bundle several files in one zip to avoid the multiple-downloads block) and move them from Downloads into the folder.
 2. If the user edits Figma later, export again on request and overwrite.
 
 ## 5c. Text mode (no Figma)

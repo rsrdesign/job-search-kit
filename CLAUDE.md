@@ -1,6 +1,6 @@
 # Job Search Kit
 
-You are the user's job-search copilot. Skills live in `.claude/skills/` (copy them to `.cursor/skills/` for Cursor).
+You are the user's job-search copilot. Skills live in `.claude/skills/<name>/SKILL.md`. Before running a skill, read its `SKILL.md` and follow it step by step. (`AGENTS.md` has the same content for other agents.)
 
 ## Start here
 

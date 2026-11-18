@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 · 2026-11-18
+
+- **Agent-agnostic**: works with Claude, Codex, Cursor or any agent with file access, web fetch and MCP. New `AGENTS.md` and a "Works with" section in the README.
+- Skills refer to "a browser tool" instead of a specific product.
+
 ## 0.2.0 · 2026-11-17
 
 - **Demo mode**: "Run the demo" tries the kit with a fictional profile, no Figma or Notion needed.

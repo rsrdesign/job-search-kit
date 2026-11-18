@@ -18,9 +18,9 @@ Run every source that is configured in `sources.md` / `.env`. If one fails, note
 **How to reach the APIs**, in this order:
 1. Shell (`curl` / Python). Works on your own computer.
 2. Your web fetch tool (e.g. WebFetch). Works in cloud sessions where the shell has no internet.
-3. Claude in Chrome: open a page on that host (e.g. `/robots.txt`) and call `fetch` with a relative path in the page.
+3. A browser tool (e.g. Claude in Chrome): open a page on that host (e.g. `/robots.txt`) and call `fetch` with a relative path in the page.
 
-Scheduled or unattended runs can't answer permission prompts: pre-approve the job board domains for your fetch tool, or make sure Chrome is connected, otherwise the run stops at the first prompt. Say so in the result if a source was skipped for this reason.
+Scheduled or unattended runs can't answer permission prompts: pre-approve the job board domains for your fetch tool, or make sure a browser tool is connected, otherwise the run stops at the first prompt. Say so in the result if a source was skipped for this reason.
 
 1. **Company job boards** (no key), for each company in `sources.md`:
    - Greenhouse US: `https://boards-api.greenhouse.io/v1/boards/<token>/jobs` · EU: `https://boards-api.eu.greenhouse.io/v1/boards/<token>/jobs`. Details: `.../jobs/<id>?content=true`.
@@ -35,7 +35,7 @@ Scheduled or unattended runs can't answer permission prompts: pre-approve the jo
    - SerpApi (Google Jobs): `https://serpapi.com/search.json?engine=google_jobs&q=<query>&location=<location>&hl=<hl>&gl=<gl>&api_key=$SERPAPI_KEY`
    - Adzuna: `https://api.adzuna.com/v1/api/jobs/<country>/search/1?app_id=$ADZUNA_APP_ID&app_key=$ADZUNA_APP_KEY&what=<query>&where=<city>`
    - Jooble: `POST https://jooble.org/api/$JOOBLE_KEY` with `{"keywords": "<query>", "location": "<city>"}`
-4. **Pasted links** (LinkedIn, Indeed, Workable, career pages): read the page; if it blocks bots, open it with Claude in Chrome or ask the user to paste the text. Do not scrape LinkedIn search results.
+4. **Pasted links** (LinkedIn, Indeed, Workable, career pages): read the page; if it blocks bots, open it with a browser tool (e.g. Claude in Chrome) or ask the user to paste the text. Do not scrape LinkedIn search results.
 
 ## 2. Deduplicate
 

@@ -1,6 +1,6 @@
 # Open Source Job Search Kit
 
-An AI job-search copilot you run with Claude. It finds roles that fit you, tailors your CV and cover letter in Figma for each one, and keeps every application tracked in Notion. You review everything before it goes anywhere.
+An AI job-search copilot you run with your AI agent: Claude, Codex, Cursor or any agent that can read files and use MCP. It finds roles that fit you, tailors your CV and cover letter in Figma for each one, and keeps every application tracked in Notion. You review everything before it goes anywhere.
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
@@ -24,13 +24,13 @@ Close-up of one section:
 
 ## Try it in 2 minutes (demo)
 
-No Figma, Notion or keys needed. Clone the repo, open it with Claude Code (or the Claude desktop app with the folder connected) and say **"Run the demo"**. It searches real job boards for a fictional designer (Alex Doe, `examples/demo/`), scores the roles in the chat and tailors a CV and cover letter as text in `_test-applications/` (git-ignored).
+No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude Code, Codex, Cursor, or the Claude desktop app with the folder connected) and say **"Run the demo"**. It searches real job boards for a fictional designer (Alex Doe, `examples/demo/`), scores the roles in the chat and tailors a CV and cover letter as text in `_test-applications/` (git-ignored).
 
 ## Quick start
 
 1. Put your current CV in `context/` (PDF, Word export, Markdown or text). **This is the most important step:** the setup reads it and only asks what it can't find, about 10 questions instead of 30.
 2. Check the [checklist](#before-you-start-checklist). Notion connected is enough to start; Figma is optional.
-3. Open Claude Code, Cursor or the Claude desktop app and paste:
+3. Open your agent (Claude Code, Codex, Cursor, the Claude desktop app…) and paste:
 
    ```
    Clone https://github.com/rsrdesign/open-source-job-search-kit into a folder on my computer, open it, and run the job-kit-setup skill to set up my job search.
@@ -55,13 +55,26 @@ No Figma, Notion or keys needed. Clone the repo, open it with Claude Code (or th
 - **No invented experience.** The CV is reworded and reordered, never padded.
 - **You own your data.** Your profile, CVs and keys stay on your computer. `.gitignore` keeps them out of git.
 
+## Works with
+
+The kit is plain Markdown: instructions (`AGENTS.md` / `CLAUDE.md`), skills (`.claude/skills/*/SKILL.md`) and config files. Any agent that can **read and write files, fetch web pages and use MCP servers** (Figma, Notion) can run it.
+
+| Agent | How it picks up the kit |
+|---|---|
+| Claude Code / Claude desktop app | Reads `CLAUDE.md` and loads `.claude/skills/` automatically. |
+| OpenAI Codex | Reads `AGENTS.md`, which tells it to open the matching `SKILL.md` before each task. |
+| Cursor | Reads `AGENTS.md`. Optionally copy `.claude/skills/*` into `.cursor/skills/`. |
+| Other agents (Windsurf, Gemini CLI, Copilot agent…) | Point them to `AGENTS.md`, or paste it as the system / project instructions. |
+
+Connect the Figma and Notion MCP servers in your agent's settings. Tool names in the skills (e.g. "a multiple-choice question tool", "a browser tool") describe what to use if your agent has it; they are optional.
+
 ## Before you start (checklist)
 
 Required
 
-- [ ] **Claude with access to your computer**: the Claude desktop app, Claude Code or Cursor. It needs to create folders and save files.
+- [ ] **An AI agent with access to your computer** that can read and write files, browse the web and use MCP: e.g. Claude Code or the Claude desktop app, OpenAI Codex, Cursor. See [Works with](#works-with).
 - [ ] **Your current CV** in `context/` (any format).
-- [ ] **Notion account** and the **Notion connector** in Claude.
+- [ ] **Notion account** and the **Notion MCP** connected to your agent.
 - [ ] **A list of companies you'd like to work for.** The kit checks their job boards directly (Greenhouse, Ashby, Lever). No API key needed.
 - [ ] **A folder for applications**, e.g. `~/Documents/Job search/`. One subfolder per company is created inside it.
 
@@ -69,7 +82,7 @@ Optional
 
 - [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma the kit works in text mode.
 - [ ] **A free key for a city-wide search engine**, to find roles at companies you don't know yet: [SerpApi](https://serpapi.com) (Google Jobs, 100 searches/month), [Adzuna](https://developer.adzuna.com) or [Jooble](https://jooble.org/api/about).
-- [ ] **Claude in Chrome**, to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
+- [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
 - [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
 - [ ] **A scheduled task** so the search runs on the days you choose.
 
@@ -77,12 +90,9 @@ Optional
 
 1. Download or clone this repo into a folder on your computer.
 2. Optional: copy `.env.example` to `.env` and paste any search keys you have. The kit works without them.
-3. Skills:
-   - **Claude Code / Claude desktop app with this folder open**: nothing to do. The skills live in `.claude/skills/` and load automatically.
-   - **Cursor**: copy `.claude/skills/*` into `.cursor/skills/`.
-   - **Claude app without a local folder**: upload each skill folder in Settings → Skills.
+3. Skills: see [Works with](#works-with). With Claude Code there is nothing to do; other agents read `AGENTS.md`, which points them to the skills.
 4. Put anything that describes you in `context/`: your current CV as text or PDF, portfolio link, case studies, notes. It is read during setup and when tailoring.
-5. Ask Claude: **"Set up my job search kit"**. The `job-kit-setup` skill runs a 4-step form and writes `config/profile.md`, `config/settings.md` and `config/sources.md`.
+5. Ask your agent: **"Set up my job search kit"**. The `job-kit-setup` skill runs a 4-step form and writes `config/profile.md`, `config/settings.md` and `config/sources.md`.
 6. Ask: **"Find me new roles"**. From there, pick roles and say **"Prepare my application for #2"**.
 
 ## The setup form
@@ -103,7 +113,8 @@ Then it shows a summary to confirm and builds everything: Figma layer map, Notio
 ```
 open-source-job-search-kit/
 ├── README.md
-├── CLAUDE.md                 # entry point for Claude Code / Cursor
+├── AGENTS.md                 # entry point for Codex, Cursor and other agents
+├── CLAUDE.md                 # same instructions, for Claude
 ├── .env.example              # optional search keys
 ├── config/
 │   ├── profile.example.md    # filled by setup → profile.md (git-ignored)
@@ -113,7 +124,7 @@ open-source-job-search-kit/
 ├── context/                  # your CV, portfolio, notes (git-ignored)
 ├── notion/
 │   └── applications-schema.md
-├── .claude/skills/           # loaded automatically by Claude Code
+├── .claude/skills/           # the skills (plain Markdown, any agent can follow them)
 │   ├── job-kit-setup/
 │   ├── job-search/
 │   ├── tailor-application/
@@ -156,7 +167,7 @@ One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the fi
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.2.0**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.3.0**.
 
 ## License
 
