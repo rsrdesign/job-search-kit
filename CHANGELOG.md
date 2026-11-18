@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 · 2026-11-18
+
+- **Word, Pages and Google Docs**: no Figma needed for a designed CV. Setup asks where your CV lives; `tailor-application` duplicates your base CV and cover letter per role, rewrites only the mapped parts (keeping your fonts and layout) and exports PDFs after you approve. Figma stays the default for designers; text mode remains for a PDF-only CV.
+
 ## 0.4.1 · 2026-11-18
 
 - **Downloads access**: README, setup and `tailor-application` say that exporting Figma PDFs through a browser needs access to the Downloads folder, where the files land before moving to the company folder.

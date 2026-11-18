@@ -1,6 +1,6 @@
 ---
 name: tailor-application
-description: Tailors the user's CV and writes a cover letter for a chosen role, in Figma (duplicates the base frames and rewrites only the mapped text layers) or as text if the user has no Figma CV. Exports PDFs only after the user approves, and updates Notion to CV ready.
+description: Tailors the user's CV and writes a cover letter for a chosen role, in Figma (duplicates the base frames and rewrites only the mapped text layers), in a copy of the user's Word, Pages or Google Docs file, or as text if there is no designed CV. Exports PDFs only after the user approves, and updates Notion to CV ready.
 ---
 
 # Tailor an application
@@ -24,6 +24,9 @@ Read the whole posting.
 - Split gaps into **coverable** (the user has done it but the CV doesn't say so) and **real** (not in any source: don't invent, mention for the letter or the interview).
 
 ## 2. CV in Figma
+
+Sections 2 to 5b are for `CV source: figma`. For Word, Pages or Google Docs go to 5d; with no designed CV, 5c.
+
 
 Use the Figma MCP (`create_session`, then `use_figma`; load the `figma-use` skill if your client has it).
 
@@ -71,9 +74,25 @@ If `settings.md` has `CV source: text`, skip sections 2 to 4 and 5b:
 2. Write the tailored CV and the letter as Markdown in the company folder: `CV_<Name>_<lang> (<Company>) <DATE>.md` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.md`. Same rules: reword and reorder only, same length, portfolio as the only link.
 3. After the user approves, convert both to PDF with whatever is available (pandoc, or an HTML file printed to PDF) using a clean one-column layout, which is also ATS friendly.
 
+## 5d. Document mode (Word, Pages, Google Docs)
+
+If `settings.md` has `CV source: document`. Same idea as Figma: the base files stay untouched, each role gets a copy, and only the mapped text changes, so the user's own layout survives.
+
+1. **Duplicate** the base CV and the base cover letter for the language (paths or links in `settings.md`) into `<applications folder>/*<Company>/`, named `CV_<Name>_<lang> (<Company>) <DATE>` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>`, keeping the extension.
+2. **Rewrite only the mapped parts** (the "Text map" in `settings.md`: headline, summary, bullets per job, skills, recipient, body, date). Replace text inside the existing paragraphs and runs so fonts, sizes, colours and spacing stay as they are; never rebuild the document. Keep a similar length so it doesn't spill onto another page. The letter follows the same rules as section 3 (250 to 350 words, portfolio as the only link).
+   - **Word (.docx)**: edit the copy with a docx library (e.g. python-docx), changing the text of runs, not the styles. If the agent has a Word skill, use it.
+   - **Google Docs**: copy the base Doc with the Google Drive MCP (or ask the user to make a copy and share the link), then edit the copy's text. Docs stay in Drive; the folder gets the PDFs.
+   - **Pages**: agents can't edit `.pages` files reliably. On a Mac with a shell, script Pages (AppleScript / `osascript`) to duplicate, replace text and export. Otherwise ask the user to export the base once to Word (File → Export To → Word) and use the Word flow; the PDF looks the same.
+3. **Check it**: export a PDF preview (or render the first page) and look for text cut off, a second page that wasn't there, or broken bold and links. Re-score with the new text.
+4. **Export PDFs after approval** (same rule as 5b), next to the copies:
+   - Word: LibreOffice (`soffice --headless --convert-to pdf`), or Word itself on the user's computer.
+   - Google Docs: download the copy as PDF through Drive (export as `application/pdf`).
+   - Pages: export from Pages (scripted or by the user).
+   If nothing can convert the file, say so and ask the user to use File → Export / Save as PDF; the copy is already in the folder.
+
 ## 6. Wrap up
 
 - Score before → after, and a short list of what changed.
 - Real gaps worth preparing for the interview.
-- Link to the Figma section (or the Markdown files) and the folder path. Ask: "Review it and tell me when to export the PDFs."
-- In Notion (`application-tracker`): Status "CV ready", Figma CV, Folder and CV score (`before → after`) filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.
+- Link to the Figma section (or the document copies, or the Markdown files) and the folder path. Ask: "Review it and tell me when to export the PDFs."
+- In Notion (`application-tracker`): Status "CV ready", Figma CV (or the link to the document copy), Folder and CV score (`before → after`) filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.

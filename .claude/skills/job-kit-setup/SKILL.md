@@ -47,7 +47,10 @@ Offer options built from the CV:
 
 ## Step 3 of 4 · Your files
 
-1. *Required.* Where is your CV designed? **Figma** (then: link to your CV frame and your cover letter frame; right-click the frame → Copy link; one language is enough) or **No Figma** (Word, Google Docs, PDF: the kit works in text mode with the CV in `context/`).
+1. *Required.* Where is your CV designed?
+   - **Figma** (the default for designers): link to your CV frame and your cover letter frame (right-click the frame → Copy link; one language is enough).
+   - **Word, Pages or Google Docs**: the path or link to your base CV and, if you have one, your base cover letter. The kit duplicates them for each role and keeps your layout. No base letter? It makes one from the CV's styles (same fonts and colours).
+   - **Only a PDF / nothing designed**: text mode, with the CV in `context/`.
 2. *Required.* Notion: link to the page where the tracker should live (an empty page is best).
 3. Applications folder: suggest `~/Documents/Job search/` and let them confirm or change. If PDFs will be exported from Figma through a browser, also ask for access to the **Downloads** folder (the files land there first).
 
@@ -59,11 +62,11 @@ Offer options built from the CV:
 
 ## Confirm
 
-Show a one-screen summary: roles, location and accepted work modes, salary, sources, Figma frames, Notion page, folder, and the pre-filled facts (achievements, skills), saying which ones came from LinkedIn or the portfolio and not from the CV. Ask: "Anything to fix?" Fix it, then continue.
+Show a one-screen summary: roles, location and accepted work modes, salary, sources, Figma frames or base documents, Notion page, folder, and the pre-filled facts (achievements, skills), saying which ones came from LinkedIn or the portfolio and not from the CV. Ask: "Anything to fix?" Fix it, then continue.
 
 ## Build (no questions)
 
-1. **Layer map** (Figma only). List the visible text layers of both Figma frames, map them to headline, summary, bullets per job, skills, recipient, body paragraphs and date, and pick the link colour (an accent fill already used in the letter). Only ask if a layer is ambiguous.
+1. **Layer map** (Figma) or **text map** (Word, Pages, Google Docs). List the visible text layers of both Figma frames, or the paragraphs of both documents, map them to headline, summary, bullets per job, skills, recipient, body paragraphs and date, and pick the link colour (an accent already used in the letter). Only ask if a part is ambiguous. For documents, also check what can export PDFs here (LibreOffice, Google Drive, Pages on a Mac) and note it in `settings.md`.
 2. **Notion.** Build the Jobs tracking page exactly as `notion/applications-schema.md` says, in order: page title, icon and intro text, divider, inline Applications database (DDL as written, with the colours), its views (Pipeline, Next actions, the mentor tab if enabled, All), and the Mentor panel only if intros are enabled. Fetch the page at the end and check it matches. Save the data source URLs.
 3. **Files.** Write `config/profile.md`, `config/settings.md` and `config/sources.md` from the `.example.md` templates. Create the applications folder.
 4. **Schedule.** If they chose search days, offer a scheduled task; create it only if they say yes. Also offer the weekly review reminder (default Thursday 12:00, section 5 of `notion/applications-schema.md`), only if they say yes.

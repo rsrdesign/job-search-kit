@@ -11,4 +11,4 @@ Good things to add:
 - Case study write-ups, performance reviews, recommendations.
 - `notes.md`: anything else (why you're leaving, what you're proud of, what you never want to do again).
 
-The kit only uses facts found here, in `config/profile.md` or in your base CV in Figma.
+The kit only uses facts found here, in `config/profile.md` or in your base CV (Figma, Word, Pages or Google Docs).

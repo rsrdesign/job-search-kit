@@ -4,7 +4,7 @@
 
 ## CV source
 
-- CV source: {{figma | text}}  <!-- text = no Figma: tailored CV and letter as Markdown → PDF -->
+- CV source: {{figma | document | text}}  <!-- document = Word, Pages or Google Docs copies; text = Markdown → PDF -->
 - Export PDFs: {{after approval | automatic}}  <!-- default: after approval -->
 
 ## Figma (only if CV source is figma)
@@ -36,6 +36,30 @@ Text layers the kit is allowed to rewrite, by layer name. Everything else stays 
 
 - Section fill: {{#E1E1E1}}, stroke: black 10%
 - Layout: CV left, cover letter right, 40 px gap, 60 px top padding
+
+## Document (only if CV source is document)
+
+- Format: {{docx | gdocs | pages}}
+- PDF export with: {{LibreOffice | Google Drive | Pages | Word | manual}}
+
+| Language | Base CV (path or link) | Base cover letter (path or link) |
+|---|---|---|
+| en | {{PATH_OR_URL}} | {{PATH_OR_URL}} |
+| es | {{PATH_OR_URL or "none"}} | {{PATH_OR_URL or "none"}} |
+
+### Text map
+
+Parts the kit is allowed to rewrite, by the heading or first words of the paragraph. Everything else stays as designed.
+
+| Role | CV | Cover letter |
+|---|---|---|
+| Headline / title | {{e.g. first line under the name}} | |
+| Summary | {{e.g. paragraph under "Profile"}} | |
+| Bullets per job | {{e.g. bullets under each job title}} | |
+| Skills | {{e.g. list under "Skills"}} | |
+| Recipient | | {{e.g. "Dear ..." line}} |
+| Body paragraphs | | {{e.g. all paragraphs between greeting and sign-off}} |
+| Date | | {{e.g. top-right date}} |
 
 ## Notion
 

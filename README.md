@@ -1,6 +1,6 @@
 # Open Source Job Search Kit
 
-An AI job-search copilot you run with your AI agent: Claude, Codex, Cursor or any agent that can read files and use MCP. It finds roles that fit you, tailors your CV and cover letter in Figma for each one, and keeps every application tracked in Notion. You review everything before it goes anywhere.
+An AI job-search copilot you run with your AI agent: Claude, Codex, Cursor or any agent that can read files and use MCP. It finds roles that fit you, tailors your CV and cover letter for each one (in Figma, or in Word, Pages or Google Docs), and keeps every application tracked in Notion. You review everything before it goes anywhere.
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
@@ -29,7 +29,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 ## Quick start
 
 1. Put your current CV in `context/` (PDF, Word export, Markdown or text). **This is the most important step:** the setup reads it and only asks what it can't find, about 10 questions instead of 30.
-2. Check the [checklist](#before-you-start-checklist). Notion connected is enough to start; Figma is optional.
+2. Check the [checklist](#before-you-start-checklist). Notion connected is enough to start; Figma is optional (Word, Pages and Google Docs work too).
 3. Open your agent (Claude Code, Codex, Cursor, the Claude desktop app…) and paste:
 
    ```
@@ -37,7 +37,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
    ```
 
    If you already downloaded the folder, open it and just say **"Set up my job search kit"**.
-4. Answer the 4-step form (about 5 minutes). Have the link to a Notion page ready, and the links to your Figma CV / cover letter frames if you use Figma.
+4. Answer the 4-step form (about 5 minutes). Have the link to a Notion page ready, and the links to your Figma CV / cover letter frames, or to your Word, Pages or Google Docs CV.
 5. Then say **"Find me new roles"**.
 
 ## What it does
@@ -45,7 +45,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 | Phase | What happens | What you do |
 |---|---|---|
 | 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste (LinkedIn included). Optional: city search with Google Jobs (SerpApi), Adzuna or Jooble. Scores each role 0 to 100 against your whole profile (CV, LinkedIn, portfolio) and drops the ones that don't fit, including work modes you don't accept. Saves the full posting in each card, so it's still there if the job is taken down. | Pick the roles you want. A weekly reminder lists what's waiting. |
-| 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role and groups them in a dated section. No Figma? Text mode writes both as Markdown. | Review and tweak, then say "export": the PDFs go to the company folder. |
+| 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role and groups them in a dated section. No Figma? It duplicates your Word, Pages or Google Docs CV and letter instead and keeps your layout; with only a PDF, text mode writes both as Markdown. | Review and tweak, then say "export": the PDFs go to the company folder. |
 | 3. Track | Creates a card per role in Notion with status, next action and date. Moves cards when you report news. Marks silent applications as "No response" after 6 weeks. | Tell it what you sent and what you heard back. |
 | Optional | Cross-checks companies against a mentor's LinkedIn network (with their permission) and suggests intros. | Ask your mentor. |
 
@@ -81,7 +81,8 @@ Required
 
 Optional
 
-- [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma the kit works in text mode.
+- [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma, see the next line.
+- [ ] **Or your CV in Word, Pages or Google Docs** (and a cover letter if you have one). The kit copies them per role and exports PDFs (LibreOffice or Word for .docx, Google Drive for Docs, Pages on a Mac; Pages files may need a one-time export to Word). With only a PDF, the kit works in text mode.
 - [ ] **A free key for a city-wide search engine**, to find roles at companies you don't know yet: [SerpApi](https://serpapi.com) (Google Jobs, 100 searches/month), [Adzuna](https://developer.adzuna.com) or [Jooble](https://jooble.org/api/about).
 - [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
 - [ ] **Access to your Downloads folder** (and the applications folder) for the agent, if it exports Figma PDFs through the browser: the files land in Downloads first and the agent moves them into each company folder.
@@ -106,10 +107,10 @@ Four short steps. It reads your CV first, so it only asks what it can't work out
 |---|---|
 | 1 · About you | Your CV (file, link or pasted text) and portfolio URL |
 | 2 · What you're looking for | Target roles, city and work mode, minimum salary, employment type |
-| 3 · Your files | Figma CV and cover letter frame links, Notion page, applications folder |
+| 3 · Your files | Figma CV and cover letter frame links (or your Word, Pages, Google Docs files), Notion page, applications folder |
 | 4 · Where to look | Companies you'd love to work for, search days, and whether a mentor will help with intros |
 
-Then it shows a summary to confirm and builds everything: Figma layer map, Notion tracker, config files. Anything else (deal-breakers, relocation, notice period) can be added later with "update my profile".
+Then it shows a summary to confirm and builds everything: Figma layer map (or the text map of your documents), Notion tracker, config files. Anything else (deal-breakers, relocation, notice period) can be added later with "update my profile".
 
 ## Folder structure
 
@@ -170,7 +171,7 @@ One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the fi
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.4.1**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.0**.
 
 ## License
 
