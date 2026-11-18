@@ -46,7 +46,7 @@ No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude
 
 | Phase | What happens | What you do |
 |---|---|---|
-| 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste (LinkedIn included). Optional: city search with Google Jobs (SerpApi), Adzuna or Jooble. Scores each role 0 to 100 against your whole profile (CV, LinkedIn, portfolio) and drops the ones that don't fit, including work modes you don't accept. Saves the full posting in each card, so it's still there if the job is taken down. | Pick the roles you want. A weekly reminder lists what's waiting. |
+| 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste. LinkedIn doesn't allow automated searches, so the kit can't search it, but you can paste any LinkedIn job link in the chat and it reads that posting. Optional: search Google Jobs in your city through SerpApi (needs a free SerpApi key), or Adzuna or Jooble. Scores each role 0 to 100 against your whole profile (CV, LinkedIn, portfolio) and drops the ones that don't fit, including work modes you don't accept. Saves the full posting in each card, so it's still there if the job is taken down. | Pick the roles you want. A weekly reminder lists what's waiting. |
 | 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role and groups them in a dated section. No Figma? It duplicates your Word, Pages or Google Docs CV and letter instead and keeps your layout; with only a PDF, text mode writes both as Markdown. | Review and tweak, then say "export": the PDFs go to the company folder. |
 | 3. Track | Creates a card per role in Notion with status, next action and date. Moves cards when you report news. Marks silent applications as "No response" after 6 weeks. | Tell it what you sent and what you heard back. |
 | Optional | No mentor? After you apply, it can suggest who to message at the company and draft a short LinkedIn note you send yourself. With a mentor, it cross-checks companies against their LinkedIn network (with their permission) and suggests intros. Can email the mentor a weekly list of who to message (as a draft, or sent on its own if you allow it) and read their reply 6 days later to update Notion. | Send the note, or ask your mentor. |
@@ -85,7 +85,8 @@ Required
 
 - [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma, see the next line.
 - [ ] **Or your CV in Word, Pages or Google Docs** (and a cover letter if you have one). The kit copies them per role and exports PDFs (LibreOffice or Word for .docx, Google Drive for Docs, Pages on a Mac; Pages files may need a one-time export to Word). With only a PDF, the kit works in text mode.
-- [ ] **A free key for a city-wide search engine**, to find roles at companies you don't know yet: [SerpApi](https://serpapi.com) (Google Jobs, 100 searches/month), [Adzuna](https://developer.adzuna.com) or [Jooble](https://jooble.org/api/about).
+- [ ] **A free SerpApi key for Google Jobs**, to find roles in your city at companies you don't know yet. The kit searches Google Jobs through [SerpApi](https://serpapi.com) (free plan: 100 searches a month). [Adzuna](https://developer.adzuna.com) and [Jooble](https://jooble.org/api/about) also work, with their own free keys.
+- [ ] **LinkedIn jobs: paste the link.** LinkedIn doesn't allow automated searches, so the kit can't look for roles there. When you see one you like, paste the job link in the chat and it reads the posting, scores it and adds it to Notion (a browser tool such as Claude in Chrome helps, because LinkedIn blocks most direct reads).
 - [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
 - [ ] **Access to your Downloads folder** (and the applications folder) for the agent, if it exports Figma PDFs through the browser: the files land in Downloads first and the agent moves them into each company folder.
 - [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
@@ -95,7 +96,7 @@ Required
 ## Setup
 
 1. Download or clone this repo into a folder on your computer.
-2. Optional: copy `.env.example` to `.env` and paste any search keys you have. The kit works without them.
+2. Optional: copy `.env.example` to `.env` and paste your search keys: `SERPAPI_KEY` for Google Jobs (via SerpApi), and/or Adzuna or Jooble. The kit works without them, using company and remote job boards.
 3. Skills: see [Works with](#works-with). With Claude Code there is nothing to do; other agents read `AGENTS.md`, which points them to the skills.
 4. Put anything that describes you in `context/`: your current CV as text or PDF, portfolio link, case studies, notes. It is read during setup and when tailoring.
 5. Ask your agent: **"Set up my job search kit"**. The `job-kit-setup` skill runs a 4-step form and writes `config/profile.md`, `config/settings.md` and `config/sources.md`.
