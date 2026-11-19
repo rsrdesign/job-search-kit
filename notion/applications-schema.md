@@ -31,7 +31,7 @@ Description: "One card per job. Every active application has a next action with 
 | Work mode | Select | Remote, Hybrid, On-site, Not stated |
 | Location | Text | |
 | Salary | Text | As published, or "Not stated" (in the posting's language, e.g. "No indicado") |
-| Suggested salary | Text | Only when the posting has no salary: a realistic gross yearly range for that company type, size and level, plus a short why (e.g. `€50-55K · mid-size edtech, senior IC`). Not too high, so the application isn't filtered out, and never below the floor in `settings.md`. A suggestion for forms and calls, not a fact from the posting |
+| Suggested salary | Text | Only when the posting has no salary: a realistic gross yearly range for that company type, size and level, plus a short why (e.g. `€50-55K · mid-size edtech, senior IC`). Not too high, so the application isn't filtered out, and never below the minimum salary in `profile.md`. A suggestion for forms and calls, not a fact from the posting |
 | Salary hint | Formula | Shows on To review cards only: the suggested salary with its why, or the published salary. It disappears once the card moves on, and stays in the detail |
 | Source | Select | Greenhouse, Ashby, Lever, Himalayas, Arbeitnow, Google Jobs, Adzuna, Jooble, LinkedIn, Indeed, Workable, Pasted link, Referral, Other. Anything the user pastes that isn't listed is "Pasted link" |
 | Job link | URL | |
