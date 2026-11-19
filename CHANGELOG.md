@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.8 · 2026-11-19
+
+- **Suggested salary**: when a posting has no salary, the card gets a realistic range for that company and level, with a short why, so you know what to type in application forms without pricing yourself out.
+- **Cleaner board**: To review cards show the salary hint (suggested or published) and lose it once you move on; the mentor status only appears once you've applied.
+
 ## 0.5.7 · 2026-11-19
 
 - **ATS coverage instead of CV score**: after tailoring, the card gets the % of the posting's key requirements that the CV shows (only real experience counts). On the board it appears as an `ATS 86%` pill on CV ready cards, next to the Match pill you already see in To review.

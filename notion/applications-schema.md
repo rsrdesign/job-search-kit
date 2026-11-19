@@ -30,7 +30,9 @@ Description: "One card per job. Every active application has a next action with 
 | Type | Select | Full-time, Freelance, Contract |
 | Work mode | Select | Remote, Hybrid, On-site, Not stated |
 | Location | Text | |
-| Salary | Text | As published, or "Not stated" |
+| Salary | Text | As published, or "Not stated" (in the posting's language, e.g. "No indicado") |
+| Suggested salary | Text | Only when the posting has no salary: a realistic gross yearly range for that company type, size and level, plus a short why (e.g. `€50-55K · mid-size edtech, senior IC`). Not too high, so the application isn't filtered out, and never below the floor in `settings.md`. A suggestion for forms and calls, not a fact from the posting |
+| Salary hint | Formula | Shows on To review cards only: the suggested salary with its why, or the published salary. It disappears once the card moves on, and stays in the detail |
 | Source | Select | Greenhouse, Ashby, Lever, Himalayas, Arbeitnow, Google Jobs, Adzuna, Jooble, LinkedIn, Indeed, Workable, Pasted link, Referral, Other. Anything the user pastes that isn't listed is "Pasted link" |
 | Job link | URL | |
 | Posted | Date | |
@@ -60,6 +62,8 @@ CREATE TABLE (
   "Work mode" SELECT('Remote':green, 'Hybrid':blue, 'On-site':purple, 'Not stated':gray),
   "Location" RICH_TEXT,
   "Salary" RICH_TEXT,
+  "Suggested salary" RICH_TEXT,
+  "Salary hint" FORMULA('if(prop("Status") == "To review", if(not empty(prop("Suggested salary")), prop("Suggested salary"), if(empty(prop("Salary")) or prop("Salary") == "Not stated", "", prop("Salary") + " · published")), "")'),
   "Source" SELECT('Greenhouse':green, 'Ashby':purple, 'Lever':blue, 'Himalayas':pink, 'Arbeitnow':orange, 'Google Jobs':blue, 'Adzuna':yellow, 'Jooble':brown, 'LinkedIn':purple, 'Indeed':blue, 'Workable':green, 'Pasted link':default, 'Referral':orange, 'Other':gray),
   "Job link" URL,
   "Posted" DATE,
@@ -77,7 +81,7 @@ CREATE TABLE (
 
 | View | Type | Icon | Config |
 |---|---|---|---|
-| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Score", "ATS", "Next action", "Next action date"; CARD LAYOUT compact` |
+| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Score", "ATS", "Next action", "Next action date", "Salary hint"; CARD LAYOUT compact` |
 | Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Score", "ATS coverage", "Applied on", "Job link"` |
 | All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
 
@@ -142,8 +146,9 @@ CREATE TABLE (
 | Mentor done | Checkbox | Ticked when the mentor sent the intro or message |
 | Mentor done on | Date | |
 | Mentor log | Text | What the mentor did, dated |
+| Mentor | Formula | The mentor status for cards only once you've applied: `if(or(prop("Status") == "Applied", prop("Status") == "Interview"), if(empty(prop("Mentor match")), "Mentor: Not checked", "Mentor: " + prop("Mentor match")), "")` |
 
-Also add "Mentor match" and "Mentor done on" to the Pipeline and Next actions views (a date stays hidden on the card until it is set; a checkbox would show on every card), and "Mentor match" to All. The Mentor fields stay empty until the card is Applied: the mentor can't help before the user has applied.
+Add "Mentor" (the formula, so To review and CV ready cards stay clean) and "Mentor done on" to the Pipeline view, "Mentor match" and "Mentor done on" to Next actions (a date stays hidden on the card until it is set; a checkbox would show on every card), and "Mentor match" to All. The Mentor fields stay empty until the card is Applied: the mentor can't help before the user has applied.
 
 Mentor tab on the Applications database (board, named with the mentor's first name, icon `icons/hand_gray`), created between Next actions and All: same filter and grouping as the panel board below, `SHOW "Application", "Status", "Mentor contacts", "Mentor done on", "Next action"`.
 
