@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.6 · 2026-11-19
+
+- **One language per application**: when a posting is in Spanish (or any other language), the CV, the letter and the Notion card are all written in that language, even if the rest of the board is in English.
+
 ## 0.5.5 · 2026-11-19
 
 - **Your own network**: share your LinkedIn connections CSV and, after you apply, the kit checks who you already know at that company before looking for strangers.

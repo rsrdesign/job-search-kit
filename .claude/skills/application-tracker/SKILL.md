@@ -19,7 +19,8 @@ When the user reports news ("I sent X", "Y rejected me", "interview with Z on Fr
    - Offer → **Offer**.
    - Decided not to apply / posting closed → **Discarded**.
 3. Append a dated line **inside the card** (page body): `YYYY-MM-DD: what happened (who)`. Never overwrite older lines.
-4. Set **one** Next action with a date, following the timing table in section 3 of `notion/applications-schema.md` (day 10 follow-up, day 24 last follow-up, day 42 No response).
+4. Write log lines, Next action and Contact notes in the language of the posting (Spanish posting → Spanish), even if other cards are in English.
+5. Set **one** Next action with a date, following the timing table in section 3 of `notion/applications-schema.md` (day 10 follow-up, day 24 last follow-up, day 42 No response).
 
 Only the user can make a card Applied. Never infer it from a prepared CV.
 

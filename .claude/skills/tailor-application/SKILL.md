@@ -13,6 +13,7 @@ Only for a role the user picked. Same employers, dates, titles and numbers: only
 
 - Posting written in a language the user has a base for → that language.
 - Otherwise → English (British English for UK / Europe).
+- Set **CV language** on the card, and if the card text is in another language than the posting, translate it to the posting's language before you start.
 
 ## 1. Score before touching anything
 
