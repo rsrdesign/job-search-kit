@@ -21,7 +21,7 @@ Read the whole posting.
 
 - Denominator = each must-have requirement in the posting.
 - Per line: 1 if the base CV names it, 0.5 if partly, 0 if not.
-- Show `n/d` with each line and its score, quoting the posting.
+- Show `n/d` and the % with each line and its score, quoting the posting. This is the **ATS coverage** before tailoring.
 - Split gaps into **coverable** (the user has done it but the CV doesn't say so) and **real** (not in any source: don't invent, mention for the letter or the interview).
 
 ## 2. CV in Figma
@@ -93,7 +93,7 @@ If `settings.md` has `CV source: document`. Same idea as Figma: the base files s
 
 ## 6. Wrap up
 
-- Score before → after, and a short list of what changed.
+- ATS coverage before → after as % (e.g. `64% → 86%`), and a short list of what changed. Only real experience counts: if a requirement is still missing, it stays missing.
 - Real gaps worth preparing for the interview.
 - Link to the Figma section (or the document copies, or the Markdown files) and the folder path. Ask: "Review it and tell me when to export the PDFs."
-- In Notion (`application-tracker`): Status "CV ready", Figma CV (or the link to the document copy), Folder and CV score (`before → after`) filled, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.
+- In Notion (`application-tracker`): Status "CV ready", Figma CV (or the link to the document copy), Folder and **ATS coverage** (the after %, as a number) filled, plus the covered / partial / missing list in the card body, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.

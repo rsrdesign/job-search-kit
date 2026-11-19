@@ -25,7 +25,8 @@ Description: "One card per job. Every active application has a next action with 
 | Status | Status | To do: To review · In progress: CV ready, Applied, Interview · Complete: Offer, Rejected, No response, Discarded |
 | Match | Number | 0 to 100, set by `job-search` (fit between the role and your profile) |
 | Score | Formula | The Match as a coloured pill for cards: green 90 to 100, yellow 60 to 89, red 0 to 59 |
-| CV score | Text | Set by `tailor-application`: requirements covered by the CV, before → after, e.g. `5/7 → 7/7` |
+| ATS coverage | Number | Set by `tailor-application` after tailoring: % of the posting's key requirements that appear explicitly in the tailored CV (1 if named, 0.5 if partly). Different from Match: Match is your real fit, ATS coverage is how well the CV shows it |
+| ATS | Formula | ATS coverage as a pill, e.g. `ATS 86%`, shown only on **CV ready** cards so the board stays simple: Match in To review, ATS in CV ready |
 | Type | Select | Full-time, Freelance, Contract |
 | Work mode | Select | Remote, Hybrid, On-site, Not stated |
 | Location | Text | |
@@ -53,7 +54,8 @@ CREATE TABLE (
   "Status" STATUS('To review':gray:to_do, 'CV ready':yellow:in_progress, 'Applied':blue:in_progress, 'Interview':purple:in_progress, 'Offer':green:complete, 'Rejected':red:complete, 'No response':default:complete, 'Discarded':brown:complete),
   "Match" NUMBER,
   "Score" FORMULA('if(empty(prop("Match")), "", if(prop("Match") >= 90, style(format(prop("Match")), "b", "green", "green_background"), if(prop("Match") >= 60, style(format(prop("Match")), "b", "yellow", "yellow_background"), style(format(prop("Match")), "b", "red", "red_background"))))'),
-  "CV score" RICH_TEXT,
+  "ATS coverage" NUMBER,
+  "ATS" FORMULA('if(prop("Status") == "CV ready" and not empty(prop("ATS coverage")), style("ATS " + format(prop("ATS coverage")) + "%", "b", "blue", "blue_background"), "")'),
   "Type" SELECT('Full-time':blue, 'Freelance':orange, 'Contract':yellow),
   "Work mode" SELECT('Remote':green, 'Hybrid':blue, 'On-site':purple, 'Not stated':gray),
   "Location" RICH_TEXT,
@@ -75,8 +77,8 @@ CREATE TABLE (
 
 | View | Type | Icon | Config |
 |---|---|---|---|
-| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Score", "Next action", "Next action date"; CARD LAYOUT compact` |
-| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Score", "CV score", "Applied on", "Job link"` |
+| Pipeline | Board | `icons/cards_gray` | `GROUP BY "Status" BY OPTION SHOW EMPTY; SORT BY "Match" DESC; SHOW "Application", "Score", "ATS", "Next action", "Next action date"; CARD LAYOUT compact` |
+| Next actions | Table | `icons/list_gray` | `FILTER "Status" IN ("CV ready", "Applied", "Interview"); SORT BY "Next action date" ASC; SHOW "Application", "Status", "Next action date", "Next action", "Score", "ATS coverage", "Applied on", "Job link"` |
 | All | Table | `icons/checklist_gray` | `SORT BY "Applied on" DESC; SHOW "Application", "Status", "Applied on", "Location", "Work mode", "Type", "Salary", "Source", "Job link", "CV language", "Figma CV", "Folder", "Contact", "Next action", "Next action date"` |
 
 Tab order the user should end up with: **Pipeline · Next actions · <Mentor> · All** (the mentor tab only if intros are enabled; see section 4).

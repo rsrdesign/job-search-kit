@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.7 · 2026-11-19
+
+- **ATS coverage instead of CV score**: after tailoring, the card gets the % of the posting's key requirements that the CV shows (only real experience counts). On the board it appears as an `ATS 86%` pill on CV ready cards, next to the Match pill you already see in To review.
+
 ## 0.5.6 · 2026-11-19
 
 - **One language per application**: when a posting is in Spanish (or any other language), the CV, the letter and the Notion card are all written in that language, even if the rest of the board is in English.
