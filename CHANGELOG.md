@@ -3,6 +3,7 @@
 ## 0.5.8 · 2026-11-19
 
 - **Suggested salary**: when a posting has no salary, the card gets a realistic range for that company and level, with a short why, so you know what to type in application forms without pricing yourself out.
+- **Real board preview** in the README.
 - **Cleaner board**: To review cards show the salary hint (suggested or published) and lose it once you move on; the mentor status only appears once you've applied.
 
 ## 0.5.7 · 2026-11-19

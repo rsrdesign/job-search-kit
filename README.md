@@ -18,11 +18,15 @@ Close-up of one section:
 
 ![Notion Pipeline board grouped by status](docs/images/notion-pipeline.png)
 
+**Preview of a real board**, from the job search this kit was built for: Match score in To review (with the salary hint), ATS coverage once the CV is ready, the mentor status only after applying, and a pill for referrals.
+
+![Preview of a real Notion board in use: To review, CV ready, Applied and Interview columns](docs/images/notion-pipeline-real.png)
+
 ![Notion Next actions table sorted by date](docs/images/notion-next-actions.png)
 
 ![Notion All table with every application and its columns](docs/images/notion-all.png)
 
-<sub>All names, companies and numbers in these images are fictional.</sub>
+<sub>All names, companies and numbers in these images are fictional, except the real board preview.</sub>
 
 ## Try it in 2 minutes (demo)
 
