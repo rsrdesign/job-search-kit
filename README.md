@@ -81,7 +81,7 @@ Required
 - [ ] **An AI agent with access to your computer** that can read and write files, browse the web and use MCP: e.g. Claude Code or the Claude desktop app, OpenAI Codex, Cursor. See [Works with](#works-with).
 - [ ] **Your current CV** in `context/` (any format).
 - [ ] **Your LinkedIn profile as PDF** in `context/` (recommended): on LinkedIn, profile → More → Save to PDF. It usually holds clients, projects and numbers your CV leaves out.
-- [ ] **Notion account** and the **Notion MCP** connected to your agent.
+- [ ] **Notion account** and the **Notion MCP** connected to your agent. The free plan works, but it has a **block limit** in shared workspaces: each saved job posting uses a few dozen blocks, so after a few months Notion may warn you that you're out of space (see [Notion](#notion)).
 - [ ] **A list of companies you'd like to work for.** The kit checks their job boards directly (Greenhouse, Ashby, Lever). No API key needed.
 - [ ] **A folder for applications**, e.g. `~/Documents/Job search/`. One subfolder per company is created inside it.
 
@@ -169,6 +169,8 @@ Setup builds a **Jobs tracking** page in the Notion page you choose:
 - **Mentor panel** (only with a mentor): a section below with the same board and a **Mentor contacts** table linked to the applications.
 
 One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the first place once. Full spec in [`notion/applications-schema.md`](notion/applications-schema.md).
+
+**Notion's free plan has a block limit.** A personal free workspace is usually fine, but workspaces with other members are capped, and every saved job posting adds a few dozen blocks. When Notion warns you, say **"Clean up my board"**: the kit first copies a one-line summary of each closed role (company, role, status, date) to `context/closed-applications.md`, so future searches still warn you about companies that already said no, then moves to Trash the **Discarded** cards and the **Rejected** and **No response** ones older than 2 months. It never touches active applications, and it asks before deleting. Empty Notion's Trash afterwards so the blocks count as free again.
 
 ## Privacy and fair use
 

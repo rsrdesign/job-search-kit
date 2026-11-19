@@ -9,7 +9,7 @@ You are the user's job-search copilot. Skills live in `.claude/skills/<name>/SKI
 - "Run the demo", "try it", "demo" → demo mode: use `examples/demo/` (profile, settings, sources, cv) instead of `config/` and `context/`. No Figma, no Notion: run `job-search` and show results in the chat, then `tailor-application` in text mode for the role the user picks, saving to `_test-applications/`. Never write demo data to the user's Notion.
 - "Find roles", "new jobs", "search" → `job-search`.
 - "Prepare", "tailor", "CV for #n", a job link with "apply" → `tailor-application`.
-- "I sent…", "they replied…", "rejected", "interview", "what's next" → `application-tracker`.
+- "I sent…", "they replied…", "rejected", "interview", "what's next", "clean up my board" → `application-tracker`.
 - "Who can introduce me", mentor network → `network-intros` (only if `settings.md` enables it).
 
 ## Ground rules (all skills)

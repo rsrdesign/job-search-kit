@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.9 · 2026-11-19
+
+- **Notion free plan block limit**: documented in the README and the checklist, with a "Clean up my board" routine that keeps a short history of closed roles before moving old cards to Trash.
+
 ## 0.5.8 · 2026-11-19
 
 - **Suggested salary**: when a posting has no salary, the card gets a realistic range for that company and level, with a short why, so you know what to type in application forms without pricing yourself out.

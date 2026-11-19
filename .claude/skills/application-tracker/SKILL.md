@@ -53,4 +53,13 @@ When the scheduled reminder runs (or the user asks "what's pending to review"), 
 
 ## Weekly hygiene (when asked, or after `job-search`)
 
-Apply the timing table in section 3 of `notion/applications-schema.md` to every active card. Never delete cards.
+Apply the timing table in section 3 of `notion/applications-schema.md` to every active card. Never delete cards during hygiene.
+
+## Clean up my board (Notion free plan block limit)
+
+Only when the user asks ("clean up my board") or Notion warns that the workspace is out of blocks.
+
+1. List the candidates: **Discarded** cards, plus **Rejected** and **No response** cards applied more than 2 months ago. Leave out anything linked to an active process or a contact the user wants to keep, and say which ones you left and why.
+2. Append one line per card to `context/closed-applications.md` (create it if missing): `Company · Role · Status · Applied on`. Future searches read this file, so the user still gets a warning about companies that already said no.
+3. Show the list and ask before deleting. Then move the cards to Notion's Trash (never a permanent delete).
+4. Tell the user to empty Notion's Trash so the blocks count as free again.
