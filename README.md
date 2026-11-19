@@ -1,4 +1,4 @@
-# Shortlist
+# Job Search Kit
 
 **AI job search kit**, built by a designer, for designers and anyone with a CV.
 
