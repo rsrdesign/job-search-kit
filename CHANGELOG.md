@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.5 · 2026-11-19
+
+- **Your own network**: share your LinkedIn connections CSV and, after you apply, the kit checks who you already know at that company before looking for strangers.
+- **How to export LinkedIn connections** (official export, a few clicks) in `context/README.md`, for your own network or a mentor's.
+
 ## 0.5.4 · 2026-11-18
 
 - **Mentor reply check** (optional): 6 days after the weekly mentor email, the kit reads the reply and updates Notion (intro done, date, log, follow-up with the contact). Unclear answers are passed to you instead of being guessed. It never replies.

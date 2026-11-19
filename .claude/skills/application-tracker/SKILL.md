@@ -29,7 +29,8 @@ If the Mentor panel is enabled in `settings.md` and a card becomes Applied or In
 
 Only if `settings.md` has `Reach out myself: on` (offered in setup to users without a mentor). When a card becomes **Applied**:
 
-1. Find the person closest to the hire: first anyone the saved posting names (hiring manager, recruiter); otherwise the design lead or, at a small company, a founder, from the company's own site, news or public profiles. Only names that appear in a source; say which. Never guess emails.
+1. **Your own network first**: if `settings.md` has a `My network CSV`, look for people at that company (Company column, and the Position text, since Company is often empty). Someone you already know beats a stranger: a peer designer, the design lead or a recruiter. Write them in Contact as "In your network: <Name>, <Position> (connected <date>)" with their profile URL, and skip to step 3 with a warmer note (you can mention how you know them).
+   Then, or if nobody is there, find the person closest to the hire: first anyone the saved posting names (hiring manager, recruiter); otherwise the design lead or, at a small company, a founder, from the company's own site, news or public profiles. Only names that appear in a source; say which. Never guess emails.
 2. Write it in the card's **Contact** field (name, position, LinkedIn link or a LinkedIn search link with name and company).
 3. Draft a **short LinkedIn connection note** for the user to send themselves: under 200 characters (the limit without Premium), first person, natural, naming the role they applied for and one concrete thing they bring that the posting asks for. Example: "Hi Sara, I've just applied for your Design Systems Designer role. I built and scaled a design system across 15 brands, so this one feels close to home. Would love to connect."
 4. Next action: "Message <Name> on LinkedIn", tomorrow. Nobody found → say so in Contact and skip it.

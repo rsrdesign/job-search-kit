@@ -89,7 +89,7 @@ Required
 - [ ] **LinkedIn jobs: paste the link.** LinkedIn doesn't allow automated searches, so the kit can't look for roles there. When you see one you like, paste the job link in the chat and it reads the posting, scores it and adds it to Notion (a browser tool such as Claude in Chrome helps, because LinkedIn blocks most direct reads).
 - [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
 - [ ] **Access to your Downloads folder** (and the applications folder) for the agent, if it exports Figma PDFs through the browser: the files land in Downloads first and the agent moves them into each company folder.
-- [ ] **A mentor's LinkedIn connections CSV**, shared with their consent, for the intros panel.
+- [ ] **Your own LinkedIn connections CSV** (and/or a mentor's, shared with their consent): after you apply, the kit checks who you or your mentor already know at that company. LinkedIn exports it in a few clicks: see [how to export your connections](context/README.md#exporting-linkedin-connections-as-a-csv).
 - [ ] **A scheduled task** so the search runs on the days you choose (suggested: Monday and Wednesday at 8:30, with the computer on).
 - [ ] **A weekly review reminder** (optional, default Wednesday 12:30, after the second search) that lists the roles waiting in To review, best match first.
 
@@ -174,7 +174,7 @@ One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the fi
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.4**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.5**.
 
 ## License
 

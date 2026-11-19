@@ -84,6 +84,7 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 ## Reach out myself (optional, for users without a mentor)
 
 - Reach out myself: {{on | off}}  <!-- after you apply, suggests who to message and drafts a short LinkedIn note you send yourself -->
+- My network CSV: {{context/my-network.csv or "none"}}  <!-- your own LinkedIn connections export, checked first -->
 
 ## Mentor panel (optional)
 
