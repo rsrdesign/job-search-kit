@@ -55,11 +55,11 @@ When the scheduled reminder runs (or the user asks "what's pending to review"), 
 
 Apply the timing table in section 3 of `notion/applications-schema.md` to every active card. Never delete cards during hygiene.
 
-## Clean up my board (Notion free plan block limit)
+## Clean up my board
 
-Only when the user asks ("clean up my board") or Notion warns that the workspace is out of blocks.
+Only when the user asks ("clean up my board"). This keeps the board readable; it does not free Notion blocks. If Notion warns that the workspace is out of blocks, explain instead that free workspaces with two or more members have a lifetime cap of 1,000 blocks that deletions don't restore, and that the fix is a workspace where the user is the only member, or a paid plan.
 
 1. List the candidates: **Discarded** cards, plus **Rejected** and **No response** cards applied more than 2 months ago. Leave out anything linked to an active process or a contact the user wants to keep, and say which ones you left and why.
 2. Append one line per card to `context/closed-applications.md` (create it if missing): `Company · Role · Status · Applied on`. Future searches read this file, so the user still gets a warning about companies that already said no.
 3. Show the list and ask before deleting. Then move the cards to Notion's Trash (never a permanent delete).
-4. Tell the user to empty Notion's Trash so the blocks count as free again.
+4. Cards stay in Notion's Trash for 30 days; the user can empty it sooner. Don't promise that this frees blocks.

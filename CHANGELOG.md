@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.10 · 2026-11-22
+
+- **Notion block limit, corrected**: the cap only applies to free workspaces with two or more members, it counts every block ever created, and deleting cards or emptying the Trash doesn't give blocks back. The README now says to keep the board in a workspace where you're the only member (unlimited on the free plan) or upgrade. "Clean up my board" is still there, but only to keep the board readable.
+
 ## 0.5.9 · 2026-11-19
 
 - **Notion free plan block limit**: documented in the README and the checklist, with a "Clean up my board" routine that keeps a short history of closed roles before moving old cards to Trash.
