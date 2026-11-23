@@ -6,7 +6,7 @@ You run it with your AI agent (Claude, Codex, Cursor…). It finds roles that fi
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
-![Base CV and cover letter on the left, then one dated section per company with the tailored CV and cover letter](docs/images/figma-sections.png)
+![The setup form, tailored CVs and cover letters in Figma, and the Notion board with every application](docs/images/preview.jpg)
 
 > **You don't need to read the rest of the files.** The folders `.claude/skills/` and `notion/` are instructions for your agent, not for you. You talk to the agent in plain language; it reads them.
 
@@ -53,6 +53,10 @@ Then say **"Find me new roles"**. When you like one, say **"Prepare my applicati
 | **2. Tailor** | Copies your CV and cover letter (Figma, Word, Pages or Google Docs) and rewrites the headline, summary, bullet order, skills and letter for that role. Also makes a **one-column ATS version** for job portals. Never invents experience: it only rewords and reorders what you've done. | Review, tweak and say "export": the PDFs go to the company folder. |
 | **3. Track** | One card per role in Notion with status, next action and date. Moves cards when you tell it what happened. | Tell it what you sent and what you heard back. |
 | **Optional** | After you apply, suggests who to message at the company and drafts a short note you send yourself. With a mentor who shares their LinkedIn connections, it finds who could introduce you. | Send the note, or ask your mentor. |
+
+**Tailored CV and cover letter in Figma**: your base files stay untouched, and each role gets its own dated section:
+
+![Base CV and cover letter on the left, then one dated section per company with the tailored CV and cover letter](docs/images/figma-sections.png)
 
 **Every application tracked in Notion**, with a status, a match score and one next action with a date:
 
