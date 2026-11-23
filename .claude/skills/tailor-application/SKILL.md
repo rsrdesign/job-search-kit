@@ -79,7 +79,7 @@ When the user says "export", "looks good", "approved" (or the setting is automat
 1. Export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save as `CV_<Name>_<lang> (<Company>) <DATE>.pdf` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.pdf`.
    - If your environment can't reach figma.com directly, download them through a browser tool (e.g. Claude in Chrome) (open `https://www.figma.com/robots.txt`, `fetch` each asset URL, save them with an `<a download>`; bundle several files in one zip to avoid the multiple-downloads block) and move them from Downloads into the folder. This needs the agent to have access to your **Downloads** folder as well as the applications folder (in the Claude desktop app: grant both folders when asked). Without it, the PDFs stay in Downloads and you move them yourself.
 2. Export the ATS CV too: `CV_<Name>_<lang> ATS (<Company>) <DATE>.pdf`. If it has one frame per page, merge them into one PDF (e.g. pypdf).
-3. **Document properties.** Set them on every PDF, after merging (merging drops them), e.g. with pypdf (`add_metadata`, plus `/Lang` and `/ViewerPreferences` on the root):
+3. **Document properties.** Set them on every PDF, after merging (merging drops them), with `scripts/pdf_metadata.py` (needs pypdf) or the same calls in your own code:
    - **Title**: `<Full name> · CV`, `<Full name> · CV (ATS)` or `<Full name> · Cover letter`. Not the target company, in case the file is forwarded.
    - **Author**: `PDF author` in `settings.md`.
    - **Subject**: the tailored headline.

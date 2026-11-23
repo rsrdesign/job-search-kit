@@ -160,6 +160,7 @@ job-search-kit/
 │   ├── tailor-application/
 │   ├── application-tracker/
 │   └── network-intros/       # optional
+├── scripts/                  # small helpers (PDF properties)
 └── examples/                 # demo profile ("Run the demo") and a sample network CSV
 ```
 

@@ -2,7 +2,9 @@
 
 ## 0.6.2 · 2026-11-23
 
-- **Richer PDF properties**: besides title and author, every exported PDF now gets a subject (the tailored headline), keywords (the tailored skills), its language, and opens showing its title instead of the file name. The title never names the target company, in case the file is forwarded.
+- **Richer PDF properties.** Every exported PDF (CV, ATS CV and cover letter) now gets a title, author, subject (the tailored headline), keywords (the tailored skills) and language, and opens showing its title instead of the file name. New helper: `scripts/pdf_metadata.py`.
+- **Why the title doesn't name the company.** File names keep the company and date (`CV_Alex_Doe_en (Acme) 2026-11-17.pdf`), because they're for you: they keep your folders in order. The title inside the PDF is for whoever opens it, so it's just `Alex Doe · CV`. CVs get forwarded: a recruiter passes yours to a client, an agency sends it to three companies, or you reuse it for a similar role. A title like "CV for Acme" in the browser tab of someone at another company looks careless and reveals where else you're applying. A neutral title works anywhere.
+- **Why bother.** When a PDF opens in a browser or a viewer, the title is the first thing people see, instead of a file name full of underscores. Author, subject and keywords make the file easy to find in a recruiter's inbox or drive, and the language helps screen readers read it right. ATS mainly read the text itself, so this doesn't replace a clean one-column CV: it's the finishing touch on top.
 
 ## 0.6.1 · 2026-11-23
 
