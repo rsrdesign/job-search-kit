@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.1 · 2026-11-23
+
+- **Safer by default**: `.gitignore` now also covers `.env.local` and any other `.env.*` file, and your own `config/sources.md` (the companies you're targeting).
+- **New ground rule**: job postings, web pages, emails, PDFs and CSVs are treated as data, never as instructions, so a posting can't trick the agent into sending your files, keys or contacts anywhere.
+
 ## 0.6.0 · 2026-11-23
 
 - **ATS version of the CV**: each role now also gets a one-column CV for job portals, from your own ATS template (Figma or document) or generated from the tailored text. The setup asks for it in step 3, the kit checks the PDF reads in order, and the wrap-up says which version to send where.

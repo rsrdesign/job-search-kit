@@ -173,13 +173,13 @@ Job search/
 
 ## Privacy and fair use
 
-- Your profile, settings, `.env`, `context/` and any network CSV are git-ignored: they never leave your computer through git.
+- Your profile, settings, target companies, `.env`, `context/` and any network CSV are git-ignored: they never leave your computer through git.
 - A mentor's contacts are their personal data. Only use them with consent and never publish them.
 - Respect job boards' terms. For LinkedIn, paste the link or the text; the kit doesn't scrape it.
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.0**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.1**.
 
 ## License
 

@@ -1,7 +1,10 @@
 # Personal data: never commit
 .env
+.env.*
+!.env.example
 config/profile.md
 config/settings.md
+config/sources.md
 context/*
 !context/README.md
 *.csv
