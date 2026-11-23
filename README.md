@@ -2,148 +2,161 @@
 
 **An AI copilot for your job search**, built by a designer, for designers and anyone with a CV.
 
-An AI job-search copilot you run with your AI agent: Claude, Codex, Cursor or any agent that can read files and use MCP. It finds roles that fit you, tailors your CV and cover letter for each one (in Figma, or in Word, Pages or Google Docs), and keeps every application tracked in Notion. You review everything before it goes anywhere.
+You run it with your AI agent (Claude, Codex, Cursor…). It finds roles that fit you, tailors your CV and cover letter for each one, and keeps every application tracked in Notion. **Nothing is sent without you**: you review everything and you hit send.
 
 Built by a product designer for her own job search, then stripped of personal data and shared as a template.
 
-**Tailored CV and cover letter in Figma**: your base files stay untouched, and each role gets its own dated section with both documents:
-
 ![Base CV and cover letter on the left, then one dated section per company with the tailored CV and cover letter](docs/images/figma-sections.png)
 
-Close-up of one section:
+> **You don't need to read the rest of the files.** The folders `.claude/skills/` and `notion/` are instructions for your agent, not for you. You talk to the agent in plain language; it reads them.
 
-![Tailored CV and cover letter for one role, grouped in a dated section](docs/images/figma-cv-cover-letter.png)
+## Try it in 2 minutes
 
-**Every application tracked in Notion**, with a status, a colour-coded match score, a saved copy of the job posting and one next action with a date:
+No Figma, no Notion, no keys. Download the repo (see step 1 below), open the folder with your agent and say **"Run the demo"**. It searches real job boards for a fictional designer (Alex Doe), scores the roles in the chat and writes a tailored CV and cover letter as text in `_test-applications/`.
 
-![Notion Pipeline board grouped by status](docs/images/notion-pipeline.png)
+## Start in 15 minutes
 
-**Preview of a real board**, from the job search this kit was built for: Match score in To review (with the salary hint), ATS coverage once the CV is ready, the mentor status only after applying, and a pill for referrals.
+**You need three things:**
 
-![Preview of a real Notion board in use: To review, CV ready, Applied and Interview columns](docs/images/notion-pipeline-real.png)
+1. **An AI agent that can work with files on your computer**, e.g. the Claude desktop app with a folder connected, Claude Code, Codex or Cursor.
+2. **Your current CV**, in any format (PDF, Word, text).
+3. **Notion connected to your agent** (free account, see [Notion](#notion)). It's where your applications live.
 
-![Notion Next actions table sorted by date](docs/images/notion-next-actions.png)
+**Then three steps:**
 
-![Notion All table with every application and its columns](docs/images/notion-all.png)
-
-<sub>All names, companies and numbers in these images are fictional, except the real board preview.</sub>
-
-## Try it in 2 minutes (demo)
-
-No Figma, Notion or keys needed. Clone the repo, open it with your agent (Claude Code, Codex, Cursor, or the Claude desktop app with the folder connected) and say **"Run the demo"**. It searches real job boards for a fictional designer (Alex Doe, `examples/demo/`), scores the roles in the chat and tailors a CV and cover letter as text in `_test-applications/` (git-ignored).
-
-## Quick start
-
-1. **Check the [checklist](#before-you-start-checklist).** Notion connected is enough to start; Figma is optional (Word, Pages and Google Docs work too).
-2. **Get the kit into a folder on your computer.** Open your agent (Claude Code, Codex, Cursor, the Claude desktop app…) and paste:
+1. **Get the kit.** Ask your agent:
 
    ```
    Clone https://github.com/rsrdesign/job-search-kit into a new folder on my computer (for example Documents/job-search-kit) and open it.
    ```
 
-   No git? On GitHub click **Code → Download ZIP**, unzip it where you like, and open that folder in your agent (in the Claude desktop app, connect the folder).
-3. **Add your files.** Drop your current CV (PDF, Word, Markdown or text) into the kit's `context/` folder and, for extra context, the CV that LinkedIn exports from your profile (on your profile: **More → Save to PDF**). It often has roles, skills and recommendations your CV leaves out. The setup reads them and fills in most of your profile for you, so it only asks about what it can't find there (about 10 short questions). You can also give it a path or paste the text when it asks.
-4. **Run the setup.** Say **"Set up my job search kit"** and answer the 4-step form (about 5 minutes). Have ready: the link to a Notion page, your portfolio or website, and the links to your Figma CV and cover letter frames (or your Word, Pages or Google Docs CV).
-5. **Start.** Say **"Find me new roles"**. The setup can also schedule this for you (suggested: Monday and Wednesday mornings).
+   Or on GitHub click **Use this template** (your own copy) or **Code → Download ZIP**, unzip it and open the folder with your agent.
+2. **Add your CV.** Drop it into the kit's `context/` folder. Also add your LinkedIn profile as a PDF if you can (on LinkedIn: your profile → **More → Save to PDF**): it often has roles and projects your CV leaves out.
+3. **Say "Set up my job search kit".** It reads your CV first, then asks only what it can't work out, in a short 4-step form (about 5 minutes):
+
+   | Step | Asks |
+   |---|---|
+   | 1 · About you | Your CV and your portfolio or website |
+   | 2 · What you're looking for | Roles, city and work mode, minimum salary, type of contract |
+   | 3 · Your files | Where your CV is designed (Figma, Word, Pages, Google Docs or just a PDF), an optional ATS version, the Notion page, the applications folder |
+   | 4 · Where to look | Companies you'd love to work for, search days, and whether a mentor will help with intros |
+
+   Every step except the required questions can be skipped. It shows a summary, you confirm, and it builds your Notion board and your settings.
+
+Then say **"Find me new roles"**. When you like one, say **"Prepare my application for #2"**.
 
 ## What it does
 
-| Phase | What happens | What you do |
+| | What the kit does | What you do |
 |---|---|---|
-| 1. Find roles | Searches company job boards (Greenhouse, Ashby, Lever), remote job boards (Himalayas, Arbeitnow) and any links you paste. LinkedIn doesn't allow automated searches, so the kit can't search it, but you can paste any LinkedIn job link in the chat and it reads that posting. Optional: search Google Jobs in your city through SerpApi (needs a free SerpApi key), or Adzuna or Jooble. Scores each role 0 to 100 against your whole profile (CV, LinkedIn, portfolio) and drops the ones that don't fit, including work modes you don't accept. Saves the full posting in each card, so it's still there if the job is taken down. | Pick the roles you want. A weekly reminder lists what's waiting. |
-| 2. Tailor | Duplicates your CV and cover letter in Figma, rewrites the headline, summary, bullets, skills and letter for that role and groups them in a dated section. No Figma? It duplicates your Word, Pages or Google Docs CV and letter instead and keeps your layout; with only a PDF, text mode writes both as Markdown. | Review and tweak, then say "export": the PDFs go to the company folder. |
-| 3. Track | Creates a card per role in Notion with status, next action and date. Moves cards when you report news. Marks silent applications as "No response" after 6 weeks. | Tell it what you sent and what you heard back. |
-| Optional | No mentor? After you apply, it can suggest who to message at the company and draft a short LinkedIn note you send yourself. With a mentor, it cross-checks companies against their LinkedIn network (with their permission) and suggests intros. Can email the mentor a weekly list of who to message (as a draft, or sent on its own if you allow it) and read their reply 6 days later to update Notion. | Send the note, or ask your mentor. |
+| **1. Find roles** | Searches company job boards and remote job boards, plus any link you paste (LinkedIn included). Scores each role 0 to 100 against your whole profile and drops the ones that don't fit, like work modes you don't accept. Saves a copy of each posting, in case it's taken down. | Pick the roles you want. |
+| **2. Tailor** | Copies your CV and cover letter (Figma, Word, Pages or Google Docs) and rewrites the headline, summary, bullet order, skills and letter for that role. Also makes a **one-column ATS version** for job portals. Never invents experience: it only rewords and reorders what you've done. | Review, tweak and say "export": the PDFs go to the company folder. |
+| **3. Track** | One card per role in Notion with status, next action and date. Moves cards when you tell it what happened. | Tell it what you sent and what you heard back. |
+| **Optional** | After you apply, suggests who to message at the company and drafts a short note you send yourself. With a mentor who shares their LinkedIn connections, it finds who could introduce you. | Send the note, or ask your mentor. |
+
+**Every application tracked in Notion**, with a status, a match score and one next action with a date:
+
+![Notion Pipeline board grouped by status](docs/images/notion-pipeline.png)
+
+**Preview of a real board**, from the job search this kit was built for: match score while you review, ATS coverage once the CV is ready, the mentor status only after applying, and a pill for referrals.
+
+![Preview of a real Notion board in use: To review, CV ready, Applied and Interview columns](docs/images/notion-pipeline-real.png)
+
+<details>
+<summary>More screenshots</summary>
+
+Close-up of one Figma section:
+
+![Tailored CV and cover letter for one role, grouped in a dated section](docs/images/figma-cv-cover-letter.png)
+
+![Notion Next actions table sorted by date](docs/images/notion-next-actions.png)
+
+![Notion All table with every application and its columns](docs/images/notion-all.png)
+
+</details>
+
+<sub>All names, companies and numbers in these images are fictional, except the real board preview.</sub>
 
 ### Ground rules baked into every skill
 
 - **Nothing is sent automatically.** No applications, emails or messages leave without you.
 - **No invented experience.** The CV is reworded and reordered, never padded.
-- **You own your data.** Your profile, CVs and keys stay on your computer. `.gitignore` keeps them out of git.
+- **You own your data.** Your profile, CVs and keys stay on your computer and out of git.
+
+## Two CVs: designed and ATS
+
+Many companies run applications through an **ATS** (applicant tracking system), software that reads your CV as plain text. CVs with columns, often made in Figma or Canva, can come out of a PDF in the wrong order or with broken words. So for each role the kit prepares:
+
+- **The designed CV**, for people: send it when a recruiter or hiring manager asks for it directly.
+- **A one-column ATS version**, for job portals and application forms. If you have your own one-column template, the setup asks for it; if not, the kit makes a plain one from the tailored text.
+
+It checks the ATS version the way an ATS would (extracting the text) and sets the PDF's title and author.
+
+## Extras, when you want them
+
+None of these are needed to start. Add them any time by telling your agent.
+
+| Extra | What it's for |
+|---|---|
+| **Figma** (and its MCP connected) | Tailor a designed CV and cover letter right in your Figma file. Without it, the kit works with Word, Pages, Google Docs or plain text. |
+| **Companies you'd love to work for** | The kit checks their job boards directly (Greenhouse, Ashby, Lever). No key needed. |
+| **A free search key** ([SerpApi](https://serpapi.com), [Adzuna](https://developer.adzuna.com) or [Jooble](https://jooble.org/api/about)) | Find roles in your city at companies you don't know yet. Copy `.env.example` to `.env` and paste the key there, never in the chat. |
+| **A browser tool** (e.g. Claude in Chrome) | Read LinkedIn links, which block most direct reads, and download Figma PDFs if your setup can't reach figma.com. |
+| **Access to your Downloads folder** | When PDFs come from Figma through the browser, they land in Downloads first and the agent moves them to each company folder. |
+| **Your LinkedIn connections** (or a mentor's, with consent) | After you apply, see who you already know at the company. [How to export them](context/README.md#exporting-linkedin-connections-as-a-csv). |
+| **Scheduled searches** | The search runs on its own, e.g. Monday and Wednesday at 8:30 (with the computer on), plus a weekly reminder of what's waiting. |
+
+## Words you'll see
+
+- **Agent**: an AI assistant that can read and write files on your computer and use tools, like the Claude desktop app, Claude Code, Codex or Cursor.
+- **MCP**: the way an agent connects to other apps. "Connect the Notion MCP" means letting your agent use your Notion. You do it once, in your agent's settings.
+- **ATS**: applicant tracking system, the software many companies use to receive and filter CVs.
+- **ATS coverage**: the share of the posting's must-haves your CV names, before and after tailoring.
+- **Frame**: a board in Figma. Your CV and cover letter are each one frame.
+
+## Notion
+
+Setup builds a **Jobs tracking** page in the Notion page you choose: a short intro and the **Applications** table, with these tabs:
+
+- **Pipeline**: a board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded), with the match as a coloured pill.
+- **Next actions**: active applications sorted by the date of their next step.
+- **<Mentor's name>** (only with a mentor): roles where they could make an intro.
+- **All**: every application with all its columns.
+
+One manual step: Notion can't reorder tabs from outside, so drag **Pipeline** to the first place once.
+
+**Use a workspace where you're the only member.** On Notion's free plan, a workspace with a single member has unlimited blocks. A workspace with two or more members is capped at 1,000 blocks for its whole life: deleting cards or emptying the Trash doesn't give them back, and each saved job posting uses a few dozen. If you're already capped, create a personal workspace (or remove the other members) and move the Jobs tracking page there, or upgrade to a paid plan.
+
+Saying **"Clean up my board"** keeps the board readable: it saves a one-line summary of each closed role to `context/closed-applications.md` (so future searches still warn you about companies that said no) and moves old Discarded, Rejected and No response cards to Trash, after asking. It doesn't free blocks.
 
 ## Works with
 
-The kit is plain Markdown: instructions (`AGENTS.md` / `CLAUDE.md`), skills (`.claude/skills/*/SKILL.md`) and config files. Any agent that can **read and write files, fetch web pages and use MCP servers** (Figma, Notion) can run it.
+The kit is plain Markdown: instructions (`AGENTS.md` / `CLAUDE.md`), skills (`.claude/skills/*/SKILL.md`) and config files. Any agent that can **read and write files, fetch web pages and use MCP** can run it.
 
 | Agent | How it picks up the kit |
 |---|---|
-| Claude Code / Claude desktop app | Reads `CLAUDE.md` and loads `.claude/skills/` automatically. |
+| Claude desktop app / Claude Code | Reads `CLAUDE.md` and loads `.claude/skills/` automatically. |
 | OpenAI Codex | Reads `AGENTS.md`, which tells it to open the matching `SKILL.md` before each task. |
 | Cursor | Reads `AGENTS.md`. Optionally copy `.claude/skills/*` into `.cursor/skills/`. |
-| Other agents (Windsurf, Gemini CLI, Copilot agent…) | Point them to `AGENTS.md`, or paste it as the system / project instructions. |
-
-Connect the Figma and Notion MCP servers in your agent's settings. Tool names in the skills (e.g. "a multiple-choice question tool", "a browser tool") describe what to use if your agent has it; they are optional.
-
-## Before you start (checklist)
-
-Required
-
-- [ ] **An AI agent with access to your computer** that can read and write files, browse the web and use MCP: e.g. Claude Code or the Claude desktop app, OpenAI Codex, Cursor. See [Works with](#works-with).
-- [ ] **Your current CV** in `context/` (any format).
-- [ ] **Your LinkedIn profile as PDF** in `context/` (recommended): on LinkedIn, profile → More → Save to PDF. It usually holds clients, projects and numbers your CV leaves out.
-- [ ] **Notion account** and the **Notion MCP** connected to your agent. The free plan works **if you are the only member of the workspace**. A free workspace with two or more members is capped at 1,000 blocks for its whole life, and each saved job posting uses a few dozen, so put the board in a workspace that is only yours (see [Notion](#notion)).
-- [ ] **A list of companies you'd like to work for.** The kit checks their job boards directly (Greenhouse, Ashby, Lever). No API key needed.
-- [ ] **A folder for applications**, e.g. `~/Documents/Job search/`. One subfolder per company is created inside it.
-
-**Optional, to make it work better**
-
-- [ ] **Figma account**, the **Figma MCP** and **a Figma file with your CV and cover letter**, one frame each (A4), for designed CVs. Name your text layers (e.g. "Headline", "Summary", "Bullets · Company") so the kit can find them. Without Figma, see the next line.
-- [ ] **Or your CV in Word, Pages or Google Docs** (and a cover letter if you have one). The kit copies them per role and exports PDFs (LibreOffice or Word for .docx, Google Drive for Docs, Pages on a Mac; Pages files may need a one-time export to Word). With only a PDF, the kit works in text mode.
-- [ ] **A free SerpApi key for Google Jobs**, to find roles in your city at companies you don't know yet. The kit searches Google Jobs through [SerpApi](https://serpapi.com) (free plan: 100 searches a month). [Adzuna](https://developer.adzuna.com) and [Jooble](https://jooble.org/api/about) also work, with their own free keys.
-- [ ] **LinkedIn jobs: paste the link.** LinkedIn doesn't allow automated searches, so the kit can't look for roles there. When you see one you like, paste the job link in the chat and it reads the posting, scores it and adds it to Notion (a browser tool such as Claude in Chrome helps, because LinkedIn blocks most direct reads).
-- [ ] **A browser tool** for your agent (e.g. Claude in Chrome), to read job links that block bots (LinkedIn) and to download Figma PDFs if your setup can't reach figma.com directly.
-- [ ] **Access to your Downloads folder** (and the applications folder) for the agent, if it exports Figma PDFs through the browser: the files land in Downloads first and the agent moves them into each company folder.
-- [ ] **Your own LinkedIn connections CSV** (and/or a mentor's, shared with their consent): after you apply, the kit checks who you or your mentor already know at that company. LinkedIn exports it in a few clicks: see [how to export your connections](context/README.md#exporting-linkedin-connections-as-a-csv).
-- [ ] **A scheduled task** so the search runs on the days you choose (suggested: Monday and Wednesday at 8:30, with the computer on).
-- [ ] **A weekly review reminder** (optional, default Wednesday 12:30, after the second search) that lists the roles waiting in To review, best match first.
-
-## Setup
-
-1. Download or clone this repo into a folder on your computer.
-2. Optional: copy `.env.example` to `.env` and paste your search keys: `SERPAPI_KEY` for Google Jobs (via SerpApi), and/or Adzuna or Jooble. The kit works without them, using company and remote job boards.
-3. Skills: see [Works with](#works-with). With Claude Code there is nothing to do; other agents read `AGENTS.md`, which points them to the skills.
-4. Put anything that describes you in `context/`: your current CV as text or PDF, portfolio link, case studies, notes. It is read during setup and when tailoring.
-5. Ask your agent: **"Set up my job search kit"**. The `job-kit-setup` skill runs a 4-step form and writes `config/profile.md`, `config/settings.md` and `config/sources.md`.
-6. Ask: **"Find me new roles"**. From there, pick roles and say **"Prepare my application for #2"**.
-
-## The setup form
-
-Four short steps. It reads your CV first, so it only asks what it can't work out.
-
-| Step | Asks |
-|---|---|
-| 1 · About you | Your CV (file, link or pasted text) and portfolio URL |
-| 2 · What you're looking for | Target roles, city and work mode, minimum salary, employment type |
-| 3 · Your files | Figma CV and cover letter frame links (or your Word, Pages, Google Docs files), Notion page, applications folder |
-| 4 · Where to look | Companies you'd love to work for, search days, and whether a mentor will help with intros |
-
-Then it shows a summary to confirm and builds everything: Figma layer map (or the text map of your documents), Notion tracker, config files. Anything else (deal-breakers, relocation, notice period) can be added later with "update my profile".
+| Other agents (Windsurf, Gemini CLI, Copilot agent…) | Point them to `AGENTS.md`, or paste it as the project instructions. |
 
 ## Folder structure
 
 ```
 job-search-kit/
 ├── README.md
-├── AGENTS.md                 # entry point for Codex, Cursor and other agents
-├── CLAUDE.md                 # same instructions, for Claude
-├── .env.example              # optional search keys
-├── config/
-│   ├── profile.example.md    # filled by setup → profile.md (git-ignored)
-│   ├── settings.example.md   # Figma, Notion, folders → settings.md (git-ignored)
-│   └── sources.example.md    # companies to watch, job boards, search queries
-├── examples/demo/            # fictional profile to try the kit ("Run the demo")
-├── context/                  # your CV, portfolio, notes (git-ignored)
-├── notion/
-│   └── applications-schema.md
-├── .claude/skills/           # the skills (plain Markdown, any agent can follow them)
+├── AGENTS.md / CLAUDE.md     # instructions for your agent
+├── .env.example              # optional search keys (copy to .env)
+├── config/                   # *.example.md templates; setup writes your own versions (git-ignored)
+├── context/                  # your CV, LinkedIn PDF, portfolio, notes (git-ignored)
+├── notion/                   # spec of the Notion board, for the agent
+├── .claude/skills/           # the five skills, for the agent
 │   ├── job-kit-setup/
 │   ├── job-search/
 │   ├── tailor-application/
 │   ├── application-tracker/
 │   └── network-intros/       # optional
-└── examples/
-    ├── demo/
-    └── network.example.csv
+└── examples/                 # demo profile ("Run the demo") and a sample network CSV
 ```
 
 Your applications folder (outside the repo) ends up like:
@@ -152,40 +165,21 @@ Your applications folder (outside the repo) ends up like:
 Job search/
 ├── *Acme/                      # * = active process
 │   ├── CV_Alex_Doe_en (Acme) 2026-11-17.pdf
+│   ├── CV_Alex_Doe_en ATS (Acme) 2026-11-17.pdf
 │   ├── CoverLetter_Alex_Doe_en (Acme) 2026-11-17.pdf
-│   └── CoverLetter_Alex_Doe_en (Acme) 2026-11-17.txt   # paste-ready text
+│   └── CoverLetter_Alex_Doe_en (Acme) 2026-11-17.txt   # paste-ready text for forms
 └── Globex/                     # closed process
 ```
 
-## Notion
-
-Setup builds a **Jobs tracking** page in the Notion page you choose:
-
-- A short intro and the **Applications** table, inline, with these tabs:
-  - **Pipeline**: board by status (To review → CV ready → Applied → Interview → Offer / Rejected / No response / Discarded), with the match as a coloured pill (green 90+, yellow 60 to 89, red under 60).
-  - **Next actions**: active applications sorted by next action date.
-  - **<Mentor's name>** (only with a mentor): board of roles where they could make an intro.
-  - **All**: every application with all its columns.
-- **Mentor panel** (only with a mentor): a section below with the same board and a **Mentor contacts** table linked to the applications.
-
-One manual step: Notion's API can't reorder tabs, so drag **Pipeline** to the first place once. Full spec in [`notion/applications-schema.md`](notion/applications-schema.md).
-
-**Notion's free plan has a block limit, but only in shared workspaces.** A free workspace with a single member has unlimited blocks. A free workspace with two or more members is capped at 1,000 blocks, counted over its whole life: deleting cards or emptying the Trash does **not** give blocks back, and once you reach the cap Notion gives you three days before you can't add content. Every saved job posting uses a few dozen blocks, so:
-
-- **Keep the board in a workspace where you are the only member.** If you're already capped, create a personal workspace (or remove the other members) and move or duplicate the Jobs tracking page there.
-- Or upgrade that workspace to a paid plan.
-
-Saying **"Clean up my board"** still helps keep the board readable: the kit copies a one-line summary of each closed role (company, role, status, date) to `context/closed-applications.md`, so future searches still warn you about companies that already said no, then moves to Trash the **Discarded** cards and the **Rejected** and **No response** ones older than 2 months. It never touches active applications and it asks before deleting. It does not free blocks.
-
 ## Privacy and fair use
 
-- Don't commit `config/profile.md`, `config/settings.md`, `.env`, `context/` or any network CSV. They are git-ignored.
+- Your profile, settings, `.env`, `context/` and any network CSV are git-ignored: they never leave your computer through git.
 - A mentor's contacts are their personal data. Only use them with consent and never publish them.
-- Respect job boards' terms. For LinkedIn, paste the link or the text; the kit does not scrape it.
+- Respect job boards' terms. For LinkedIn, paste the link or the text; the kit doesn't scrape it.
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.5.5**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.0**.
 
 ## License
 

@@ -1,6 +1,6 @@
 ---
 name: tailor-application
-description: Tailors the user's CV and writes a cover letter for a chosen role, in Figma (duplicates the base frames and rewrites only the mapped text layers), in a copy of the user's Word, Pages or Google Docs file, or as text if there is no designed CV. Exports PDFs only after the user approves, and updates Notion to CV ready.
+description: Tailors the user's CV (designed version plus a one-column ATS version) and writes a cover letter for a chosen role, in Figma (duplicates the base frames and rewrites only the mapped text layers), in a copy of the user's Word, Pages or Google Docs file, or as text if there is no designed CV. Exports PDFs only after the user approves, and updates Notion to CV ready.
 ---
 
 # Tailor an application
@@ -35,6 +35,19 @@ Use the Figma MCP (`create_session`, then `use_figma`; load the `figma-use` skil
 2. Rewrite only the layers in the layer map: headline, summary, bullets, skills. Keep a similar length (frames are fixed size). Load each font before writing. Keep existing bold / colour ranges where they make sense.
 3. Screenshot it and check nothing is cut off or overlapping. Re-score with the new text.
 
+## 2b. ATS CV
+
+Designed CVs with columns often come out of a PDF in the wrong reading order or with broken words, which is what applicant tracking systems (ATS) read. So each role also gets a one-column version, according to `ATS CV` in `settings.md`:
+
+- **figma**: clone the ATS frame(s) for the language next to the CV, named `CV_<Name>_<lang> ATS (<Company>) <DATE>` (add ` · p1`, ` · p2` if it has several pages). Use the same headline, summary, skills and bullet order as the tailored CV. Keep it one column, real text (no outlined text or text in images) and section titles without letter spacing, so they aren't read as separate letters.
+- **document**: copy the base ATS file like in 5d and apply the same text.
+- **generated** (default): write the tailored CV as Markdown, one column, with standard headings (Summary, Experience, Education, Skills, Languages), and convert it to PDF after approval like in 5c.
+- **off**: skip it.
+
+In text mode (5c) the CV is already one column, so there is no separate ATS version.
+
+After exporting, check it the way an ATS would: extract the text (e.g. `pdftotext`) and confirm it reads top to bottom with no words split. Fix the base if a word comes out broken (usually a style change in the middle of the word).
+
 ## 3. Cover letter in Figma
 
 1. Clone the cover letter base frame. Name it `CoverLetter_<Name>_<lang> (<Company>) <DATE>`.
@@ -49,7 +62,7 @@ Use the Figma MCP (`create_session`, then `use_figma`; load the `figma-use` skil
 
 ## 4. Group in a section
 
-Create a Figma Section named `<Company> · <DATE>` with the CV on the left and the letter on the right (40 px gap, 60 px top padding), styled as in `settings.md` (default fill `#E1E1E1`, black 10% stroke). Place it to the right of the last section on the page.
+Create a Figma Section named `<Company> · <DATE>` with the CV on the left, then the letter, then the ATS CV pages if there are any (40 px gap, 60 px top padding), styled as in `settings.md` (default fill `#E1E1E1`, black 10% stroke). Place it to the right of the last section on the page.
 
 ## 5. Files
 
@@ -65,7 +78,9 @@ When the user says "export", "looks good", "approved" (or the setting is automat
 
 1. Export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save as `CV_<Name>_<lang> (<Company>) <DATE>.pdf` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.pdf`.
    - If your environment can't reach figma.com directly, download them through a browser tool (e.g. Claude in Chrome) (open `https://www.figma.com/robots.txt`, `fetch` each asset URL, save them with an `<a download>`; bundle several files in one zip to avoid the multiple-downloads block) and move them from Downloads into the folder. This needs the agent to have access to your **Downloads** folder as well as the applications folder (in the Claude desktop app: grant both folders when asked). Without it, the PDFs stay in Downloads and you move them yourself.
-2. If the user edits Figma later, export again on request and overwrite.
+2. Export the ATS CV too: `CV_<Name>_<lang> ATS (<Company>) <DATE>.pdf`. If it has one frame per page, merge them into one PDF (e.g. pypdf).
+3. **Title and author.** Set each PDF's document title (the file name without `.pdf`) and author (`PDF author` in `settings.md`), e.g. with pypdf's `add_metadata`. Merging pages drops them, so set them after merging. Some ATS and screen readers show these fields.
+4. If the user edits Figma later, export again on request and overwrite.
 
 ## 5c. Text mode (no Figma)
 
@@ -96,4 +111,5 @@ If `settings.md` has `CV source: document`. Same idea as Figma: the base files s
 - ATS coverage before → after as % (e.g. `64% → 86%`), and a short list of what changed. Only real experience counts: if a requirement is still missing, it stays missing.
 - Real gaps worth preparing for the interview.
 - Link to the Figma section (or the document copies, or the Markdown files) and the folder path. Ask: "Review it and tell me when to export the PDFs."
+- Which file to send: the **ATS version** for job portals and application forms; the **designed version** when a person asks for it directly (a recruiter, a hiring manager, an email).
 - In Notion (`application-tracker`): Status "CV ready", Figma CV (or the link to the document copy), Folder and **ATS coverage** (the after %, as a number) filled, plus the covered / partial / missing list in the card body, Next action "Review CV + cover letter and send", Next action date today + 1. Do not mark as Applied.

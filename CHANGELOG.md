@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0 · 2026-11-23
+
+- **ATS version of the CV**: each role now also gets a one-column CV for job portals, from your own ATS template (Figma or document) or generated from the tailored text. The setup asks for it in step 3, the kit checks the PDF reads in order, and the wrap-up says which version to send where.
+- **PDF title and author** are set on every export (merging pages used to drop them).
+- **README for newcomers**: three things you need and three steps up front, one screenshot before the demo, a short glossary (agent, MCP, ATS, frame), optional extras in one table with what each is for, and a note that the skills are for your agent, not for you.
+
 ## 0.5.10 · 2026-11-22
 
 - **Notion block limit, corrected**: the cap only applies to free workspaces with two or more members, it counts every block ever created, and deleting cards or emptying the Trash doesn't give blocks back. The README now says to keep the board in a workspace where you're the only member (unlimited on the free plan) or upgrade. "Clean up my board" is still there, but only to keep the board readable.
