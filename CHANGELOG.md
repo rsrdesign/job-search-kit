@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.2 · 2026-11-23
+
+- **Richer PDF properties**: besides title and author, every exported PDF now gets a subject (the tailored headline), keywords (the tailored skills), its language, and opens showing its title instead of the file name. The title never names the target company, in case the file is forwarded.
+
 ## 0.6.1 · 2026-11-23
 
 - **Safer by default**: `.gitignore` now also covers `.env.local` and any other `.env.*` file, and your own `config/sources.md` (the companies you're targeting).

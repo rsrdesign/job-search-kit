@@ -94,7 +94,7 @@ Many companies run applications through an **ATS** (applicant tracking system), 
 - **The designed CV**, for people: send it when a recruiter or hiring manager asks for it directly.
 - **A one-column ATS version**, for job portals and application forms. If you have your own one-column template, the setup asks for it; if not, the kit makes a plain one from the tailored text.
 
-It checks the ATS version the way an ATS would (extracting the text) and sets the PDF's title and author.
+It checks the ATS version the way an ATS would (extracting the text) and fills in each PDF's properties: title, author, subject, keywords and language.
 
 ## Extras, when you want them
 
@@ -183,7 +183,7 @@ Job search/
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.1**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.2**.
 
 ## License
 
