@@ -70,8 +70,9 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 ## Files
 
 - Applications folder: {{ABSOLUTE_PATH}}
-- File name pattern: `CV_{{First_Last}}_{lang} (Company) YYYY-MM-DD.pdf`, `CV_{{First_Last}}_{lang} ATS (Company) YYYY-MM-DD.pdf`, `CoverLetter_{{First_Last}}_{lang} (Company) YYYY-MM-DD.pdf`
-- PDF author: {{First Last}}  <!-- written into every exported PDF, with the file name as its title -->
+- Working names (Figma frames, document copies): `CV_{{First_Last}}_{lang} (Company) YYYY-MM-DD`, `CV_{{First_Last}}_{lang} ATS (Company) YYYY-MM-DD`, `CoverLetter_{{First_Last}}_{lang} (Company) YYYY-MM-DD`
+- PDF names (the files you send, no company or date): EN `{{First_Last}}_CV.pdf`, `{{First_Last}}_CV_ATS.pdf`, `{{First_Last}}_Cover_Letter.pdf` · ES `{{First_Last}}_CV.pdf`, `{{First_Last}}_CV_ATS.pdf`, `{{First_Last}}_Carta.pdf`  <!-- the company folder keeps them apart -->
+- PDF author: {{First Last}}  <!-- written into every exported PDF, with a neutral title -->
 - Active-process prefix: `*`
 
 ## Search

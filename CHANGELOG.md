@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.3 · 2026-11-24
+
+- **Neutral PDF file names.** Exported PDFs are now `Alex_Doe_CV.pdf`, `Alex_Doe_CV_ATS.pdf` and `Alex_Doe_Cover_Letter.pdf` (`_Carta.pdf` in Spanish), with no company or date. Figma frames and document copies still carry both, so your workspace stays in order.
+- **Why.** 0.6.2 said file names are only for you. That was wrong: an attachment keeps its file name, so the recruiter sees it, and so does anyone they forward it to. `CV (Acme) 2026-11-17.pdf` tells them it's a version made for one company and when, and if you attach the wrong one it's obvious. The company folder (`*Acme/`) already keeps the files apart, so the name doesn't need to.
+
 ## 0.6.2 · 2026-11-23
 
 - **Richer PDF properties.** Every exported PDF (CV, ATS CV and cover letter) now gets a title, author, subject (the tailored headline), keywords (the tailored skills) and language, and opens showing its title instead of the file name. New helper: `scripts/pdf_metadata.py`.

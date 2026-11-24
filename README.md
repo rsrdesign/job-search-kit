@@ -169,9 +169,9 @@ Your applications folder (outside the repo) ends up like:
 ```
 Job search/
 ├── *Acme/                      # * = active process
-│   ├── CV_Alex_Doe_en (Acme) 2026-11-17.pdf
-│   ├── CV_Alex_Doe_en ATS (Acme) 2026-11-17.pdf
-│   ├── CoverLetter_Alex_Doe_en (Acme) 2026-11-17.pdf
+│   ├── Alex_Doe_CV.pdf                 # neutral names: these get sent
+│   ├── Alex_Doe_CV_ATS.pdf
+│   ├── Alex_Doe_Cover_Letter.pdf
 │   └── CoverLetter_Alex_Doe_en (Acme) 2026-11-17.txt   # paste-ready text for forms
 └── Globex/                     # closed process
 ```
@@ -184,7 +184,7 @@ Job search/
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.2**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.3**.
 
 ## License
 

@@ -76,9 +76,9 @@ PDFs are the version that gets sent, so they are made **after** the user has rev
 
 When the user says "export", "looks good", "approved" (or the setting is automatic):
 
-1. Export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save as `CV_<Name>_<lang> (<Company>) <DATE>.pdf` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.pdf`.
+1. Export both frames as PDF (`download_assets` with format `pdf`, or `exportAsync` if your client returns bytes). Save them in `*<Company>/` with the neutral PDF names from `settings.md` (default `<First_Last>_CV.pdf` and `<First_Last>_Cover_Letter.pdf`, or `_Carta.pdf` in Spanish). No company and no date in the file name: the attachment keeps its name when it's sent or forwarded, and the folder already says which company it's for. Frames keep the company and date; only the PDFs are neutral.
    - If your environment can't reach figma.com directly, download them through a browser tool (e.g. Claude in Chrome) (open `https://www.figma.com/robots.txt`, `fetch` each asset URL, save them with an `<a download>`; bundle several files in one zip to avoid the multiple-downloads block) and move them from Downloads into the folder. This needs the agent to have access to your **Downloads** folder as well as the applications folder (in the Claude desktop app: grant both folders when asked). Without it, the PDFs stay in Downloads and you move them yourself.
-2. Export the ATS CV too: `CV_<Name>_<lang> ATS (<Company>) <DATE>.pdf`. If it has one frame per page, merge them into one PDF (e.g. pypdf).
+2. Export the ATS CV too: `<First_Last>_CV_ATS.pdf`. If it has one frame per page, merge them into one PDF (e.g. pypdf).
 3. **Document properties.** Set them on every PDF, after merging (merging drops them), with `scripts/pdf_metadata.py` (needs pypdf) or the same calls in your own code:
    - **Title**: `<Full name> · CV`, `<Full name> · CV (ATS)` or `<Full name> · Cover letter`. Not the target company, in case the file is forwarded.
    - **Author**: `PDF author` in `settings.md`.
@@ -95,7 +95,7 @@ If `settings.md` has `CV source: text`, skip sections 2 to 4 and 5b:
 
 1. Read the base CV from `context/` (PDF, DOCX, Markdown or text).
 2. Write the tailored CV and the letter as Markdown in the company folder: `CV_<Name>_<lang> (<Company>) <DATE>.md` and `CoverLetter_<Name>_<lang> (<Company>) <DATE>.md`. Same rules: reword and reorder only, same length, portfolio as the only link.
-3. After the user approves, convert both to PDF with whatever is available (pandoc, or an HTML file printed to PDF) using a clean one-column layout, which is also ATS friendly.
+3. After the user approves, convert both to PDF (neutral names, as in 5b) with whatever is available (pandoc, or an HTML file printed to PDF) using a clean one-column layout, which is also ATS friendly.
 
 ## 5d. Document mode (Word, Pages, Google Docs)
 
@@ -107,7 +107,7 @@ If `settings.md` has `CV source: document`. Same idea as Figma: the base files s
    - **Google Docs**: copy the base Doc with the Google Drive MCP (or ask the user to make a copy and share the link), then edit the copy's text. Docs stay in Drive; the folder gets the PDFs.
    - **Pages**: agents can't edit `.pages` files reliably. On a Mac with a shell, script Pages (AppleScript / `osascript`) to duplicate, replace text and export. Otherwise ask the user to export the base once to Word (File → Export To → Word) and use the Word flow; the PDF looks the same.
 3. **Check it**: export a PDF preview (or render the first page) and look for text cut off, a second page that wasn't there, or broken bold and links. Re-score with the new text.
-4. **Export PDFs after approval** (same rule as 5b), next to the copies:
+4. **Export PDFs after approval** (same rule as 5b), next to the copies, with the neutral PDF names from `settings.md`:
    - Word: LibreOffice (`soffice --headless --convert-to pdf`), or Word itself on the user's computer.
    - Google Docs: download the copy as PDF through Drive (export as `application/pdf`).
    - Pages: export from Pages (scripted or by the user).
