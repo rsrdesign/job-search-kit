@@ -14,6 +14,7 @@ When the user reports news ("I sent X", "Y rejected me", "interview with Z on Fr
 1. Find the card (company + role). If it doesn't exist, create it.
 2. Set Status:
    - Sent → **Applied** + Applied on = the date they give (default today).
+   - Left their CV with no open role (candidate profile on the careers site, open application, spontaneous email) → **Talent pool** + Applied on = that date, if `settings.md` has `Talent pool column: on`. If it's off, ask once: "Do you want a Talent pool column for these?" On Yes, add it as `notion/applications-schema.md` section 2 says and set `Talent pool column: on`; on No, use Applied and say in the card log that there was no open role.
    - Rejection → **Rejected**.
    - Interview scheduled or done → **Interview**.
    - Offer → **Offer**.
@@ -40,7 +41,7 @@ Never send anything: the user sends the note.
 
 ## Answering "what's next"
 
-Query cards in CV ready, Applied and Interview sorted by Next action date. Reply with:
+Query cards in CV ready, Applied, Talent pool (if on) and Interview sorted by Next action date. Reply with:
 
 1. Overdue and today, then this week.
 2. Max 5 items, each with the action and the card link.

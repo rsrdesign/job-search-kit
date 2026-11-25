@@ -77,6 +77,8 @@ CREATE TABLE (
 )
 ```
 
+**Optional: Talent pool.** Only if `settings.md` has `Talent pool column: on`. Add `'Talent pool':pink:in_progress` to the Status list, right after `'Applied':blue:in_progress`, and add `"Talent pool"` to the Next actions filter. It is for companies with **no open role** where the user still left their CV: a careers-site candidate profile, a "Work with us" open application or a spontaneous email. It keeps those apart from real applications, so follow-ups and the mentor email never treat them as Applied. To add it later, run the same `ALTER COLUMN "Status" SET STATUS(...)` with every existing option plus Talent pool (omitted options are removed).
+
 ### Views (on the database, in this order)
 
 | View | Type | Icon | Config |
@@ -104,6 +106,7 @@ Every skill follows this section. Day counts start on **Applied on**.
 |---|---|---|
 | To review | Found by `job-search`, not decided | None: the card waits for the user's decision (the Score pill and the saved posting are on the card) |
 | CV ready | CV and letter prepared, not sent | "Review CV + cover letter and send", today + 1 day |
+| Talent pool (optional) | No open role; the user left their CV in the company's candidate platform, open application or a spontaneous email (only the user can set this). Applied on = that date | Day 5: "Message <design lead> on LinkedIn"; then day 60: "Check their careers page for new roles" |
 | Applied | The user said they sent it (only the user can set this) | Day 10: "Follow up with <contact or recruiter>" |
 | Applied, after a follow-up | No reply to the first follow-up | Day 24: "Second and last follow-up" |
 | No response | Day 42 (6 weeks) with no reply at all | "None. Reopen if they reply" |

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.4 · 2026-11-25
+
+- **Optional Talent pool column.** A new status for companies with no open role where you still leave your CV: a candidate profile on their careers site, a "Work with us" open application or a spontaneous email. These aren't applications to a specific job, so they shouldn't count as Applied: follow-up timing and the mentor email would treat them wrongly. Talent pool cards get two reminders instead: message someone there after 5 days, and check the careers page again after 60.
+- **Setup asks once** after the summary (default No), and the tracker offers it the first time you report leaving a CV with no open role. You can add it any time by asking.
+
 ## 0.6.3 · 2026-11-24
 
 - **Neutral PDF file names.** Exported PDFs are now `Alex_Doe_CV.pdf`, `Alex_Doe_CV_ATS.pdf` and `Alex_Doe_Cover_Letter.pdf` (`_Carta.pdf` in Spanish), with no company or date. Figma frames and document copies still carry both, so your workspace stays in order.

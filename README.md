@@ -127,6 +127,8 @@ Setup builds a **Jobs tracking** page in the Notion page you choose: a short int
 - **<Mentor's name>** (only with a mentor): roles where they could make an intro.
 - **All**: every application with all its columns.
 
+Optional **Talent pool** column: for companies you like that have no open role, where you still leave your CV (a candidate profile on their careers site, a "Work with us" form or a spontaneous email). It keeps them apart from real applications, with a reminder to message someone there and to check their careers page again later. Setup asks; you can also add it any time by asking.
+
 One manual step: Notion can't reorder tabs from outside, so drag **Pipeline** to the first place once.
 
 **Use a workspace where you're the only member.** On Notion's free plan, a workspace with a single member has unlimited blocks. A workspace with two or more members is capped at 1,000 blocks for its whole life: deleting cards or emptying the Trash doesn't give them back, and each saved job posting uses a few dozen. If you're already capped, create a personal workspace (or remove the other members) and move the Jobs tracking page there, or upgrade to a paid plan.
@@ -184,7 +186,7 @@ Job search/
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.3**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.4**.
 
 ## License
 

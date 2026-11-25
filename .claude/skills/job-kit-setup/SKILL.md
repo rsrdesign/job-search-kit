@@ -74,6 +74,8 @@ Offer options built from the CV:
 
 Show a one-screen summary: roles, location and accepted work modes, salary, sources, Figma frames or base documents, Notion page, folder, and the pre-filled facts (achievements, skills), saying which ones came from LinkedIn or the portfolio and not from the CV. Ask: "Anything to fix?" Fix it, then continue.
 
+Then one optional question: "Sometimes you'll want to send your CV to a company with no open role (a candidate profile on their careers site, a 'Work with us' form or a spontaneous email). Want a **Talent pool** column in Notion to keep those apart from real applications?" No (default, you can add it any time by asking) / Yes (`Talent pool column: on` in `settings.md`).
+
 ## Build (no questions)
 
 1. **Layer map** (Figma) or **text map** (Word, Pages, Google Docs). List the visible text layers of both Figma frames (and the ATS frame, if there is one), or the paragraphs of the documents, map them to headline, summary, bullets per job, skills, recipient, body paragraphs and date, and pick the link colour (an accent already used in the letter). Only ask if a part is ambiguous. For documents, also check what can export PDFs here (LibreOffice, Google Drive, Pages on a Mac) and note it in `settings.md`.

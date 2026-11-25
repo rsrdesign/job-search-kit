@@ -66,6 +66,7 @@ Parts the kit is allowed to rewrite, by the heading or first words of the paragr
 
 - Parent page: {{NOTION_PAGE_URL}}
 - Applications data source: {{collection://...}}  <!-- filled after the database is created -->
+- Talent pool column: {{on | off}}  <!-- optional status for companies with no open role where you left your CV; see notion/applications-schema.md -->
 
 ## Files
 
