@@ -186,7 +186,7 @@ Job search/
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.4**.
+See [CHANGELOG.md](CHANGELOG.md). Current version: **0.6.5**.
 
 ## License
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.5 · 2026-11-27
+
+- **`pdf_metadata.py` now rewrites the XMP metadata too.** Figma stores the frame name (with company and date) as the XMP title, and Acrobat, Preview and some ATS parsers read XMP before the document info, so the old name could still show up. The XMP now matches the title, author, subject, keywords and language you pass.
+- It also removes duplicate objects and compresses page content, so exported CVs are about 20% smaller.
+
 ## 0.6.4 · 2026-11-25
 
 - **Optional Talent pool column.** A new status for companies with no open role where you still leave your CV: a candidate profile on their careers site, a "Work with us" open application or a spontaneous email. These aren't applications to a specific job, so they shouldn't count as Applied: follow-up timing and the mentor email would treat them wrongly. Talent pool cards get two reminders instead: message someone there after 5 days, and check the careers page again after 60.
